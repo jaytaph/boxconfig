@@ -1,0 +1,3 @@
+BoxConfigDefaultBundle_homepage:
+    pattern:  /
+    defaults: { _controller: BoxConfigDefaultBundle:Default:index }
