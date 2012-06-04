@@ -1,5 +1,5 @@
 parameters:
-#    box_config_default.example.class: BoxConfig\Bundle\DefaultBundle\Example
+#    box_config_default.example.class: BoxConfig\DefaultBundle\Example
 
 services:
 #    box_config_default.example:

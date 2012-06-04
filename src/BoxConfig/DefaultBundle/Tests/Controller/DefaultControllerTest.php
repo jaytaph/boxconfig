@@ -1,6 +1,6 @@
 <?php
 
-namespace BoxConfig\Bundle\DefaultBundle\Tests\Controller;
+namespace BoxConfig\DefaultBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

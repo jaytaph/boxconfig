@@ -1,6 +1,6 @@
 <?php
 
-namespace BoxConfig\Bundle\DefaultBundle;
+namespace BoxConfig\DefaultBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

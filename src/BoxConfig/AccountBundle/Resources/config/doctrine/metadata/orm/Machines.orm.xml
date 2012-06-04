@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Machines" table="machines">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="machineId" type="integer" column="machine_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="accountId" type="integer" column="account_id"/>
+    <field name="virtualized" type="boolean" column="virtualized"/>
+    <field name="osId" type="integer" column="os_id"/>
+    <field name="createdDt" type="datetime" column="created_dt"/>
+    <field name="hostId" type="integer" column="host_id"/>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>
