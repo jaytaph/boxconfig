@@ -74,3 +74,9 @@
     git=http://github.com/doctrine/DoctrineFixturesBundle.git
     target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
     version=origin/2.0
+
+[MopaBootstrapBundle]
+    git = "http://github.com/phiamo/MopaBootstrapBundle.git"
+    target = "/bundles/Mopa/Bundle/BootstrapBundle"
+    version=origin/v2.0.x
+

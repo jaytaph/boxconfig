@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<div class="container">
+<div class="container well">
 
     <div class="offset3 span6">
 
@@ -17,7 +17,6 @@
 
     <p>Please fill out this form to contact us.</p>
 
-    {% form_theme form 'BoxConfigDefaultBundle:Form:fields.html.twig' %}
     <form class="form-horizontal" action="{{ path('BoxConfigDefaultBundle_contact') }}" method="post" {{ form_enctype(form) }}>
         <fieldset>
             {{ form_errors(form) }}
@@ -30,7 +29,7 @@
             {{ form_rest(form) }}
 
             <div class="form-actions">
-            <button type="submit" class="btn btn-primary">Contact us</button>
+                <button type="submit" class="btn btn-primary">Contact us</button>
             </div>
         <fieldset>
     </form>

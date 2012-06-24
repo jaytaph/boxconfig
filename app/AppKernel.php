@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
+            new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
 
             new BoxConfig\DefaultBundle\BoxConfigDefaultBundle(),
             new BoxConfig\AccountBundle\BoxConfigAccountBundle(),

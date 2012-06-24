@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+<div class="container well">
+
+    <h2>Login</h2>
+    <p>Log into box-config.com account. Don't you have an account yet? <a href="{{ path("fos_user_registration_register") }}">Click here</a> to register a new account.</p>
+    <br>
+
+    <div class="box">
+
+        {% for key, message in app.session.getFlashes() %}
+        <div class="{{ key }}">
+            {{ message|trans({}, 'FOSUserBundle') }}
+        </div>
+        {% endfor %}
+
+        <div>
+            {% block fos_user_content %}
+            {% endblock fos_user_content %}
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
