@@ -1,0 +1,9 @@
+<div class="span3 well">
+    <h3>Top {{ title }}</h3>
+    <table class="table ">
+{% for item in items %}
+        <tr><td>{{ loop.index }}</td><td><a href="{{ item.link }}">{{ item.title }}</a></td><td>({{ item.percentage }}%)</td></tr>
+{% endfor %}
+    </table>
+    <p><a class="btn" href="#">View more &raquo;</a></p>
+</div>

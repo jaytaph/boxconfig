@@ -1,0 +1,30 @@
+software:
+    pattern:  /
+    defaults: { _controller: "BoxConfigDefaultBundle:Software:index" }
+
+software_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BoxConfigDefaultBundle:Software:show" }
+
+software_new:
+    pattern:  /new
+    defaults: { _controller: "BoxConfigDefaultBundle:Software:new" }
+
+software_create:
+    pattern:  /create
+    defaults: { _controller: "BoxConfigDefaultBundle:Software:create" }
+    requirements: { _method: post }
+
+software_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BoxConfigDefaultBundle:Software:edit" }
+
+software_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BoxConfigDefaultBundle:Software:update" }
+    requirements: { _method: post }
+
+software_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BoxConfigDefaultBundle:Software:delete" }
+    requirements: { _method: post }

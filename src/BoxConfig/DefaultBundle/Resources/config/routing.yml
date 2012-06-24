@@ -1,3 +1,19 @@
-BoxConfigDefaultBundle_homepage:
+BoxConfigDefaultBundle_default:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/default.yml"
     pattern:  /
-    defaults: { _controller: BoxConfigDefaultBundle:Default:index }
+
+BoxConfigDefaultBundle_sidebar:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/sidebar.yml"
+    prefix:  /sidebar
+
+BoxConfigDefaultBundle_software:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/software.yml"
+    prefix:   /software
+
+BoxConfigDefaultBundle_softwarecategory:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/softwarecategory.yml"
+    prefix:   /softwarecategory
+
+BoxConfigDefaultBundle_operatingsystem:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/operatingsystem.yml"
+    prefix:   /operatingsystem

@@ -65,3 +65,6 @@ fos_user:
     firewall_name: main
     user_class: BoxConfig\AccountBundle\Entity\User
 
+parameters:
+    emails.contact_email: %email_contact_email%
+    emails.contact_name: %email_contact_name%

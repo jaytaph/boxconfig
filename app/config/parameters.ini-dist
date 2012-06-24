@@ -17,3 +17,10 @@
     locale            = en
 
     secret            = ThisTokenIsNotSoSecretChangeIt
+
+    ; Where to send emails to
+    email_contact_email = boxconfig@example.org
+    email_contact_name  = John Doe
+
+    ; Dev email address. All emails in development mode will be send to here...
+    dev_email =

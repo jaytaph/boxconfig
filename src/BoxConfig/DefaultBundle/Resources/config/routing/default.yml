@@ -1,0 +1,13 @@
+BoxConfigDefaultBundle_homepage:
+    pattern:  /
+    defaults: { _controller: BoxConfigDefaultBundle:Default:index }
+
+BoxConfigDefaultBundle_about:
+    pattern:  /about
+    defaults: { _controller: BoxConfigDefaultBundle:Default:about }
+
+BoxConfigDefaultBundle_contact:
+    pattern:  /contact
+    defaults: { _controller: BoxConfigDefaultBundle:Default:contact }
+    requirements:
+        _method:  GET|POST

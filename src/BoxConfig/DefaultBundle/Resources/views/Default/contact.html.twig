@@ -1,0 +1,41 @@
+{% extends("::base.html.twig") %}
+
+{% block body %}
+
+<div class="container">
+
+    <div class="offset3 span6">
+
+    <h2>Contact us</h2>
+
+{% if app.session.hasFlash('notice') %}
+    <div class="alert alert-success">
+        <button class="close" data-dismiss="alert">&times;</button>
+        {{ app.session.flash('notice') }}
+    </div>
+{% endif %}
+
+    <p>Please fill out this form to contact us.</p>
+
+    {% form_theme form 'BoxConfigDefaultBundle:Form:fields.html.twig' %}
+    <form class="form-horizontal" action="{{ path('BoxConfigDefaultBundle_contact') }}" method="post" {{ form_enctype(form) }}>
+        <fieldset>
+            {{ form_errors(form) }}
+
+            {{ form_row(form.name) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.subject) }}
+            {{ form_row(form.body) }}
+
+            {{ form_rest(form) }}
+
+            <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Contact us</button>
+            </div>
+        <fieldset>
+    </form>
+</div>
+
+    </div>
+
+{% endblock %}
