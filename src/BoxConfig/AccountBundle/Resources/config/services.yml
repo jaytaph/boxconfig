@@ -5,3 +5,9 @@ services:
 #    box_config_account.example:
 #        class: %box_config_account.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+services:
+    boxconfig_user.registration.form.type:
+        class: BoxConfig\AccountBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: boxconfig_user_registration }

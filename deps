@@ -80,3 +80,7 @@
     target = "/bundles/Mopa/Bundle/BootstrapBundle"
     version=origin/v2.0.x
 
+[OrnicarGravatarBundle]
+    git = git://github.com/ornicar/GravatarBundle.git
+    target = /bundles/Ornicar/GravatarBundle
+

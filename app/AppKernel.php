@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
 
             new BoxConfig\DefaultBundle\BoxConfigDefaultBundle(),
             new BoxConfig\AccountBundle\BoxConfigAccountBundle(),

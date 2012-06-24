@@ -1,0 +1,13 @@
+<div>
+    <h2>Register as a new user</h2>
+    <p>Awesome! Welcome to the club!</p>
+</div>
+<br/>
+
+<form class="form-horizontal" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {{ form_widget(form) }}
+
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Register</button>
+    </div>
+</form>

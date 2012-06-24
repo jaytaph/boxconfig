@@ -1,5 +1,13 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
+{% block fosheader %}
+<div>
+    <h2>Login</h2>
+    <p>Log into box-config.com account. Don't you have an account yet? <a href="{{ path("fos_user_registration_register") }}">Click here</a> to register a new account.</p>
+</div>
+<br/>
+{% endblock %}
+
 {% block fos_user_content %}
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>

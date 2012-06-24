@@ -67,7 +67,22 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: BoxConfig\AccountBundle\Entity\User
+    registration:
+            form:
+                type: boxconfig_user_registration
+            confirmation:
+                enabled: true
+    from_email:
+        address:        %email_contact_email%
+        sender_name:    %email_contact_name%
 
 parameters:
     emails.contact_email: %email_contact_email%
     emails.contact_name: %email_contact_name%
+
+ornicar_gravatar: ~
+
+mopa_bootstrap:
+    form:
+        render_fieldset: false
+        show_legend: false

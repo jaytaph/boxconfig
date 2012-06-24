@@ -31,7 +31,7 @@ class DefaultController extends Controller
 
             if ($form->isValid()) {
                 $message = \Swift_Message::newInstance()
-                            ->setSubject('Contact enquiry from symblog')
+                            ->setSubject('Contact enquiry from box-config.com')
                             ->setFrom(array(
                                 $this->container->getParameter('emails.contact_email') =>
                                 $this->container->getParameter('emails.contact_name')))
