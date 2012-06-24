@@ -6,3 +6,4 @@
 /app/config/parameters.ini
 .idea
 *.php~
+._*
