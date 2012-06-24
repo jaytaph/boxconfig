@@ -2,9 +2,9 @@ BoxConfigDefaultBundle_default:
     resource: "@BoxConfigDefaultBundle/Resources/config/routing/default.yml"
     pattern:  /
 
-BoxConfigDefaultBundle_sidebar:
-    resource: "@BoxConfigDefaultBundle/Resources/config/routing/sidebar.yml"
-    prefix:  /sidebar
+BoxConfigDefaultBundle_widget:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/widget.yml"
+    prefix:  /widget
 
 BoxConfigDefaultBundle_software:
     resource: "@BoxConfigDefaultBundle/Resources/config/routing/software.yml"

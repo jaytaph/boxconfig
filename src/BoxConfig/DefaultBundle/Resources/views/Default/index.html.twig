@@ -3,16 +3,22 @@
 {% block tip %}
     <div class="row">
         <div class="span12">
-            {% render "BoxConfigDefaultBundle:Sidebar:tip" %}
+            {% render "BoxConfigDefaultBundle:Widget:tip" %}
         </div>
     </div>
 {% endblock %}
 
-{% block sidebar %}
+{% block widget %}
 <div class="row">
-    {% render "BoxConfigDefaultBundle:Sidebar:top" with { "slug" : "ide" } %}
-    {% render "BoxConfigDefaultBundle:Sidebar:top" with { "slug" : "os" } %}
-    {% render "BoxConfigDefaultBundle:Sidebar:register" %}
+    {% render "BoxConfigDefaultBundle:Widget:top" with { "slug" : "ide" } %}
+    {% render "BoxConfigDefaultBundle:Widget:top" with { "slug" : "os" } %}
+{% if app.user and is_granted("ROLE_ADMINISTRATOR") %}
+    {% render "BoxConfigDefaultBundle:Widget:adminpanel" %}
+{% elseif app.user and is_granted("ROLE_USER") %}
+    {% render "BoxConfigDefaultBundle:Widget:userpanel" %}
+{% else %}
+    {% render "BoxConfigDefaultBundle:Widget:register" %}
+{% endif %}
 </div>
 {% endblock %}
 

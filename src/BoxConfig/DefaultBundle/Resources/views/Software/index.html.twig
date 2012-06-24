@@ -1,54 +1,55 @@
 {% extends("::base.html.twig") %}
 
+{% block title%}Display software{% endblock %}
+
 {% block body %}
-<h1>Software list</h1>
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Manufacturer</th>
-            <th>Description</th>
-            <th>Url</th>
-            <th>Opensource</th>
-            <th>Demo</th>
-            <th>Opensourcelicense</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('software_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.name }}</td>
-            <td>{{ entity.manufacturer }}</td>
-            <td>{{ entity.description }}</td>
-            <td>{{ entity.url }}</td>
-            <td>{{ entity.opensource }}</td>
-            <td>{{ entity.demo }}</td>
-            <td>{{ entity.opensourcelicense }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('software_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('software_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="well" xmlns="http://www.w3.org/1999/html">
+    <h2>Software list</h2>
+    <p>This is a list of all the software that is currently in use on the site</p>
 
-<ul>
-    <li>
-        <a href="{{ path('software_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+    <table class="table records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Manufacturer</th>
+                <th>Description</th>
+                <th>Url</th>
+                <th>Opensource</th>
+                <th>Demo</th>
+                <th>Opensourcelicense</th>
+                <th>Count</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('software_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.manufacturer }}</td>
+                <td>{{ entity.description }}</td>
+                <td><a href="{{ entity.url }}">{{ entity.url }}</a></td>
+                <td>{{ entity.opensource ? "yes" : "no" }} }}</td>
+                <td>{{ entity.demo ? "yes" : "no" }}</td>
+                <td>{{ entity.opensourcelicense }}</td>
+                <td>123</td>
+                <td>
+                    <a class="btn btn-mini btn-success"  href="{{ path('software_show', { 'id': entity.id }) }}">show</a>
+                    <a class="btn btn-mini btn-success"  href="{{ path('software_edit', { 'id': entity.id }) }}">edit</a>
+                    <a class="btn btn-mini btn-danger" href="{{ path('software_delete', { 'id': entity.id }) }}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <p>
+        <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_new') }}">Create a new entry</a>
+    </p>
+
+</div>
 
 {% endblock %}

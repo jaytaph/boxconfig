@@ -1,39 +1,44 @@
-<h1>SoftwareCategory list</h1>
+{% extends("::base.html.twig") %}
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Path</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('softwarecategory_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.name }}</td>
-            <td>{{ entity.getfullpath}}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('softwarecategory_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('softwarecategory_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% block title%}Display software{% endblock %}
 
-<ul>
-    <li>
-        <a href="{{ path('softwarecategory_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
+{% block body %}
+
+<div class="well">
+    <h2>SoftwareCategory list</h2>
+    <p>All software is placed in categories. Categories are hierarchial as well.</p>
+
+    <table class="table records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Path</th>
+                <th>Items</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('softwarecategory_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.getfullpath}}</td>
+                <td>123</td>
+                <td>
+                    <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_show', { 'id': entity.id }) }}">show</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_edit', { 'id': entity.id }) }}">edit</a>
+                    <a class="btn btn-mini btn-danger" href="{{ path('softwarecategory_delete', { 'id': entity.id }) }}">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_new') }}">Create a new entry</a>
+    </p>
+
+</div>
+
+{% endblock %}
