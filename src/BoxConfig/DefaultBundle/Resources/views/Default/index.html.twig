@@ -1,5 +1,13 @@
 {% extends("::base.html.twig") %}
 
+{% block tip %}
+    <div class="row">
+        <div class="span12">
+            {% render "BoxConfigDefaultBundle:Sidebar:tip" %}
+        </div>
+    </div>
+{% endblock %}
+
 {% block sidebar %}
 <div class="row">
     {% render "BoxConfigDefaultBundle:Sidebar:top" with { "slug" : "ide" } %}

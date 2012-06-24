@@ -42,4 +42,12 @@ class SidebarController extends Controller
         return $this->render('BoxConfigDefaultBundle:Sidebar:register.html.twig');
     }
 
+    public function tipAction()
+    {
+        $users = range(1, rand(100,1000));
+        $boxes = range(1, rand(100,1000));
+        $tip = "Did you know that there are currently <b>".count($users)."</b> registered with a total of <b>".count($boxes)."</b> boxes?";
+        return $this->render('BoxConfigDefaultBundle:Sidebar:tip.html.twig', array('tip' => $tip));
+    }
+
 }
