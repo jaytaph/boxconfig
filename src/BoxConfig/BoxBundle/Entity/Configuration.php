@@ -46,6 +46,13 @@ class Configuration
     protected $machine;
 
 
+    // ManyToMany for now. Change this if we need more info about the software on your system (like custom messages)
+    /**
+     * @ORM\ManyToMany(targetEntity="BoxConfig\BoxBundle\Entity\Software")
+     */
+    protected $software;
+
+
     /**
      * Get id
      *
@@ -136,4 +143,28 @@ class Configuration
         return $this->operatingSystem;
     }
 
+    public function __construct()
+    {
+        $this->software = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add software
+     *
+     * @param BoxConfig\BoxBundle\Entity\Software $software
+     */
+    public function addSoftware(\BoxConfig\BoxBundle\Entity\Software $software)
+    {
+        $this->software[] = $software;
+    }
+
+    /**
+     * Get software
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getSoftware()
+    {
+        return $this->software;
+    }
 }

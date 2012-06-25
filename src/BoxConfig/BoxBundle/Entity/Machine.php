@@ -29,14 +29,36 @@ class Machine
     protected $name;
 
     /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $inUse;
+
+    /**
      * @ORM\Column(type="text")
      */
     protected $description;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\Hardware")
+     */
+    protected $hardware;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BoxConfig\AccountBundle\Entity\User")
+     */
+    protected $user;
+
+
+
+
+
     function __toString() {
+        if (empty($name)) {
+            return (string)$this->getHardware();
+        }
         return $this->getName();
     }
-
 
 
     /**
@@ -70,6 +92,26 @@ class Machine
     }
 
     /**
+     * Set inUse
+     *
+     * @param boolean $inUse
+     */
+    public function setInUse($inUse)
+    {
+        $this->inUse = $inUse;
+    }
+
+    /**
+     * Get inUse
+     *
+     * @return boolean 
+     */
+    public function getInUse()
+    {
+        return $this->inUse;
+    }
+
+    /**
      * Set description
      *
      * @param text $description
@@ -87,5 +129,45 @@ class Machine
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set hardware
+     *
+     * @param BoxConfig\BoxBundle\Entity\Hardware $hardware
+     */
+    public function setHardware(\BoxConfig\BoxBundle\Entity\Hardware $hardware)
+    {
+        $this->hardware = $hardware;
+    }
+
+    /**
+     * Get hardware
+     *
+     * @return BoxConfig\BoxBundle\Entity\Hardware 
+     */
+    public function getHardware()
+    {
+        return $this->hardware;
+    }
+
+    /**
+     * Set user
+     *
+     * @param BoxConfig\AccountBundle\Entity\User $user
+     */
+    public function setUser(\BoxConfig\AccountBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return BoxConfig\AccountBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

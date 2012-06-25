@@ -47,6 +47,19 @@ class User extends BaseUser
     protected $twitterHandle;
 
 
+    /**
+     * @ORM\OneToMany(targetEntity="BoxConfig\BoxBundle\Entity\Configuration", mappedBy="user")
+     */
+    protected $configurations;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BoxConfig\BoxBundle\Entity\Machine", mappedBy="user")
+     */
+    protected $machines;
+
+
+
+
 
     /**
      * Get id
@@ -126,5 +139,49 @@ class User extends BaseUser
     public function getTwitterHandle()
     {
         return $this->twitterHandle;
+    }
+    public function __construct()
+    {
+        $this->configurations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add configurations
+     *
+     * @param BoxConfig\BoxBundle\Entity\Configuration $configurations
+     */
+    public function addConfiguration(\BoxConfig\BoxBundle\Entity\Configuration $configurations)
+    {
+        $this->configurations[] = $configurations;
+    }
+
+    /**
+     * Get configurations
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getConfigurations()
+    {
+        return $this->configurations;
+    }
+
+    /**
+     * Add machines
+     *
+     * @param BoxConfig\BoxBundle\Entity\Machine $machines
+     */
+    public function addMachine(\BoxConfig\BoxBundle\Entity\Machine $machines)
+    {
+        $this->machines[] = $machines;
+    }
+
+    /**
+     * Get machines
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getMachines()
+    {
+        return $this->machines;
     }
 }

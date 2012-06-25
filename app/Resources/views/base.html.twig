@@ -49,9 +49,9 @@
 
 {% if app.user %}
                         <li class="divider-vertical"></li>
-                        <li><a href="{{ path("configuration") }}">Configurations <span class="badge badge-info">1</span></a></li>
-                        <li><a href="{{ path("machine") }}">Machines <span class="badge badge-important">0</span></a></li>
-                        <li><a href="{{ path("software") }}">Software <span class="badge badge-info">53</span></a></li>
+                        <li><a href="{{ path("configuration") }}">Configurations {{ badge_configuration(app.user) }}</a></li>
+                        <li><a href="{{ path("machine") }}">Machines {{ badge_machine(app.user) }}</a></li>
+                        <li><a href="{{ path("software") }}">Software {{ badge_software(app.user) }}</a></li>
 
                         <li class="divider-vertical"></li>
                         <li><p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p></li>

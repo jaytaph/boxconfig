@@ -3,14 +3,16 @@
 {% block title%}Display machines{% endblock %}
 
 {% block body %}
-<h2>Your machine list</h2>
+<h2 xmlns="http://www.w3.org/1999/html">Your machine list</h2>
 <p>This is a list of all the machines you currently own or have owned</p>
 <div class="container well">
 
     <table class="table records_list">
         <thead>
             <tr>
+                <th>Status</th>
                 <th>Name</th>
+                <th>Hardware</th>
                 <th>Description</th>
                 <th>Actions</th>
             </tr>
@@ -18,7 +20,14 @@
         <tbody>
         {% for entity in entities %}
             <tr>
+                <td>
+                    {% if entity.inUse == 0 %}
+                    <span class="label label-warning">Inactive</span>
+                    {% else %}
+                    <span class="label label-success">Active</span>
+                    {% endif %}
                 <td><a href="#">{{ entity.name }}</a></td>
+                <td>{{ entity.hardware.name }}</td>
                 <td>{{ entity.description }}</td>
                 <td>
                     <a class="btn btn-mini btn-success" href="#">edit</a>

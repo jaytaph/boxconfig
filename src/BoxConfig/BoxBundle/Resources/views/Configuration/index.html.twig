@@ -12,7 +12,9 @@
         <thead>
             <tr>
                 <th>Machine</th>
+                <th>Hardware</th>
                 <th>Operating System</th>
+                <th>Software count</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,11 +22,14 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="#">{{ entity.machine.name }}</a></td>
+                <td>{{ entity.machine.hardware.name }}</td>
                 <td>
                     {% if entity.virtualized %}
-                        <img src="/img/ghost_icon.gif">
+                        <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
                     {% endif %}
-                    {{ entity.operatingsystem.os }}</td>
+                    {{ entity.operatingsystem.os }}
+                </td>
+                <td>{{ entity.software | length }} application(s)</td>
                 <td>
                     <a class="btn btn-mini btn-success" href="#">details</a>
                     <a class="btn btn-mini btn-success" href="#">edit</a>
