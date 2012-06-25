@@ -10,13 +10,9 @@ BoxConfigDefaultBundle_widget_tip:
     pattern:  /tip
     defaults: { _controller: BoxConfigDefaultBundle:Widget:tip }
 
-BoxConfigDefaultBundle_widget_userpanel:
-    pattern:  /userpanel
-    defaults: { _controller: BoxConfigDefaultBundle:Widget:userpanel }
-
-BoxConfigDefaultBundle_widget_adminpanel:
-    pattern:  /adminpanel
-    defaults: { _controller: BoxConfigDefaultBundle:Widget:adminpanel }
+BoxConfigDefaultBundle_widget_controlpanel:
+    pattern:  /controlpanel
+    defaults: { _controller: BoxConfigDefaultBundle:Widget:controlpanel }
 
 BoxConfigDefaultBundle_widget_matchconfig:
     pattern:  /match/config

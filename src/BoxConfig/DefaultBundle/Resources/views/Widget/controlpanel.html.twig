@@ -1,0 +1,12 @@
+<div class="span4">
+    {% render "BoxConfigDefaultBundle:Widget:tip" %}
+
+{% if app.user and is_granted("ROLE_ADMINISTRATOR") %}
+    {% include "BoxConfigDefaultBundle:Widget:panels/admin.html.twig" %}
+{% elseif app.user and is_granted("ROLE_USER") %}
+    {% include "BoxConfigDefaultBundle:Widget:panels/user.html.twig" %}
+{% else %}
+    {% include "BoxConfigDefaultBundle:Widget:panels/register.html.twig" %}
+{% endif %}
+
+</div>

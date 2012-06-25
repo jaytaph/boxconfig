@@ -1,11 +1,12 @@
-<div class="span6 well">
-    <h2>Top {{ matches|length}} friends match</h2>
-    <p>These friends have similar one or more machines.</p>
+<div class="span5">
+    <div class="well">
+        <h2>Top {{ matches|length}} friends match</h2>
+        <p>These friends have similar one or more machines.</p>
 
-    <table class="table ">
+        <table class="table ">
 {% for match in matches %}
-        <tr><td>{{ loop.index }}</td><td><img src="{{ gravatar(match.user.email, 25) }}"></td><td><a href="#">{{ match.user.fullname }}</a></td><td>{{ match.percentage }}%</td></tr>
+            <tr><td>{{ loop.index }}</td><td><img src="{{ gravatar(match.user.email, 25) }}"></td><td><a href="#">{{ match.user.fullname }}</a></td><td>{{ match.percentage }}%</td></tr>
 {% endfor %}
-    </table>
-
+        </table>
+    </div>
 </div>

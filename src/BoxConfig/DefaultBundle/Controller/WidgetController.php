@@ -89,14 +89,9 @@ class WidgetController extends Controller
         return $this->render('BoxConfigDefaultBundle:Widget:tip.html.twig', array('tip' => $tip));
     }
 
-    public function userpanelAction()
+    public function controlpanelAction()
     {
-        return $this->render('BoxConfigDefaultBundle:Widget:userpanel.html.twig');
-    }
-
-    public function adminpanelAction()
-    {
-        return $this->render('BoxConfigDefaultBundle:Widget:adminpanel.html.twig');
+        return $this->render('BoxConfigDefaultBundle:Widget:controlpanel.html.twig');
     }
 
     public function matchconfigAction()
