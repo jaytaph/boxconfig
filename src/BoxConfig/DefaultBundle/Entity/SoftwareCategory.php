@@ -38,6 +38,17 @@ class SoftwareCategory
      */
     protected $parent;
 
+    /**
+     * @ORM\Column(type="string", length="255")
+     */
+    protected $description;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $inTop;
+
+
     public function __construct() {
         $this->children = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -122,5 +133,45 @@ class SoftwareCategory
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set inTop
+     *
+     * @param boolean $inTop
+     */
+    public function setInTop($inTop)
+    {
+        $this->inTop = $inTop;
+    }
+
+    /**
+     * Get inTop
+     *
+     * @return boolean 
+     */
+    public function getInTop()
+    {
+        return $this->inTop;
     }
 }

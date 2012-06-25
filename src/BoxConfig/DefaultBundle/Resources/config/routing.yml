@@ -17,3 +17,7 @@ BoxConfigDefaultBundle_softwarecategory:
 BoxConfigDefaultBundle_operatingsystem:
     resource: "@BoxConfigDefaultBundle/Resources/config/routing/operatingsystem.yml"
     prefix:   /operatingsystem
+
+BoxConfigDefaultBundle_configuration:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/configuration.yml"
+    prefix:   /configuration

@@ -18,3 +18,7 @@ BoxConfigDefaultBundle_widget_adminpanel:
     pattern:  /adminpanel
     defaults: { _controller: BoxConfigDefaultBundle:Widget:adminpanel }
 
+BoxConfigDefaultBundle_widget_matchconfig:
+    pattern:  /matchconfig
+    defaults: { _controller: BoxConfigDefaultBundle:Widget:matchconfig }
+

@@ -47,16 +47,10 @@ class Configuration
 
     // On which host is this system running (if it's virtualized)
     /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\DefaultBundle\Entity\Configuration")
+     * @ORM\ManyToOne(targetEntity="BoxConfig\DefaultBundle\Entity\Machine")
      */
     protected $host;
 
-
-    function __construct() {
-//        $this->host = new ArrayCollection();
-//        $this->machine = new ArrayCollection();
-//        $this->operatingSystem = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -91,7 +85,7 @@ class Configuration
     /**
      * Set user
      *
-     * @param BoxConfig\AccountBundle\Entity\User $user
+     * @param \BoxConfig\AccountBundle\Entity\User $user
      */
     public function setUser(\BoxConfig\AccountBundle\Entity\User $user)
     {
@@ -101,7 +95,7 @@ class Configuration
     /**
      * Get user
      *
-     * @return BoxConfig\AccountBundle\Entity\User 
+     * @return \BoxConfig\AccountBundle\Entity\User
      */
     public function getUser()
     {
@@ -111,7 +105,7 @@ class Configuration
     /**
      * Set machine
      *
-     * @param BoxConfig\DefaultBundle\Entity\Machine $machine
+     * @param \BoxConfig\DefaultBundle\Entity\Machine $machine
      */
     public function setMachine(\BoxConfig\DefaultBundle\Entity\Machine $machine)
     {
@@ -121,7 +115,7 @@ class Configuration
     /**
      * Get machine
      *
-     * @return BoxConfig\DefaultBundle\Entity\Machine 
+     * @return \BoxConfig\DefaultBundle\Entity\Machine
      */
     public function getMachine()
     {
@@ -129,29 +123,9 @@ class Configuration
     }
 
     /**
-     * Set host
-     *
-     * @param BoxConfig\DefaultBundle\Entity\Configuration $host
-     */
-    public function setHost(\BoxConfig\DefaultBundle\Entity\Configuration $host)
-    {
-        $this->host = $host;
-    }
-
-    /**
-     * Get host
-     *
-     * @return BoxConfig\DefaultBundle\Entity\Configuration 
-     */
-    public function getHost()
-    {
-        return $this->host;
-    }
-
-    /**
      * Set operatingSystem
      *
-     * @param BoxConfig\DefaultBundle\Entity\OperatingSystem $operatingSystem
+     * @param \BoxConfig\DefaultBundle\Entity\OperatingSystem $operatingSystem
      */
     public function setOperatingSystem(\BoxConfig\DefaultBundle\Entity\Operatingsystem $operatingSystem)
     {
@@ -161,10 +135,30 @@ class Configuration
     /**
      * Get operatingSystem
      *
-     * @return BoxConfig\DefaultBundle\Entity\OperatingSystem
+     * @return \BoxConfig\DefaultBundle\Entity\OperatingSystem
      */
     public function getOperatingSystem()
     {
         return $this->operatingSystem;
+    }
+
+    /**
+     * Set host
+     *
+     * @param BoxConfig\DefaultBundle\Entity\Machine $host
+     */
+    public function setHost(\BoxConfig\DefaultBundle\Entity\Machine $host)
+    {
+        $this->host = $host;
+    }
+
+    /**
+     * Get host
+     *
+     * @return BoxConfig\DefaultBundle\Entity\Machine 
+     */
+    public function getHost()
+    {
+        return $this->host;
     }
 }

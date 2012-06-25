@@ -38,6 +38,11 @@ class OperatingSystem
      */
     protected $version;
 
+    /**
+     * @ORM\Column(type="string", length="255")
+     */
+    protected $codename;
+
 
 
     /**
@@ -108,5 +113,25 @@ class OperatingSystem
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * Set codename
+     *
+     * @param string $codename
+     */
+    public function setCodename($codename)
+    {
+        $this->codename = $codename;
+    }
+
+    /**
+     * Get codename
+     *
+     * @return string 
+     */
+    public function getCodename()
+    {
+        return $this->codename;
     }
 }

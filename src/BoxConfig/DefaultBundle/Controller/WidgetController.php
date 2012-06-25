@@ -11,7 +11,7 @@ class WidgetController extends Controller
     {
         switch ($slug) {
             case "ide" :
-                $title = "IDE's";
+                $title = "PHP IDE's";
                 $items = array(
                     array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'PHPStorm'),
                     array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'Eclipse'),
@@ -60,4 +60,18 @@ class WidgetController extends Controller
         return $this->render('BoxConfigDefaultBundle:Widget:adminpanel.html.twig');
     }
 
+    public function matchconfigAction()
+    {
+        // @TODO: fetch current user. find matches, return these
+        $em = $this->getDoctrine()->getEntityManager();
+        $user = $em->getRepository('BoxConfigAccountBundle:User')->findOneByUsername("johndoe");
+
+        $matches = array();
+        $matches[] = array('user' => $user, 'percentage' => rand(100,10000) / 100);
+        $matches[] = array('user' => $user, 'percentage' => rand(100,10000) / 100);
+        $matches[] = array('user' => $user, 'percentage' => rand(100,10000) / 100);
+        $matches[] = array('user' => $user, 'percentage' => rand(100,10000) / 100);
+        $matches[] = array('user' => $user, 'percentage' => rand(100,10000) / 100);
+        return $this->render('BoxConfigDefaultBundle:Widget:matchconfig.html.twig', array('matches' => $matches));
+    }
 }
