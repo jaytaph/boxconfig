@@ -20,21 +20,17 @@ class HardwareRepository extends EntityRepository
         $this->getEntityManager()->getConfiguration()->addCustomHydrationMode('ScalarObjectHydrator', 'BoxConfig\DefaultBundle\Hydrators\ScalarObjectHydrator');
     }
 
+    /**
+     * Returns the top X hardware plus their percentage (ie: if half the configurations are based on MacBook, it will return 50%)
+     *
+     * @param int $limit
+     * @return array
+     */
     function getTop($limit = 5) {
         $rsm = new ResultSetMappingBuilder($this->getEntityManager());
         $rsm->addRootEntityFromClassMetadata('BoxConfig\BoxBundle\Entity\Hardware', 'h');
         $rsm->addScalarResult('percentage', 'percentage');
 
-
-        /**
-         SELECT T2. * , (
-         COUNT( DISTINCT T2.id ) / COUNT( DISTINCT T1.id ) *100
-         ) AS percentage
-         FROM configuration T1, configuration T2, machine M1, hardware H1
-         WHERE T2.machine_id = M1.id
-         AND M1.hardware_id = H1.id
-         GROUP BY H1.id
-         */
         $query = $this->_em->createNativeQuery("
             SELECT H1.*,
                 (COUNT( DISTINCT T2.id ) / COUNT( DISTINCT T1.id ) *100) AS percentage
@@ -44,6 +40,8 @@ class HardwareRepository extends EntityRepository
                 T2.machine_id = M1.id AND M1.hardware_id = H1.id
             GROUP BY
                 H1.id
+            ORDER BY
+                percentage DESC
             LIMIT
                 :limit", $rsm);
         $query->setParameter("limit", $limit);

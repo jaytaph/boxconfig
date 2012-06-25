@@ -12,7 +12,30 @@ class DefaultController extends Controller
     
     public function indexAction()
     {
-        return $this->render('BoxConfigDefaultBundle:Default:index.html.twig');
+        $template = 'BoxConfigDefaultBundle:Default:index/anonymous.html.twig';
+        $args = array();
+
+        if ($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ) {
+            $user = $this->get('security.context')->getToken()->getUser();
+
+            /**
+             * @var $user \BoxConfig\AccountBundle\Entity\User
+             */
+
+            if (count($user->getConfigurations()) == 0) {
+                $template = 'BoxConfigDefaultBundle:Default:index/no_configs.html.twig';
+            } elseif (count($user->getMachines()) == 0) {
+                $template = 'BoxConfigDefaultBundle:Default:index/no_machines.html.twig';
+//            } elseif ($user->getSoftware() == 0) {
+//                $template = 'BoxConfigDefaultBundle:Default:index/no_software.html.twig';
+            // @TODO: check friends
+            // } elseif ($user->getFriends() == 0) {
+            } else {
+                $template = 'BoxConfigDefaultBundle:Default:index/loggedin.html.twig';
+            }
+        }
+
+        return $this->render($template, $args);
     }
 
     public function aboutAction()

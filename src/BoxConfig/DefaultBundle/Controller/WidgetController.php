@@ -49,7 +49,7 @@ class WidgetController extends Controller
 
     public function tipAction()
     {
-        switch (rand(1,5)) {
+        switch (rand(1,6)) {
             case 1:
                 $tip = "Did you know you can easily add friends and view their configurations?";
                 break;
@@ -57,15 +57,33 @@ class WidgetController extends Controller
                 $tip = "Did you know that <b>PHPStorm</b> is the favourite PHP Editor?";
                 break;
             case 3:
-                $tip = "Did you know that <b>Linux Ubuntu</b> is most used virtualized operating system?";
+                $em = $this->getDoctrine()->getEntityManager();
+                $items = $em->getRepository('BoxConfigBoxBundle:Operatingsystem')->getTop(1, true);
+                $tip = "Did you know that <b>".(string)$items[0]->getOperatingsystem()."</b> is most virtualized operating system?";
                 break;
             case 4:
-                $tip = "Did you know that <b>Mac OSX Lion</b> is most used operating system?";
+                $em = $this->getDoctrine()->getEntityManager();
+                $items = $em->getRepository('BoxConfigBoxBundle:Operatingsystem')->getTop(1);
+                $tip = "Did you know that <b>".(string)$items[0]->getOperatingsystem()."</b> is most used operating system?";
                 break;
+            case 5:
+                $em = $this->getDoctrine()->getEntityManager();
+                $users = $em->getRepository('BoxConfigAccountBundle:User')->getCount();
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $boxes = $em->getRepository('BoxConfigBoxBundle:Configuration')->getCount();
+
+                $tip = "Our users have on average <b>".round($users / $boxes, 2)."</b> boxes registered.";
+                break;
+
             default:
-                $users = range(1, rand(100,1000));
-                $boxes = range(1, rand(100,1000));
-                $tip = "Did you know that there are currently <b>".count($users)."</b> registered with a total of <b>".count($boxes)."</b> boxes?";
+                $em = $this->getDoctrine()->getEntityManager();
+                $users = $em->getRepository('BoxConfigAccountBundle:User')->getCount();
+
+                $em = $this->getDoctrine()->getEntityManager();
+                $boxes = $em->getRepository('BoxConfigBoxBundle:Configuration')->getCount();
+
+                $tip = "Did you know that there are currently <b>".$users."</b> registered users with a total of <b>".$boxes."</b> boxes?";
                 break;
         }
         return $this->render('BoxConfigDefaultBundle:Widget:tip.html.twig', array('tip' => $tip));

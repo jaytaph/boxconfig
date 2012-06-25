@@ -11,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * BoxConfig\AccountBundle\Entity\User
  *
  * @ORM\Table(name="account")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BoxConfig\AccountBundle\Repository\UserRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class User extends BaseUser

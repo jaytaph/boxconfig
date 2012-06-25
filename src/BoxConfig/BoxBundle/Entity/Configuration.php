@@ -10,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * BoxConfig\BoxBundle\Entity\Configuration
  *
  * @ORM\Table(name="configuration")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\ConfigurationRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Configuration
