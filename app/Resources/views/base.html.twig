@@ -9,13 +9,35 @@
 
         {% block stylesheets %}{% endblock %}
         <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <style type="text/css">
-            body {
-                padding-top: 60px;
-                padding-bottom: 40px;
-            }
-        </style>
         <link href="/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <style type="text/css">
+
+        footer[role="contentinfo"] {
+            color: #666;
+            background: #f5f5f5;
+            padding: 18px 0;
+        }
+        footer[role="contentinfo"] p {
+            margin: 0;
+        }
+        /* Sticky Footer styles begin */
+        html, body {
+            height: 100%;
+        }
+        #push {
+            height: 54px;
+        }
+        footer[role="contentinfo"] {
+            height: 18px; /* accounts for padding */
+        }
+        body > .container {
+            min-height: 100%;
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto -54px;
+        }
+        </style>
+
 
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -73,22 +95,22 @@
     <div class="container">
         {% block body %}{% endblock %}
         {% block widget %}{% endblock %}
-        <hr>
-        <footer>
-            <p>
-                &copy; <img height="20" style='padding-bottom: 6px' title="Created by NoxLogic" src="/img/logo_noxlogic.jpg"> - {{ "now" | date("Y")}} - All rights reserved.
-
-                <img height="20" style='padding-bottom: 6px' class="pull-right" title="Created with the Symfony2 framework" src="/img/logo_symfony.png">
-                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Source hosted on Github" src="/img/icon-github.png">
-                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Created with Bootstrap" src="/img/logo_bootstrap.png">
-                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Tested with Travis" src="/img/logo_travis.png">
-                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Written in PHP" src="/img/logo_php.gif">
-            </p>
-
-
-        </footer>
-
+        <div id="push"><!--//--></div>
     </div>
+    <footer role="contentinfo">
+        <div class="container">
+        <p>
+            &copy; <img height="20" style='padding-bottom: 6px' title="Created by NoxLogic" src="/img/logo_noxlogic.jpg"> - {{ "now" | date("Y")}} - All rights reserved.
+
+            <img height="20" style='padding-bottom: 6px' class="pull-right" title="Created with the Symfony2 framework" src="/img/logo_symfony.png">
+            <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Source hosted on Github" src="/img/icon-github.png">
+            <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Created with Bootstrap" src="/img/logo_bootstrap.png">
+            <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Tested with Travis" src="/img/logo_travis.png">
+            <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Written in PHP" src="/img/logo_php.gif">
+        </p>
+            </div>
+    </footer>
+
 
     <script type="text/javascript" src="/assets/jquery/jquery-1.7.2.min.js"></script>
     {% block javascripts %}{% endblock %}
