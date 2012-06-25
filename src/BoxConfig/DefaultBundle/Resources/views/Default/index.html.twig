@@ -10,7 +10,7 @@
 
 {% block widget %}
 <div class="row">
-    {% render "BoxConfigDefaultBundle:Widget:top" with { "slug" : "ide" } %}
+    {% render "BoxConfigDefaultBundle:Widget:top" with { "slug" : "hardware" } %}
     {% render "BoxConfigDefaultBundle:Widget:top" with { "slug" : "os" } %}
 {% if app.user and is_granted("ROLE_ADMINISTRATOR") %}
     {% render "BoxConfigDefaultBundle:Widget:adminpanel" %}

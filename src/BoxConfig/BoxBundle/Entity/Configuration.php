@@ -36,9 +36,9 @@ class Configuration
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\OperatingSystem")
+     * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\Operatingsystem")
      */
-    protected $operatingSystem;
+    protected $operatingsystem;
 
     /**
      * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\Machine")
@@ -124,23 +124,23 @@ class Configuration
     }
 
     /**
-     * Set operatingSystem
+     * Set Operatingsystem
      *
-     * @param \BoxConfig\BoxBundle\Entity\OperatingSystem $operatingSystem
+     * @param \BoxConfig\BoxBundle\Entity\Operatingsystem $operatingsystem
      */
-    public function setOperatingSystem(\BoxConfig\BoxBundle\Entity\Operatingsystem $operatingSystem)
+    public function setOperatingsystem(\BoxConfig\BoxBundle\Entity\Operatingsystem $operatingsystem)
     {
-        $this->operatingSystem = $operatingSystem;
+        $this->operatingsystem = $operatingsystem;
     }
 
     /**
      * Get operatingSystem
      *
-     * @return \BoxConfig\BoxBundle\Entity\OperatingSystem
+     * @return \BoxConfig\BoxBundle\Entity\Operatingsystem
      */
-    public function getOperatingSystem()
+    public function getOperatingsystem()
     {
-        return $this->operatingSystem;
+        return $this->operatingsystem;
     }
 
     public function __construct()

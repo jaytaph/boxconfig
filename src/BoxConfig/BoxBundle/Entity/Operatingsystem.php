@@ -6,13 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * BoxConfig\BoxBundle\Entity\OperatingSystem
+ * BoxConfig\BoxBundle\Entity\Operatingsystem
  *
  * @ORM\Table(name="operatingsystem")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\OperatingsystemRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class OperatingSystem
+class Operatingsystem
 {
     /**
      * @var integer $id

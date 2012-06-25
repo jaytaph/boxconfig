@@ -9,36 +9,37 @@ class WidgetController extends Controller
 {
     public function topAction($slug)
     {
+        $em = $this->getDoctrine()->getEntityManager();
+
         switch ($slug) {
+            case "hardware" :
+                $title = "Hardware";
+                $items = $em->getRepository('BoxConfigBoxBundle:Hardware')->getTop(5);
+                $template = "BoxConfigDefaultBundle:Widget:top_hardware.html.twig";
+                break;
             case "ide" :
                 $title = "PHP IDE's";
-                $items = array(
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'PHPStorm'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'Eclipse'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'Netbeans'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'Vim'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'Notepad++'),
-                    );
+                // @TODO: This needs to be created.
+                $items = $em->getRepository('BoxConfigBoxBundle:Software')->getTop(4, 5);
+                $template = "BoxConfigDefaultBundle:Widget:top_software.html.twig";
                 break;
             case "os" :
                 $title = "Operating Systems";
-                $items = array(
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'OSX Lion'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'Debian 6.0'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'Windows 7'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'OSX Snow Leopard'),
-                    array("link" => '#', 'percentage' => rand(0, 100), 'title' => 'CentOS 6.2'),
-                    );
+                $items = $em->getRepository('BoxConfigBoxBundle:Operatingsystem')->getTop(5);
+                $template = "BoxConfigDefaultBundle:Widget:top_operatingsystem.html.twig";
                 break;
             default :
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
                 break;
         }
 
+
+        // Sort on percentages
         uasort($items, function($a, $b) {
-           return ($a['percentage'] < $b['percentage']);
+            return ($a->scalarPercentage < $b->scalarPercentage);
         });
-        return $this->render('BoxConfigDefaultBundle:Widget:top.html.twig', array("title" => $title, "items" => $items));
+
+        return $this->render($template, array("title" => $title, "items" => $items));
     }
 
     public function registerAction()

@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BoxConfig\BoxBundle\Entity\Hardware
  *
  * @ORM\Table(name="hardware")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\HardwareRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Hardware

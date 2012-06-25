@@ -4,7 +4,7 @@ namespace BoxConfig\DefaultBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class OperatingSystemControllerTest extends WebTestCase
+class OperatingsystemControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()

@@ -15,13 +15,13 @@ class ConfigurationFixtureLoader extends AbstractFixture implements OrderedFixtu
         $cfg1 = new Configuration();
         $cfg1->setUser($this->getReference('user-1'));
         $cfg1->setVirtualized(false);
-        $cfg1->setOperatingSystem($this->getReference('os-2'));
+        $cfg1->setOperatingsystem($this->getReference('os-2'));
         $cfg1->setMachine($this->getReference('m-1'));
         $manager->persist($cfg1);
 
         $cfg2 = new Configuration();
         $cfg2->setVirtualized(true);
-        $cfg2->setOperatingSystem($this->getReference('os-1'));
+        $cfg2->setOperatingsystem($this->getReference('os-1'));
         $manager->persist($cfg2);
 
         $manager->flush();
