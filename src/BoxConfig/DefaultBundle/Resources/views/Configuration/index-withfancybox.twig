@@ -1,0 +1,75 @@
+{% extends("::base.html.twig") %}
+
+{% block title%}Display configurations{% endblock %}
+
+{% block body %}
+
+<div class="well">
+    <h2>Your configuration list</h2>
+    <p>This is a list of all the configurations you currently own</p>
+
+    <table class="table records_list">
+        <thead>
+            <tr>
+                <th>Machine</th>
+                <th>Operating System</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="#">
+                    {{ entity.machine.name }}
+                    </a>
+                </td>
+                <td>
+                    {% if entity.virtualized %}
+                        <img src="/img/ghost_icon.gif">
+                    {% endif %}
+                    {{ entity.operatingsystem.os }}</td>
+                <td>
+                    <a class="btn btn-mini btn-success" href="#">details</a>
+                    <a class="btn btn-mini btn-success" href="#">edit</a>
+                    <a class="btn btn-mini btn-danger" href="#">delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <p>
+        <a class="fancybox fancybox.iframe btn btn-mini btn-success" href="{{ path('configuration_new') }}">Add a new configuration</a>
+    </p>
+</div>
+
+{% endblock %}
+
+{% block widget %}
+ <div class="row">
+     {% render "BoxConfigDefaultBundle:Widget:matchconfig" %}
+     <div class="span1">&nbsp;</div>
+     {% render "BoxConfigDefaultBundle:Widget:userpanel" %}
+ </div>
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/assets/fancybox/css/jquery.fancybox.css?v=2.0.6" type="text/css" media="screen" />
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="/assets/fancybox/js/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="/assets/fancybox/js/jquery.fancybox.pack.js?v=2.0.6"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                    'onClosed' : function() {
+                                     parent.location.reload(true);
+                                 }
+            });
+        });
+</script>
+{% endblock %}

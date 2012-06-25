@@ -1,0 +1,30 @@
+machine:
+    pattern:  /
+    defaults: { _controller: "BoxConfigDefaultBundle:Machine:index" }
+
+machine_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BoxConfigDefaultBundle:Machine:show" }
+
+machine_new:
+    pattern:  /new
+    defaults: { _controller: "BoxConfigDefaultBundle:Machine:new" }
+
+machine_create:
+    pattern:  /create
+    defaults: { _controller: "BoxConfigDefaultBundle:Machine:create" }
+    requirements: { _method: post }
+
+machine_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BoxConfigDefaultBundle:Machine:edit" }
+
+machine_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BoxConfigDefaultBundle:Machine:update" }
+    requirements: { _method: post }
+
+machine_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BoxConfigDefaultBundle:Machine:delete" }
+    requirements: { _method: post }

@@ -1,0 +1,18 @@
+<div class="span5">
+    {% render "BoxConfigDefaultBundle:Widget:tip" %}
+
+    <div class="well" style="padding: 8px 0px;">
+        <ul class="nav nav-list">
+            <li class="nav-header">Box panel - {{ app.user.fullname }}</li>
+            <li><a href="{{ path("configuration") }}"><i class="icon-globe"></i> Configurations </a></li>
+            <li><a href="{{ path("machine") }}"><i class="icon-cog"></i> Machines </a></li>
+            <li class="nav-header">User panel</li>
+            <li><a href="#"><i class="icon-book"></i> Friends <span class="badge badge-success">15</span></a></li>
+            <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+            <li><a href="#"><i class="icon-envelope"></i> Messages <span class="badge badge-success">1</span></a></li>
+            <li class="divider"></li>
+            <li><a href="#"><i class="icon-flag"></i> Help</a></li>
+        </ul>
+    </div>
+
+</div>

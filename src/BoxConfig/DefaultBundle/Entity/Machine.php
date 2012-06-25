@@ -33,6 +33,11 @@ class Machine
      */
     protected $description;
 
+    function __toString() {
+        return $this->getName();
+    }
+
+
 
     /**
      * Get id

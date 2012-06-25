@@ -4,9 +4,9 @@
 
 {% block body %}
 
-<div class="well" xmlns="http://www.w3.org/1999/html">
-    <h2>Software list</h2>
-    <p>This is a list of all the software that is currently in use on the site</p>
+<h2>Software list</h2>
+<p>This is a list of all the software that is currently in use on the site</p>
+<div class="container well">
 
     <table class="table records_list">
         <thead>
@@ -31,7 +31,7 @@
                 <td>{{ entity.manufacturer }}</td>
                 <td>{{ entity.description }}</td>
                 <td><a href="{{ entity.url }}">{{ entity.url }}</a></td>
-                <td>{{ entity.opensource ? "yes" : "no" }} }}</td>
+                <td>{{ entity.opensource ? "yes" : "no" }}</td>
                 <td>{{ entity.demo ? "yes" : "no" }}</td>
                 <td>{{ entity.opensourcelicense }}</td>
                 <td>123</td>
@@ -47,7 +47,7 @@
 
 
     <p>
-        <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_new') }}">Create a new entry</a>
+        <a class="btn btn-mini btn-success" href="{{ path('software_new') }}">Create a new entry</a>
     </p>
 
 </div>

@@ -1,0 +1,15 @@
+{% extends("::base.html.twig") %}
+
+{% block body %}
+<h1>Configuration creation</h1>
+<p>Add a new configuration</p>
+
+<form class="form-horizontal" action="{{ path('configuration_create') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a class="btn" href="javascript:parent.jQuery.fancybox.close();" >Close</a>
+    </div>
+</form>
+
+{% endblock %}

@@ -24,6 +24,12 @@
 
 {% block body %}
 
+{% if app.user %}
+<div class="hero-unit">
+    <p>You have <b>5</b> configurations.</p>
+</div>
+
+{% else %}
 <div class="hero-unit">
     <img src="/img/open-box-hi.png" height=50% align="right">
     <h1>Welcome</h1>
@@ -31,5 +37,7 @@
     and find out what others are using as theirs.</p>
     <p><a class="btn btn-primary btn-large" href="{{ path("BoxConfigDefaultBundle_about") }}">Learn more &raquo;</a></p>
 </div>
+
+{% endif %}
 
 {% endblock %}

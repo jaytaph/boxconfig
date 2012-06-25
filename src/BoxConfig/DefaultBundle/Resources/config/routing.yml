@@ -21,3 +21,7 @@ BoxConfigDefaultBundle_operatingsystem:
 BoxConfigDefaultBundle_configuration:
     resource: "@BoxConfigDefaultBundle/Resources/config/routing/configuration.yml"
     prefix:   /configuration
+
+BoxConfigDefaultBundle_machine:
+    resource: "@BoxConfigDefaultBundle/Resources/config/routing/machine.yml"
+    prefix:   /machine

@@ -44,6 +44,21 @@ class OperatingSystem
     protected $codename;
 
 
+    function __toString() {
+        $os = $this->os;
+
+        $tmp = $this->getDistribution();
+        if (! empty($tmp)) $os .= " " . $tmp;
+
+        $tmp = $this->getVersion();
+        if (! empty($tmp)) $os .= " " . $tmp;
+
+        $tmp = $this->getCodename();
+        if (! empty($tmp)) $os .= " (" . $tmp .")";
+
+        return $os;
+    }
+
 
     /**
      * Get id

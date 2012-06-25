@@ -45,12 +45,6 @@ class Configuration
      */
     protected $machine;
 
-    // On which host is this system running (if it's virtualized)
-    /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\DefaultBundle\Entity\Machine")
-     */
-    protected $host;
-
 
     /**
      * Get id
@@ -142,23 +136,4 @@ class Configuration
         return $this->operatingSystem;
     }
 
-    /**
-     * Set host
-     *
-     * @param BoxConfig\DefaultBundle\Entity\Machine $host
-     */
-    public function setHost(\BoxConfig\DefaultBundle\Entity\Machine $host)
-    {
-        $this->host = $host;
-    }
-
-    /**
-     * Get host
-     *
-     * @return BoxConfig\DefaultBundle\Entity\Machine 
-     */
-    public function getHost()
-    {
-        return $this->host;
-    }
 }

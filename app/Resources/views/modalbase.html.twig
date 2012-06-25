@@ -32,49 +32,9 @@
 
     <body>
 
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a class="brand" href="#">box-config.com</a>
-                <div class="nav-collapse">
-                    <ul class="nav pull-right">
-                        <li class="active"><a href="{{ path("BoxConfigDefaultBundle_homepage") }}">Home</a></li>
-                        <li><a href="{{ path("BoxConfigDefaultBundle_about") }}">About</a></li>
-                        <li><a href="{{ path("BoxConfigDefaultBundle_contact") }}">Contact</a></li>
-
-{% if app.user %}
-                        <li class="divider-vertical"></li>
-                        <li><a href="{{ path("configuration") }}">Configurations <span class="badge badge-info">1</span></a></li>
-                        <li><a href="{{ path("machine") }}">Machines <span class="badge badge-important">0</span></a></li>
-                        <li><a href="{{ path("software") }}">Software <span class="badge badge-info">53</span></a></li>
-
-                        <li class="divider-vertical"></li>
-                        <li><p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p></li>
-                        <li><a href="{{ path("fos_user_security_logout") }}">Profile</a></li>
-                        <li><a href="{{ path("fos_user_security_logout") }}">Logout</a></li>
-{% else %}
-                        <li><a href="{{ path("fos_user_security_login") }}">Login</a></li>
-                        <li><a href="{{ path("fos_user_registration_register") }}">Register</a></li>
-{% endif %}
-                    </ul>
-                </div><!--/.nav-collapse -->
-            </div>
-        </div>
-    </div>
 
     <div class="container">
         {% block body %}{% endblock %}
-        {% block widget %}{% endblock %}
-        <hr>
-        <footer>
-            <p>&copy; NoxLogic - {{ "now" | date("Y")}} - All rights reserved.</p>
-        </footer>
-
     </div>
 
     <script type="text/javascript" src="/assets/jquery/jquery-1.7.2.min.js"></script>

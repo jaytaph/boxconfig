@@ -16,3 +16,5 @@ BoxConfig
 * [ ] resources can only be deleted if they are not in use
 * [ ] Create a twitter-type. This should be able to add <div class="input-prepend"><span class="add-on">@</span> in the form
 * [ ] Matchconfig widget should check matches based on configuration (how do we calculate this?)
+* [ ] Can we easily add fancyboxes for add/edit ?
+* [ ] Do we even need messages? (if not, delete them)

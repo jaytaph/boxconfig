@@ -25,7 +25,7 @@ security:
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/widget/userpanel, role: ROLE_USER }
         - { path: ^/widget/adminpanel, role: ROLE_ADMIN }
-        - { path: ^/widget/matchingconfig, role: ROLE_USER }
+        - { path: ^/widget/match, role: ROLE_USER }
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
