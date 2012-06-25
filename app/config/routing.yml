@@ -1,3 +1,7 @@
+BoxConfigBoxBundle:
+    resource: "@BoxConfigBoxBundle/Resources/config/routing.yml"
+    prefix:   /box
+
 BoxConfigAccountBundle:
     resource: "@BoxConfigAccountBundle/Resources/config/routing.yml"
     prefix:   /

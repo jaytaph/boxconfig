@@ -5,23 +5,3 @@ BoxConfigDefaultBundle_default:
 BoxConfigDefaultBundle_widget:
     resource: "@BoxConfigDefaultBundle/Resources/config/routing/widget.yml"
     prefix:  /widget
-
-BoxConfigDefaultBundle_software:
-    resource: "@BoxConfigDefaultBundle/Resources/config/routing/software.yml"
-    prefix:   /software
-
-BoxConfigDefaultBundle_softwarecategory:
-    resource: "@BoxConfigDefaultBundle/Resources/config/routing/softwarecategory.yml"
-    prefix:   /softwarecategory
-
-BoxConfigDefaultBundle_operatingsystem:
-    resource: "@BoxConfigDefaultBundle/Resources/config/routing/operatingsystem.yml"
-    prefix:   /operatingsystem
-
-BoxConfigDefaultBundle_configuration:
-    resource: "@BoxConfigDefaultBundle/Resources/config/routing/configuration.yml"
-    prefix:   /configuration
-
-BoxConfigDefaultBundle_machine:
-    resource: "@BoxConfigDefaultBundle/Resources/config/routing/machine.yml"
-    prefix:   /machine

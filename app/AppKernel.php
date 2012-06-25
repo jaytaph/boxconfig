@@ -24,6 +24,7 @@ class AppKernel extends Kernel
 
             new BoxConfig\DefaultBundle\BoxConfigDefaultBundle(),
             new BoxConfig\AccountBundle\BoxConfigAccountBundle(),
+            new BoxConfig\BoxBundle\BoxConfigBoxBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
