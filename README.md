@@ -2,7 +2,7 @@ BoxConfig
 ========================
 
 * [X] Make sure users can register and login
-* [ ] setup firewalling
+* [-] setup firewalling
 * [ ] Make forgot password work
 * [ ] Top widgets should be randomly chosen
 * [X] Rename "sidebar" to "widget"
@@ -19,3 +19,5 @@ BoxConfig
 * [ ] Can we easily add fancyboxes for add/edit ?
 * [ ] Do we even need messages? (if not, delete them)
 * [ ] Active status on the menu items (how to set the "active" class) (add knpMenu or something)
+* [ ] Let friends add kudos to the software you use, and comment on your configs
+* [ ] Add comments to software.
