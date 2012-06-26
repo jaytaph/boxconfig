@@ -21,3 +21,5 @@ BoxConfig
 * [ ] Active status on the menu items (how to set the "active" class) (add knpMenu or something)
 * [ ] Let friends add kudos to the software you use, and comment on your configs
 * [ ] Add comments to software.
+* [ ] Wizard style addition of data for users.
+* [ ] Rename configuration into machine.
