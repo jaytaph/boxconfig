@@ -7,13 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
- * BoxConfig\BoxBundle\Entity\Configuration
+ * BoxConfig\BoxBundle\Entity\Environment
  *
- * @ORM\Table(name="configuration")
- * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\ConfigurationRepository")
+ * @ORM\Table(name="environment")
+ * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\EnvironmentRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Configuration
+class Environment
 {
     /**
      * @var integer $id
@@ -25,18 +25,13 @@ class Configuration
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\AccountBundle\Entity\User")
-     */
-    protected $user;
-
-    /**
      * * @ORM\Column(type="boolean")
      */
     protected $virtualized;
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\Operatingsystem")
+     * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\OperatingSystem")
      */
     protected $operatingsystem;
 
@@ -53,6 +48,12 @@ class Configuration
     protected $software;
 
 
+
+    public function __construct()
+    {
+        $this->software = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -84,29 +85,29 @@ class Configuration
     }
 
     /**
-     * Set user
+     * Set operatingsystem
      *
-     * @param \BoxConfig\AccountBundle\Entity\User $user
+     * @param BoxConfig\BoxBundle\Entity\OperatingSystem $operatingsystem
      */
-    public function setUser(\BoxConfig\AccountBundle\Entity\User $user)
+    public function setOperatingsystem(\BoxConfig\BoxBundle\Entity\OperatingSystem $operatingsystem)
     {
-        $this->user = $user;
+        $this->operatingsystem = $operatingsystem;
     }
 
     /**
-     * Get user
+     * Get operatingsystem
      *
-     * @return \BoxConfig\AccountBundle\Entity\User
+     * @return BoxConfig\BoxBundle\Entity\OperatingSystem 
      */
-    public function getUser()
+    public function getOperatingsystem()
     {
-        return $this->user;
+        return $this->operatingsystem;
     }
 
     /**
      * Set machine
      *
-     * @param \BoxConfig\BoxBundle\Entity\Machine $machine
+     * @param BoxConfig\BoxBundle\Entity\Machine $machine
      */
     public function setMachine(\BoxConfig\BoxBundle\Entity\Machine $machine)
     {
@@ -116,38 +117,13 @@ class Configuration
     /**
      * Get machine
      *
-     * @return \BoxConfig\BoxBundle\Entity\Machine
+     * @return BoxConfig\BoxBundle\Entity\Machine 
      */
     public function getMachine()
     {
         return $this->machine;
     }
 
-    /**
-     * Set Operatingsystem
-     *
-     * @param \BoxConfig\BoxBundle\Entity\Operatingsystem $operatingsystem
-     */
-    public function setOperatingsystem(\BoxConfig\BoxBundle\Entity\Operatingsystem $operatingsystem)
-    {
-        $this->operatingsystem = $operatingsystem;
-    }
-
-    /**
-     * Get operatingSystem
-     *
-     * @return \BoxConfig\BoxBundle\Entity\Operatingsystem
-     */
-    public function getOperatingsystem()
-    {
-        return $this->operatingsystem;
-    }
-
-    public function __construct()
-    {
-        $this->software = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
     /**
      * Add software
      *

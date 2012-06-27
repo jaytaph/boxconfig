@@ -34,7 +34,7 @@ class SoftwareCategoryFixtureLoader extends AbstractFixture implements OrderedFi
 
     public function getOrder()
     {
-        return 60;
+        return 10;
     }
 
 }

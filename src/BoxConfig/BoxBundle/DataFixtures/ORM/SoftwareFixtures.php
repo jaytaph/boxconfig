@@ -22,12 +22,22 @@ class SoftwareFixtureLoader extends AbstractFixture implements OrderedFixtureInt
         $app1->setDemo(true);
         $manager->persist($app1);
 
+        $app2 = new Software();
+        $app2->setName("NetBeans");
+        $app2->setManufacturer("Oracle");
+        $app2->setUrl("http://www.netbeans.com/");
+        $app2->setDescription("It's oracle now");
+        $app2->setCategory($this->getReference("cat-2"));
+        $app2->setOpenSource(true);
+        $app2->setDemo(false);
+        $manager->persist($app2);
+
         $manager->flush();
     }
 
     public function getOrder()
     {
-        return 70;
+        return 20;
     }
 
 }

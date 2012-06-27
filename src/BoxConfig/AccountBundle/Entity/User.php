@@ -48,16 +48,9 @@ class User extends BaseUser
 
 
     /**
-     * @ORM\OneToMany(targetEntity="BoxConfig\BoxBundle\Entity\Configuration", mappedBy="user")
-     */
-    protected $configurations;
-
-    /**
      * @ORM\OneToMany(targetEntity="BoxConfig\BoxBundle\Entity\Machine", mappedBy="user")
      */
     protected $machines;
-
-
 
 
 
@@ -140,29 +133,11 @@ class User extends BaseUser
     {
         return $this->twitterHandle;
     }
+
     public function __construct()
     {
-        $this->configurations = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add configurations
-     *
-     * @param BoxConfig\BoxBundle\Entity\Configuration $configurations
-     */
-    public function addConfiguration(\BoxConfig\BoxBundle\Entity\Configuration $configurations)
-    {
-        $this->configurations[] = $configurations;
-    }
-
-    /**
-     * Get configurations
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getConfigurations()
-    {
-        return $this->configurations;
+        parent::__construct();
+        $this->machines = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -184,4 +159,5 @@ class User extends BaseUser
     {
         return $this->machines;
     }
+
 }

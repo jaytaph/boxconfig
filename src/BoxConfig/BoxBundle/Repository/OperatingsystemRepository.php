@@ -8,10 +8,10 @@ use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Doctrine\ORM\EntityRepository;
 
 /**
-* OperatingsystemRepository
+* OperatingSystemRepository
 *
 */
-class OperatingsystemRepository extends EntityRepository
+class OperatingSystemRepository extends EntityRepository
 {
 
     public function __construct($em, Mapping\ClassMetadata $class)

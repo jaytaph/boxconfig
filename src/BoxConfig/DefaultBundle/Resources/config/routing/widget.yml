@@ -14,10 +14,6 @@ BoxConfigDefaultBundle_widget_controlpanel:
     pattern:  /controlpanel
     defaults: { _controller: BoxConfigDefaultBundle:Widget:controlpanel }
 
-BoxConfigDefaultBundle_widget_matchconfig:
-    pattern:  /match/config
-    defaults: { _controller: BoxConfigDefaultBundle:Widget:matchconfig }
-
 BoxConfigDefaultBundle_widget_matchmachine:
     pattern:  /match/machine
     defaults: { _controller: BoxConfigDefaultBundle:Widget:matchmachine }

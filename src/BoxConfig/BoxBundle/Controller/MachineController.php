@@ -3,6 +3,7 @@
 namespace BoxConfig\BoxBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 
 use BoxConfig\BoxBundle\Entity\Machine;
 use BoxConfig\BoxBundle\Form\MachineType;
@@ -39,7 +40,7 @@ class MachineController extends Controller
         $entity = $em->getRepository('BoxConfigBoxBundle:Machine')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Machine entity.');
+            throw $this->createNotFoundException('Unable to find machine entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -82,8 +83,8 @@ class MachineController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            //return new Response("<script>parent.jQuery.fancybox.close();</script>");
             return $this->redirect($this->generateUrl('machine_show', array('id' => $entity->getId())));
-            
         }
 
         return $this->render('BoxConfigBoxBundle:Machine:new.html.twig', array(
@@ -127,7 +128,7 @@ class MachineController extends Controller
         $entity = $em->getRepository('BoxConfigBoxBundle:Machine')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Machine entity.');
+            throw $this->createNotFoundException('Unable to find machine entity.');
         }
 
         $editForm   = $this->createForm(new MachineType(), $entity);
@@ -141,7 +142,7 @@ class MachineController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('machine_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('Machine_edit', array('id' => $id)));
         }
 
         return $this->render('BoxConfigBoxBundle:Machine:edit.html.twig', array(

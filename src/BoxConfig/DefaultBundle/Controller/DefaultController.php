@@ -22,9 +22,7 @@ class DefaultController extends Controller
              * @var $user \BoxConfig\AccountBundle\Entity\User
              */
 
-            if (count($user->getConfigurations()) == 0) {
-                $template = 'BoxConfigDefaultBundle:Default:index/no_configs.html.twig';
-            } elseif (count($user->getMachines()) == 0) {
+            if (count($user->getMachines()) == 0) {
                 $template = 'BoxConfigDefaultBundle:Default:index/no_machines.html.twig';
 //            } elseif ($user->getSoftware() == 0) {
 //                $template = 'BoxConfigDefaultBundle:Default:index/no_software.html.twig';

@@ -53,7 +53,6 @@
 
 {% if app.user %}
                         <li class="divider-vertical"></li>
-                        <li><a href="{{ path("configuration") }}">Configurations {{ badge_configuration(app.user) }}</a></li>
                         <li><a href="{{ path("machine") }}">Machines {{ badge_machine(app.user) }}</a></li>
                         <li><a href="{{ path("software") }}">Software {{ badge_software(app.user) }}</a></li>
 

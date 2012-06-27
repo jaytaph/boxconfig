@@ -39,14 +39,14 @@ class SoftwareCategory
     protected $parent;
 
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string", length="255", nullable=true)
      */
     protected $description;
 
     /**
      * @ORM\Column(type="boolean")
      */
-    protected $inTop;
+    protected $inTop = false;
 
 
     public function __construct() {

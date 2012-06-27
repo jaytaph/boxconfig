@@ -28,8 +28,10 @@ class Hardware
      */
     protected $name;
 
+    // TODO: Add more stuff: images, descriptions, hardware list etc
+
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     protected $description;
 

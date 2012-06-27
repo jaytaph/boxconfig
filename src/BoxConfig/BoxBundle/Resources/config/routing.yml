@@ -10,10 +10,6 @@ BoxConfigBoxBundle_operatingsystem:
     resource: "@BoxConfigBoxBundle/Resources/config/routing/operatingsystem.yml"
     prefix:   /operatingsystem
 
-BoxConfigBoxBundle_configuration:
-    resource: "@BoxConfigBoxBundle/Resources/config/routing/configuration.yml"
-    prefix:   /configuration
-
 BoxConfigBoxBundle_machine:
     resource: "@BoxConfigBoxBundle/Resources/config/routing/machine.yml"
     prefix:   /machine

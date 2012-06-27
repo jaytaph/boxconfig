@@ -9,15 +9,9 @@ class badgeExtension extends \Twig_Extension
     public function getFunctions()
     {
         return array(
-            'badge_configuration' => new \Twig_Function_Method($this, 'badgeConfig', array('is_safe' => array('html'))),
             'badge_machine' => new \Twig_Function_Method($this, 'badgeMachine', array('is_safe' => array('html'))),
             'badge_software' => new \Twig_Function_Method($this, 'badgeSoftware', array('is_safe' => array('html'))),
         );
-    }
-
-    public function badgeConfig(User $user) {
-        $count = count($user->getConfigurations());
-        return $this->_createBadge($count);
     }
 
     public function badgeMachine(User $user) {
@@ -27,8 +21,10 @@ class badgeExtension extends \Twig_Extension
 
     public function badgeSoftware(User $user) {
         $count = 0;
-        foreach ($user->getConfigurations() as $configuration) {
-            $count += count($configuration->getSoftware());
+        foreach ($user->getMachines() as $machine) {
+            foreach ($machine->getEnvironments() as $environment) {
+                $count += count($environment->getSoftware());
+            }
         }
         return $this->_createBadge($count);
     }

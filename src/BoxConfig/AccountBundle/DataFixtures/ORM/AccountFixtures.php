@@ -12,17 +12,19 @@ class FixtureLoader extends AbstractFixture implements OrderedFixtureInterface {
 
     public function load(ObjectManager $manager) {
         $user1 = new User();
-        $user1->setUsername("johndoe");
+        $user1->setUsername("demo");
         $user1->setEmail("johndoe@example.org");
-        $user1->setPlainPassword("password");
+        $user1->setPlainPassword("demo");
+        $user1->setFullname("John Doe");
         $user1->setEnabled(true);
         $manager->persist($user1);
 
         $user2 = new User();
-        $user2->setUsername("imaadmin");
+        $user2->setUsername("admin");
         $user2->setEmail("imaadmin@example.org");
         $user2->setPlainPassword("admin");
         $user2->setRoles(array(User::ROLE_SUPER_ADMIN));
+        $user2->setFullname("Ima Administrator");
         $user2->setEnabled(true);
         $manager->persist($user2);
 

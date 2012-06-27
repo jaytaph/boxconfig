@@ -1,16 +1,15 @@
-<h1>Machine creation</h1>
+{% extends("::base.html.twig") %}
 
-<form action="{{ path('machine_create') }}" method="post" {{ form_enctype(form) }}>
+{% block body %}
+<h1>Configuration creation</h1>
+<p>Add a new configuration</p>
+
+<form class="form-horizontal" action="{{ path('configuration_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <a class="btn" href="javascript:parent.jQuery.fancybox.close();" >Close</a>
+    </div>
 </form>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('machine') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% endblock %}

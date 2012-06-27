@@ -3,13 +3,14 @@
 namespace BoxConfig\BoxBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
  * BoxConfig\BoxBundle\Entity\Machine
  *
  * @ORM\Table(name="machine")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\MachineRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Machine
@@ -24,41 +25,49 @@ class Machine
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\ManyToOne(targetEntity="BoxConfig\AccountBundle\Entity\User")
      */
-    protected $name;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    protected $inUse;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    protected $description;
-
+    protected $user;
 
     /**
      * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\Hardware")
      */
     protected $hardware;
 
+
     /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\AccountBundle\Entity\User")
+     * @ORM\Column(name="name", type="string", length="50")
      */
-    protected $user;
+    protected $name;
+
+
+    /**
+     * @ORM\Column(name="description", type="text")
+     */
+    protected $description;
 
 
 
+    /**
+     * @ORM\Column(name="active", type="boolean")
+     */
+    protected $active;
 
+    /**
+     * @ORM\Column(name="start_dt", type="date", nullable=true)
+     */
+    protected $startdate;
 
-    function __toString() {
-        if (empty($name)) {
-            return (string)$this->getHardware();
-        }
-        return $this->getName();
-    }
+    /**
+     * @ORM\Column(name="end_dt", type="date", nullable=true)
+     */
+    protected $enddate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BoxConfig\BoxBundle\Entity\Environment", mappedBy="machine")
+     */
+    protected $environments;
+
 
 
     /**
@@ -92,26 +101,6 @@ class Machine
     }
 
     /**
-     * Set inUse
-     *
-     * @param boolean $inUse
-     */
-    public function setInUse($inUse)
-    {
-        $this->inUse = $inUse;
-    }
-
-    /**
-     * Get inUse
-     *
-     * @return boolean 
-     */
-    public function getInUse()
-    {
-        return $this->inUse;
-    }
-
-    /**
      * Set description
      *
      * @param text $description
@@ -129,6 +118,86 @@ class Machine
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set active
+     *
+     * @param boolean $active
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+    }
+
+    /**
+     * Get active
+     *
+     * @return boolean 
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+
+    /**
+     * Set startdate
+     *
+     * @param date $startdate
+     */
+    public function setStartdate($startdate)
+    {
+        $this->startdate = $startdate;
+    }
+
+    /**
+     * Get startdate
+     *
+     * @return date 
+     */
+    public function getStartdate()
+    {
+        return $this->startdate;
+    }
+
+    /**
+     * Set enddate
+     *
+     * @param date $enddate
+     */
+    public function setEnddate($enddate)
+    {
+        $this->enddate = $enddate;
+    }
+
+    /**
+     * Get enddate
+     *
+     * @return date 
+     */
+    public function getEnddate()
+    {
+        return $this->enddate;
+    }
+
+    /**
+     * Set user
+     *
+     * @param BoxConfig\AccountBundle\Entity\User $user
+     */
+    public function setUser(\BoxConfig\AccountBundle\Entity\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return BoxConfig\AccountBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 
     /**
@@ -151,23 +220,28 @@ class Machine
         return $this->hardware;
     }
 
-    /**
-     * Set user
-     *
-     * @param BoxConfig\AccountBundle\Entity\User $user
-     */
-    public function setUser(\BoxConfig\AccountBundle\Entity\User $user)
+    public function __construct()
     {
-        $this->user = $user;
+        $this->environments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add environments
+     *
+     * @param BoxConfig\BoxBundle\Entity\Environment $environments
+     */
+    public function addEnvironment(\BoxConfig\BoxBundle\Entity\Environment $environments)
+    {
+        $this->environments[] = $environments;
     }
 
     /**
-     * Get user
+     * Get environments
      *
-     * @return BoxConfig\AccountBundle\Entity\User 
+     * @return Doctrine\Common\Collections\Collection 
      */
-    public function getUser()
+    public function getEnvironments()
     {
-        return $this->user;
+        return $this->environments;
     }
 }

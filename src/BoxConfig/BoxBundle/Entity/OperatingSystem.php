@@ -6,13 +6,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 
 /**
- * BoxConfig\BoxBundle\Entity\Operatingsystem
+ * BoxConfig\BoxBundle\Entity\OperatingSystem
  *
- * @ORM\Table(name="operatingsystem")
- * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\OperatingsystemRepository")
+ * @ORM\Table(name="operatingSystem")
+ * @ORM\Entity(repositoryClass="BoxConfig\BoxBundle\Repository\OperatingSystemRepository")
  * @ORM\HasLifecycleCallbacks
  */
-class Operatingsystem
+class OperatingSystem
 {
     /**
      * @var integer $id
@@ -29,17 +29,17 @@ class Operatingsystem
     protected $os;
 
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string", length="255", nullable=true)
      */
     protected $distribution;
 
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string", length="255", nullable=true)
      */
     protected $version;
 
     /**
-     * @ORM\Column(type="string", length="255")
+     * @ORM\Column(type="string", length="255", nullable=true)
      */
     protected $codename;
 
