@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}four-oh-four: not found!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        {% block stylesheets %}{% endblock %}
+        <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="/assets/bootstrap/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/bootstrap/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/bootstrap/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/bootstrap/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="/assets/bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    </head>
+
+    <body>
+
+
+    <div class="container">
+        <div class="hero-unit">
+            <img src="/img/open-box-hi.png" align="right">
+            <h1>404</h1>
+            <h2>Page not found</h2>
+
+            <p>Oh dear! Looks like you did something you weren't supposed to. Or maybe we did something wrong. Schrödinger's cat
+            in our box says that both options are true, so might be best to <a href="{{ path("BoxConfigDefaultBundle_contact") }}">
+            contact us</a>. Either way, we recommend you to NOT PANIC and everything will be all right, eventually.</p>
+            <p>Thanks!</p>
+        </div>
+        <hr>
+        <footer>
+            <p>
+                &copy; <img height="20" style='padding-bottom: 6px' title="Created by NoxLogic" src="/img/logo_noxlogic.jpg"> - {{ "now" | date("Y")}} - All rights reserved.
+
+                <img height="20" style='padding-bottom: 6px' class="pull-right" title="Created with the Symfony2 framework" src="/img/logo_symfony.png">
+                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Source hosted on Github" src="/img/icon-github.png">
+                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Created with Bootstrap" src="/img/logo_bootstrap.png">
+                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Tested with Travis" src="/img/logo_travis.png">
+                <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Written in PHP" src="/img/logo_php.gif">
+            </p>
+        </footer>
+
+    </div>
+
+    <script type="text/javascript" src="/assets/jquery/jquery-1.7.2.min.js"></script>
+    {% block javascripts %}{% endblock %}
+    <script src="/assets/bootstrap/js/bootstrap-transition.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-button.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap-typeahead.js"></script>
+
+    </body>
+</html>
