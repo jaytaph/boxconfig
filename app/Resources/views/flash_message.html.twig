@@ -1,0 +1,16 @@
+<div class="row">
+
+{% for key, flash in app.session.getFlashes() %}
+    <div class="alert alert-{{ key }}">
+        <a class="close" data-dismiss="alert" href="#">&times;</a>
+        {% if key == "success" %}
+        <h4 class="alert-heading">Well done!</h4>
+        {% elseif key == "error" %}
+        <h4 class="alert-heading">Oh snap!</h4>
+        {% elseif key == "info" %}
+        <h4 class="alert-heading">Heads up!</h4>
+        {% endif %}
+        {{ flash }}
+    </div>
+{% endfor %}
+    </div>

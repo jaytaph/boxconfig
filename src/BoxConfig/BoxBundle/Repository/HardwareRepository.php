@@ -44,7 +44,7 @@ class HardwareRepository extends EntityRepository
             SELECT H1.*,
                 (COUNT( DISTINCT T2.id ) / COUNT( DISTINCT T1.id ) *100) AS percentage
             FROM
-                configuration T1, configuration T2, machine M1, hardware H1
+                environment T1, environment T2, machine M1, hardware H1
             WHERE
                 T2.machine_id = M1.id AND M1.hardware_id = H1.id
             GROUP BY

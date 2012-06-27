@@ -70,7 +70,10 @@
         </div>
     </div>
 
+
     <div class="container">
+        {% include "::flash_message.html.twig" %}
+
         {% block body %}{% endblock %}
         {% block widget %}{% endblock %}
         <hr>

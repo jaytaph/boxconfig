@@ -15,18 +15,15 @@ class WidgetController extends Controller
             case "hardware" :
                 $title = "Hardware";
                 $items = $em->getRepository('BoxConfigBoxBundle:Hardware')->getTop(5);
-                $template = "BoxConfigDefaultBundle:Widget:top_hardware.html.twig";
                 break;
             case "ide" :
                 $title = "PHP IDE's";
                 // @TODO: This needs to be created.
                 $items = $em->getRepository('BoxConfigBoxBundle:Software')->getTop(4, 5);
-                $template = "BoxConfigDefaultBundle:Widget:top_software.html.twig";
                 break;
             case "os" :
                 $title = "Operating Systems";
-                $items = $em->getRepository('BoxConfigBoxBundle:Environment')->getTop(5);
-                $template = "BoxConfigDefaultBundle:Widget:top_operatingsystem.html.twig";
+                $items = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->getTop(5);
                 break;
             default :
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
@@ -39,7 +36,7 @@ class WidgetController extends Controller
             return ($a->scalarPercentage < $b->scalarPercentage);
         });
 
-        return $this->render($template, array("title" => $title, "items" => $items));
+        return $this->render("BoxConfigDefaultBundle:Widget:top.html.twig", array("title" => $title, "items" => $items));
     }
 
     public function registerAction()
@@ -53,7 +50,7 @@ class WidgetController extends Controller
 
         switch (rand(1,7)) {
             case 1:
-                $tip = "Did you know you can easily add friends and view their configurations?";
+                $tip = "Did you know you can easily add friends and view their environments?";
                 break;
             case 2:
                 $tip = "Did you know that <b>PHPStorm</b> is the favourite PHP Editor?";

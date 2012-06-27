@@ -120,7 +120,8 @@ class MachineController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('Machine_edit', array('id' => $id)));
+            $this->get('session')->setFlash('success',"Your machine has been updated!");
+            return $this->redirect($this->generateUrl('machine'));
         }
 
         return $this->render('BoxConfigBoxBundle:Machine:edit.html.twig', array(

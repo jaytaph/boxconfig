@@ -1,8 +1,8 @@
 {% extends("BoxConfigDefaultBundle:Default:index.html.twig") %}
 
 {% block main %}
-    <img src="/img/open-box-hi.png" height=50% align="right">
+    <img src="/img/open-box-hi.png" align="right">
     <h2>Welcome back, {{ app.user.fullname }}!</h2>
 
-    <p>You have currently <b>{{ app.user.configurations | length }}</b> configurations registered.</p>
+    <p>You have currently <b>{{ app.user.machines | length }}</b> machines registered.</p>
 {% endblock %}
