@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class MachineRepository extends EntityRepository
 {
+    function getCount()
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+                    ->select('COUNT(m.id)')
+                    ->from('BoxConfig\BoxBundle\Entity\Machine', 'm')
+                    ->getQuery()
+                    ->getSingleScalarResult();
+    }
 }

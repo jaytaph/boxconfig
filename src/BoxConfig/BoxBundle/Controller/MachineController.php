@@ -29,28 +29,6 @@ class MachineController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a Machine entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entity = $em->getRepository('BoxConfigBoxBundle:Machine')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find machine entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('BoxConfigBoxBundle:Machine:show.html.twig', array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-
-        ));
-    }
 
     /**
      * Displays a form to create a new Machine entity.
@@ -84,7 +62,7 @@ class MachineController extends Controller
             $em->flush();
 
             //return new Response("<script>parent.jQuery.fancybox.close();</script>");
-            return $this->redirect($this->generateUrl('machine_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('machine'));
         }
 
         return $this->render('BoxConfigBoxBundle:Machine:new.html.twig', array(

@@ -52,6 +52,8 @@ class Environment
     public function __construct()
     {
         $this->software = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->machine = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->operatingsystem = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**

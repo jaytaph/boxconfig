@@ -70,6 +70,11 @@ class Machine
 
 
 
+    function __toString()
+    {
+        return $this->getName();
+    }
+
     /**
      * Get id
      *

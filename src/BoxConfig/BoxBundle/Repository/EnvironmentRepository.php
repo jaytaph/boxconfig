@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class EnvironmentRepository extends EntityRepository
 {
+    function getCount()
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+                    ->select('COUNT(e.id)')
+                    ->from('BoxConfig\BoxBundle\Entity\Environment', 'e')
+                    ->getQuery()
+                    ->getSingleScalarResult();
+    }
 }

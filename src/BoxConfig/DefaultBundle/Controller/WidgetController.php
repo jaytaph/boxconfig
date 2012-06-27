@@ -51,7 +51,7 @@ class WidgetController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        switch (rand(1,6)) {
+        switch (rand(1,7)) {
             case 1:
                 $tip = "Did you know you can easily add friends and view their configurations?";
                 break;
@@ -59,23 +59,28 @@ class WidgetController extends Controller
                 $tip = "Did you know that <b>PHPStorm</b> is the favourite PHP Editor?";
                 break;
             case 3:
-                $items = $em->getRepository('BoxConfigBoxBundle:Environment')->getTop(1, true);
-                $tip = "Did you know that <b>".(string)$items[0]->getOperatingsystem()."</b> is most virtualized operating system?";
+                $items = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->getTop(1, true);
+                $tip = "Did you know that <b>".(string)$items[0]."</b> is most virtualized operating system?";
                 break;
             case 4:
-                $items = $em->getRepository('BoxConfigBoxBundle:Environment')->getTop(1);
-                $tip = "Did you know that <b>".(string)$items[0]->getOperatingsystem()."</b> is most used operating system?";
+                $items = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->getTop(1);
+                $tip = "Did you know that <b>".(string)$items[0]."</b> is most used operating system?";
                 break;
             case 5:
                 $users = $em->getRepository('BoxConfigAccountBundle:User')->getCount();
-                $machines = $em->getRepository('BoxConfigBoxBundle:Machines')->getCount();
+                $machines = $em->getRepository('BoxConfigBoxBundle:Machine')->getCount();
 
                 $tip = "Our users have on average <b>".round($users / $machines, 2)."</b> machines registered.";
                 break;
+            case 6:
+                $users = $em->getRepository('BoxConfigAccountBundle:User')->getCount();
+                $envs = $em->getRepository('BoxConfigBoxBundle:Environment')->getCount();
 
+                $tip = "Our users have on average <b>".round($users / $envs, 2)."</b> environments registered.";
+                break;
             default:
                 $users = $em->getRepository('BoxConfigAccountBundle:User')->getCount();
-                $machines = $em->getRepository('BoxConfigBoxBundle:Machines')->getCount();
+                $machines = $em->getRepository('BoxConfigBoxBundle:Machine')->getCount();
 
                 $tip = "Did you know that there are currently <b>".$users."</b> registered users with a total of <b>".$machines."</b> boxes?";
                 break;

@@ -22,4 +22,5 @@ BoxConfig
 * [ ] Let friends add kudos to the software you use, and comment on your configs
 * [ ] Add comments to software.
 * [ ] Wizard style addition of data for users.
-* [ ] Rename configuration into machine.
+* [-] Rename configuration into machine.
+* [ ] Box image is too large on the frontpage (get rid of the 50%)

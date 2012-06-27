@@ -2,10 +2,6 @@ machine:
     pattern:  /
     defaults: { _controller: "BoxConfigBoxBundle:Machine:index" }
 
-machine_show:
-    pattern:  /{id}/show
-    defaults: { _controller: "BoxConfigBoxBundle:Machine:show" }
-
 machine_new:
     pattern:  /new
     defaults: { _controller: "BoxConfigBoxBundle:Machine:new" }

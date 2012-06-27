@@ -1,10 +1,10 @@
 {% extends("::base.html.twig") %}
 
 {% block body %}
-<h1>Configuration creation</h1>
-<p>Add a new configuration</p>
+<h1>Machine creation</h1>
+<p>Add a new machine</p>
 
-<form class="form-horizontal" action="{{ path('configuration_create') }}" method="post" {{ form_enctype(form) }}>
+<form class="form-horizontal" action="{{ path('machine_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Create</button>

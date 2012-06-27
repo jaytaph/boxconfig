@@ -20,6 +20,15 @@ class HardwareRepository extends EntityRepository
         $this->getEntityManager()->getConfiguration()->addCustomHydrationMode('ScalarObjectHydrator', 'BoxConfig\DefaultBundle\Hydrators\ScalarObjectHydrator');
     }
 
+    function getCount()
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+                    ->select('COUNT(h.id)')
+                    ->from('BoxConfig\BoxBundle\Entity\Hardware', 'h')
+                    ->getQuery()
+                    ->getSingleScalarResult();
+    }
+
     /**
      * Returns the top X hardware plus their percentage (ie: if half the configurations are based on MacBook, it will return 50%)
      *

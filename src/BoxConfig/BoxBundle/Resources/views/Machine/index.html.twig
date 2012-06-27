@@ -24,8 +24,8 @@
             <tr>
             {# Only display name and hardware on the first entry of each environment #}
             {% if loop.index0 == 0 %}
-                <td><a href="#">{{ machine.name }}</a></td>
-                <td><a href="#">{{ machine.hardware.name }}</a></td>
+                <td><a href="#">{{ machine }}</a></td>
+                <td><a href="#">{{ machine.hardware }}</a></td>
             {% else %}
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -34,7 +34,7 @@
                     {% if env.virtualized %}
                         <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
                     {% endif %}
-                    {{ env.operatingsystem.os }}
+                    {{ env.operatingsystem }}
                 </td>
                 <td>{{ env.software | length }} application(s)</td>
                 <td>
