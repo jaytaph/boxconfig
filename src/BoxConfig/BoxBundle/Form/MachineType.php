@@ -12,9 +12,9 @@ class MachineType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('user')
             ->add('hardware')
-            ->add('active', 'checkbox')
+            ->add('active', 'checkbox', array('required' => false))
+            ->add('environments')
         ;
     }
 

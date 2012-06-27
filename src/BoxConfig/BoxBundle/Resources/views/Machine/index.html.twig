@@ -25,7 +25,7 @@
             {# Only display name and hardware on the first entry of each environment #}
             {% if loop.index0 == 0 %}
                 <td><a href="#">
-                    {% if machine.active == false %}
+                    {% if machine.active == 0 %}
                     <span class="label label-warning">inactive</span>
                     {% endif %}
                     {{ machine }}
@@ -44,17 +44,24 @@
                 <td>{{ env.software | length }} application(s)</td>
                 <td>
                     <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
                     {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
                 </td>
             </tr>
     {% else %}
             <tr>
-                <td><a href="#">{{ machine.name }}</a></td>
+                <td><a href="#">
+                    {% if machine.active == 0 %}
+                    <span class="label label-warning">inactive</span>
+                    {% endif %}
+                    {{ machine }}
+                </a></td>
                 <td><a href="#">{{ machine.hardware.name }}</a></td>
-                <td><span class="label label-important">No environment configured for this machine</span></td>
+                <td><span class="label label-important">No environments configured for this machine</span></td>
                 <td>&nbsp;</td>
                 <td>
                     <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
                     {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
                 </td>
             </tr>

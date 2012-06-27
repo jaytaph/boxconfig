@@ -48,6 +48,14 @@ class Environment
     protected $software;
 
 
+    function __toString()
+    {
+        $str = (string)$this->getOperatingsystem();
+        if ($this->virtualized) {
+            $str .= " (virtualized)";
+        }
+        return $str;
+    }
 
     public function __construct()
     {
