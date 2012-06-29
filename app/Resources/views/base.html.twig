@@ -52,6 +52,7 @@
                         <li><a href="{{ path("BoxConfigDefaultBundle_contact") }}">Contact</a></li>
 
 {% if app.user %}
+{# This will be shown when we have logged in #}
                         <li class="divider-vertical"></li>
                         <li><a href="{{ path("machine") }}">Machines {{ badge_machine(app.user) }}</a></li>
                         <li><a href="{{ path("software") }}">Software {{ badge_software(app.user) }}</a></li>
@@ -61,6 +62,7 @@
                         <li><a href="{{ path("fos_user_security_logout") }}">Profile</a></li>
                         <li><a href="{{ path("fos_user_security_logout") }}">Logout</a></li>
 {% else %}
+{# Anonymous / non-logged in menu bar #}
                         <li><a href="{{ path("fos_user_security_login") }}">Login</a></li>
                         <li><a href="{{ path("fos_user_registration_register") }}">Register</a></li>
 {% endif %}
