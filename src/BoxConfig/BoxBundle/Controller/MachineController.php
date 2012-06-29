@@ -5,6 +5,12 @@ namespace BoxConfig\BoxBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Acl\Domain\ObjectIdentity;
+use Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
+use Symfony\Component\Security\Acl\Domain\RoleSecurityIdentity;
+use Symfony\Component\Security\Acl\Permission\MaskBuilder;
+
 use BoxConfig\BoxBundle\Entity\Machine;
 use BoxConfig\BoxBundle\Form\MachineType;
 
@@ -22,7 +28,9 @@ class MachineController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('BoxConfigBoxBundle:Machine')->findAll();
+        // Only fetch items from the current user
+        $user = $this->get("security.context")->getToken()->getUser();
+        $entities = $em->getRepository('BoxConfigBoxBundle:Machine')->findByUser($user->getId());
 
         return $this->render('BoxConfigBoxBundle:Machine:index.html.twig', array(
             'entities' => $entities
@@ -56,12 +64,31 @@ class MachineController extends Controller
         $form    = $this->createForm(new MachineType(), $entity);
         $form->bindRequest($request);
 
+        $user = $this->get("security.context")->getToken()->getUser();
+        $entity->setUser($user);
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($entity);
             $em->flush();
 
-            //return new Response("<script>parent.jQuery.fancybox.close();</script>");
+            // create the ACL
+            $aclProvider = $this->get('security.acl.provider');
+            $objectIdentity = ObjectIdentity::fromDomainObject($entity);
+            $acl = $aclProvider->createAcl($objectIdentity);
+
+            // retrieving the security identity of the currently logged-in user
+            $securityContext = $this->get('security.context');
+            $user = $securityContext->getToken()->getUser();
+            $securityIdentity = UserSecurityIdentity::fromAccount($user);
+            $roleSecurityIdentity = new RoleSecurityIdentity('ROLE_ADMIN');
+
+            // grant owner access
+            $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OPERATOR);
+            $acl->insertObjectAce($roleSecurityIdentity, MaskBuilder::MASK_MASTER);
+            $aclProvider->updateAcl($acl);
+
+            $this->get('session')->setFlash('success',"A new machine has been created!");
             return $this->redirect($this->generateUrl('machine'));
         }
 
@@ -80,9 +107,14 @@ class MachineController extends Controller
         $em = $this->getDoctrine()->getEntityManager();
 
         $entity = $em->getRepository('BoxConfigBoxBundle:Machine')->find($id);
-
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Machine entity.');
+        }
+
+        $securityContext = $this->get('security.context');
+        if ($securityContext->isGranted('EDIT', $entity) == false)
+        {
+            throw new AccessDeniedException();
         }
 
         $editForm = $this->createForm(new MachineType(), $entity);
@@ -137,6 +169,19 @@ class MachineController extends Controller
      */
     public function deleteAction($id)
     {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $entity = $em->getRepository('BoxConfigBoxBundle:Machine')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Machine entity.');
+        }
+
+        $securityContext = $this->get('security.context');
+        if ($securityContext->isGranted('DELETE', $entity) == false)
+        {
+            throw new AccessDeniedException();
+        }
+
         $form = $this->createDeleteForm($id);
         $request = $this->getRequest();
 
