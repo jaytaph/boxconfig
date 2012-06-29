@@ -15,15 +15,23 @@ class WidgetController extends Controller
             case "hardware" :
                 $title = "Hardware";
                 $items = $em->getRepository('BoxConfigBoxBundle:Hardware')->getTop(5);
+                $path = "hardware_show";
                 break;
             case "ide" :
                 $title = "PHP IDE's";
                 // @TODO: This needs to be created.
                 $items = $em->getRepository('BoxConfigBoxBundle:Software')->getTop(4, 5);
+                $path = "";
                 break;
             case "os" :
                 $title = "Operating Systems";
                 $items = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->getTop(5);
+                $path = "operatingsystem_show";
+                break;
+            case "os" :
+                $title = "Software";
+                $items = $em->getRepository('BoxConfigBoxBundle:Software')->getTop(5);
+                $path = "software_show";
                 break;
             default :
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();
@@ -36,7 +44,7 @@ class WidgetController extends Controller
             return ($a->scalarPercentage < $b->scalarPercentage);
         });
 
-        return $this->render("BoxConfigDefaultBundle:Widget:top.html.twig", array("title" => $title, "items" => $items));
+        return $this->render("BoxConfigDefaultBundle:Widget:top.html.twig", array("title" => $title, "items" => $items, "linkpath" => $path));
     }
 
     public function registerAction()

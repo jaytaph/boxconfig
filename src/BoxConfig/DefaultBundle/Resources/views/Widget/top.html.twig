@@ -3,7 +3,7 @@
         <h3>Top {{ items | length }} {{ title }}</h3>
         <table class="table ">
 {% for item in items %}
-            <tr><td>{{ loop.index }}</td><td><a href="#">{{ item }}</a></td><td>({{ "%.2f %%" | format(item.scalarPercentage) }})</td></tr>
+            <tr><td>{{ loop.index }}</td><td><a href="{{ path(linkpath, { id: item.id }) }}">{{ item }}</a></td><td>({{ "%.2f %%" | format(item.scalarPercentage) }})</td></tr>
 {% endfor %}
         </table>
         <p><a class="btn" href="#">View more &raquo;</a></p>
