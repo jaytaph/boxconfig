@@ -1,13 +1,14 @@
-<h1>Operatingsystem</h1>
+{% extends("::base.html.twig") %}
 
-<table class="record_properties">
+{% block body %}
+
+<span class="pull-left"><img src="/uploads/operatingsystem/thumb-260-180-debianlogo.png"></span>
+<h1>{{ entity }}</h1>
+
+<table class="table">
     <tbody>
         <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Os</th>
+            <th>Operating system</th>
             <td>{{ entity.os }}</td>
         </tr>
         <tr>
@@ -18,24 +19,17 @@
             <th>Version</th>
             <td>{{ entity.version }}</td>
         </tr>
+        <tr>
+            <th>Codename</th>
+            <td>{{ entity.codename }}</td>
+        </tr>
+
     </tbody>
 </table>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('operatingsystem') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('operatingsystem_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('operatingsystem_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{#<a class="btn btn-primary" href="{{ path('hardware') }}">#}
+    {#Back to the list#}
+{#</a>#}
+
+
+{% endblock %}

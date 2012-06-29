@@ -1,62 +1,45 @@
 {% extends("::base.html.twig") %}
 
 {% block body %}
-<h1>Software</h1>
 
-<table class="record_properties">
+<span class="pull-left"><img src="/uploads/software/thumb-260-180-phpstorm-logo.jpg"></span>
+<h1>{{ entity }}</h1>
+
+<table class="table">
     <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{ entity.name }}</td>
-        </tr>
-        <tr>
-            <th>Manufacturer</th>
-            <td>{{ entity.manufacturer }}</td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td>{{ entity.description }}</td>
-        </tr>
-        <tr>
-            <th>Url</th>
-            <td>{{ entity.url }}</td>
-        </tr>
-        <tr>
-            <th>Opensource</th>
-            <td>{{ entity.opensource }}</td>
-        </tr>
-        <tr>
-            <th>Demo</th>
-            <td>{{ entity.demo }}</td>
-        </tr>
-        <tr>
-            <th>Opensourcelicense</th>
-            <td>{{ entity.opensourcelicense }}</td>
-        </tr>
+    <tr>
+        <th>Name</th>
+        <td>{{ entity.name }}</td>
+    </tr>
+    <tr>
+        <th>Manufacturer</th>
+        <td>{{ entity.manufacturer }}</td>
+    </tr>
+    <tr>
+        <th>Description</th>
+        <td>{{ entity.description | nl2br }}</td>
+    </tr>
+    <tr>
+        <th>Url</th>
+        <td><a href="{{ entity.url }}">{{ entity.url }}</a></td>
+    </tr>
+    <tr>
+        <th>Opensource</th>
+        <td>{{ entity.opensource ? "yes" : "no" }}</td>
+    </tr>
+    <tr>
+        <th>Demo</th>
+        <td>{{ entity.demo ? "yes" : "no" }}</td>
+    </tr>
+    <tr>
+        <th>Opensourcelicense</th>
+        <td>{{ entity.opensourcelicense }}</td>
+    </tr>
     </tbody>
 </table>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('software') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('software_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('software_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{#<a class="btn btn-primary" href="{{ path('hardware') }}">#}
+    {#Back to the list#}
+{#</a>#}
 
 {% endblock %}
