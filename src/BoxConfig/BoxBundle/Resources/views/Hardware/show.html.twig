@@ -1,0 +1,22 @@
+{% extends("::base.html.twig") %}
+
+{% block body %}
+
+<span class="pull-left"><img src="/uploads/hardware/thumb-260-180-macbookpro13inch.jpg"></span>
+<h1>{{ entity.name }}</h1>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Description</th>
+            <td>{{ entity.description | nl2br }}</td>
+        </tr>
+    </tbody>
+</table>
+
+{#<a class="btn btn-primary" href="{{ path('hardware') }}">#}
+    {#Back to the list#}
+{#</a>#}
+
+
+{% endblock %}

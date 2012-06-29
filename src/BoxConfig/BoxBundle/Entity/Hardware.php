@@ -28,12 +28,11 @@ class Hardware
      */
     protected $name;
 
-    // TODO: Add more stuff: images, descriptions, hardware list etc
-
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    protected $description;
+    public $description;
+
 
     function __toString() {
         return $this->getName();
@@ -44,7 +43,7 @@ class Hardware
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -64,7 +63,7 @@ class Hardware
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -84,7 +83,7 @@ class Hardware
     /**
      * Get description
      *
-     * @return text 
+     * @return text
      */
     public function getDescription()
     {

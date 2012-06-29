@@ -13,3 +13,7 @@ BoxConfigBoxBundle_operatingsystem:
 BoxConfigBoxBundle_machine:
     resource: "@BoxConfigBoxBundle/Resources/config/routing/machine.yml"
     prefix:   /machine
+
+BoxConfigBoxBundle_hardware:
+    resource: "@BoxConfigBoxBundle/Resources/config/routing/hardware.yml"
+    prefix:   /hardware
