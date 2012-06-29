@@ -24,3 +24,6 @@ BoxConfig
 * [ ] Wizard style addition of data for users.
 * [X] Rename configuration into machine.
 * [X] Box image is too large on the frontpage (get rid of the 50%)
+* [ ] Let user upload images to hardware/software/operatingsystems
+* [ ] Add links that allow users to add hardware/software/OS
+* [ ] View more in the top-widgets should point to a TOP-X page (paginated) page.
