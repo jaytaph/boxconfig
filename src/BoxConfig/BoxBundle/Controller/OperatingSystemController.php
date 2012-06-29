@@ -4,47 +4,47 @@ namespace BoxConfig\BoxBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use BoxConfig\BoxBundle\Entity\BaseOperatingSystem;
-use BoxConfig\BoxBundle\Form\BaseOperatingSystemType;
+use BoxConfig\BoxBundle\Entity\OperatingSystem;
+use BoxConfig\BoxBundle\Form\OperatingSystemType;
 
 /**
- * BaseOperatingSystem controller.
+ * OperatingSystem controller.
  *
  */
-class BaseOperatingSystemController extends Controller
+class OperatingSystemController extends Controller
 {
     /**
-     * Lists all BaseOperatingSystem entities.
+     * Lists all OperatingSystem entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('BoxConfigBoxBundle:BaseOperatingSystem')->findAll();
+        $entities = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->findAll();
 
-        return $this->render('BoxConfigBoxBundle:BaseOperatingSystem:index.html.twig', array(
+        return $this->render('BoxConfigBoxBundle:OperatingSystem:index.html.twig', array(
             'entities' => $entities
         ));
     }
 
     /**
-     * Finds and displays a BaseOperatingSystem entity.
+     * Finds and displays a OperatingSystem entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('BoxConfigBoxBundle:BaseOperatingSystem')->find($id);
+        $entity = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find BaseOperatingSystem entity.');
+            throw $this->createNotFoundException('Unable to find OperatingSystem entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BoxConfigBoxBundle:BaseOperatingSystem:show.html.twig', array(
+        return $this->render('BoxConfigBoxBundle:OperatingSystem:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
 
@@ -52,29 +52,29 @@ class BaseOperatingSystemController extends Controller
     }
 
     /**
-     * Displays a form to create a new BaseOperatingSystem entity.
+     * Displays a form to create a new OperatingSystem entity.
      *
      */
     public function newAction()
     {
-        $entity = new BaseOperatingSystem();
-        $form   = $this->createForm(new BaseOperatingSystemType(), $entity);
+        $entity = new OperatingSystem();
+        $form   = $this->createForm(new OperatingSystemType(), $entity);
 
-        return $this->render('BoxConfigBoxBundle:BaseOperatingSystem:new.html.twig', array(
+        return $this->render('BoxConfigBoxBundle:OperatingSystem:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
         ));
     }
 
     /**
-     * Creates a new BaseOperatingSystem entity.
+     * Creates a new OperatingSystem entity.
      *
      */
     public function createAction()
     {
-        $entity  = new BaseOperatingSystem();
+        $entity  = new OperatingSystem();
         $request = $this->getRequest();
-        $form    = $this->createForm(new BaseOperatingSystemType(), $entity);
+        $form    = $this->createForm(new OperatingSystemType(), $entity);
         $form->bindRequest($request);
 
         if ($form->isValid()) {
@@ -82,34 +82,34 @@ class BaseOperatingSystemController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('BaseOperatingSystem_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('OperatingSystem_show', array('id' => $entity->getId())));
             
         }
 
-        return $this->render('BoxConfigBoxBundle:BaseOperatingSystem:new.html.twig', array(
+        return $this->render('BoxConfigBoxBundle:OperatingSystem:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView()
         ));
     }
 
     /**
-     * Displays a form to edit an existing BaseOperatingSystem entity.
+     * Displays a form to edit an existing OperatingSystem entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('BoxConfigBoxBundle:BaseOperatingSystem')->find($id);
+        $entity = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find BaseOperatingSystem entity.');
+            throw $this->createNotFoundException('Unable to find OperatingSystem entity.');
         }
 
-        $editForm = $this->createForm(new BaseOperatingSystemType(), $entity);
+        $editForm = $this->createForm(new OperatingSystemType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('BoxConfigBoxBundle:BaseOperatingSystem:edit.html.twig', array(
+        return $this->render('BoxConfigBoxBundle:OperatingSystem:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -117,20 +117,20 @@ class BaseOperatingSystemController extends Controller
     }
 
     /**
-     * Edits an existing BaseOperatingSystem entity.
+     * Edits an existing OperatingSystem entity.
      *
      */
     public function updateAction($id)
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('BoxConfigBoxBundle:BaseOperatingSystem')->find($id);
+        $entity = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find BaseOperatingSystem entity.');
+            throw $this->createNotFoundException('Unable to find OperatingSystem entity.');
         }
 
-        $editForm   = $this->createForm(new BaseOperatingSystemType(), $entity);
+        $editForm   = $this->createForm(new OperatingSystemType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();
@@ -141,10 +141,10 @@ class BaseOperatingSystemController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('BaseOperatingSystem_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('OperatingSystem_edit', array('id' => $id)));
         }
 
-        return $this->render('BoxConfigBoxBundle:BaseOperatingSystem:edit.html.twig', array(
+        return $this->render('BoxConfigBoxBundle:OperatingSystem:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -152,7 +152,7 @@ class BaseOperatingSystemController extends Controller
     }
 
     /**
-     * Deletes a BaseOperatingSystem entity.
+     * Deletes a OperatingSystem entity.
      *
      */
     public function deleteAction($id)
@@ -164,17 +164,17 @@ class BaseOperatingSystemController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
-            $entity = $em->getRepository('BoxConfigBoxBundle:BaseOperatingSystem')->find($id);
+            $entity = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find BaseOperatingSystem entity.');
+                throw $this->createNotFoundException('Unable to find OperatingSystem entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('BaseOperatingSystem'));
+        return $this->redirect($this->generateUrl('OperatingSystem'));
     }
 
     private function createDeleteForm($id)
