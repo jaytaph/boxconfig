@@ -17,3 +17,7 @@ BoxConfigBoxBundle_machine:
 BoxConfigBoxBundle_hardware:
     resource: "@BoxConfigBoxBundle/Resources/config/routing/hardware.yml"
     prefix:   /hardware
+
+BoxConfigBoxBundle_environment:
+    resource: "@BoxConfigBoxBundle/Resources/config/routing/environment.yml"
+    prefix:   /machine/{machine_id}

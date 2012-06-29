@@ -1,0 +1,22 @@
+environment_new:
+    pattern:  /environment/new
+    defaults: { _controller: "BoxConfigBoxBundle:Environment:new" }
+
+environment_create:
+    pattern:  /environment/create
+    defaults: { _controller: "BoxConfigBoxBundle:Environment:create" }
+    requirements: { _method: post }
+
+environment_edit:
+    pattern:  /environment/{id}/edit
+    defaults: { _controller: "BoxConfigBoxBundle:Environment:edit" }
+
+environment_update:
+    pattern:  /environment/{id}/update
+    defaults: { _controller: "BoxConfigBoxBundle:Environment:update" }
+    requirements: { _method: post }
+
+environment_delete:
+    pattern:  /environment/{id}/delete
+    defaults: { _controller: "BoxConfigBoxBundle:Environment:delete" }
+    requirements: { _method: post }

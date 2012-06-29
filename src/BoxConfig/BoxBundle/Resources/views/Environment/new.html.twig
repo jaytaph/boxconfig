@@ -1,0 +1,24 @@
+{% extends("::base.html.twig") %}
+
+{% block body %}
+
+{% if machine.environments | length == 0 %}
+<h1>Create a primary environment to {{ machine }}</h1>
+<p>You are about to add your first environment to your machine. This environment is the main operating system of your
+machine. If you have multiple OS'es, don't worry, you can add more afterwards. Also, don't worry about any ordering.
+Just because it's the first OS, doesn't make it special</p>
+{% else %}
+<h1>Add another environment to {{ machine }}</h1>
+<p>If you have more than one operating systems running on your system, here is your change to add them as well. It is
+also possible that you have virtual machines running in your system. This is also the place to add them. Make sure you
+check the 'virtualized' checkbox to let us know it's a virtualized environment!</p>
+{% endif %}
+
+<form class="form-horizontal well" action="{{ path('environment_create', { "machine_id" : machine.id } ) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>
+
+{% endblock %}

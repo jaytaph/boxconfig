@@ -51,7 +51,7 @@ class Machine
     /**
      * @ORM\Column(name="active", type="boolean")
      */
-    protected $active;
+    protected $active = true;
 
     /**
      * @ORM\Column(name="start_dt", type="date", nullable=true)

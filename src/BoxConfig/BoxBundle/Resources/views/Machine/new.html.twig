@@ -1,10 +1,25 @@
 {% extends("::base.html.twig") %}
 
 {% block body %}
-<h1>Machine creation</h1>
-<p>Add a new machine</p>
+{% if app.user.machines | length == 0 %}
+    <h1>It looks like it's the first time you add a machine!</h1>
+    <p>Awesome. You are about to enter a machine. This can be a laptop, your home computer, maybe even your servers! At
+    this point you don't need to worry about all the operating systems and software running on it. We take care of that
+    later. Just select the hardware type (or add a new hardware profile if it doesn't exist yet!), and enter the name,
+    description and anything else you like here. Did you know that most developers use female names for their computers?
+    Also planets and mythylogical figure are high on the names list. You wouldn't be the first one that named their
+    machine Zeus :) </p>
+{% elseif app.user.machines | length == 1 %}
+    <h1>All right! Time for your second machine!</h1>
+    <p>Now we can enter a second machine, and maybe even a third or fourth? A quick tip: if you don't use a machine
+    anymore, you can mark it as inactive. However, I think you already grasp the basics of adding a machine, so here
+    you go!</p>
+{% elseif app.user.machines | length >= 2 %}
+    <h1>Add another machine</h1>
+    <p>You probably know the drill by now. No need to tell you about adding new machines!</p>
+{% endif %}
 
-<form class="form-horizontal" action="{{ path('machine_create') }}" method="post" {{ form_enctype(form) }}>
+<form class="form-horizontal well" action="{{ path('machine_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Create</button>
