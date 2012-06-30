@@ -86,3 +86,9 @@ mopa_bootstrap:
     form:
         render_fieldset: false
         show_legend: false
+
+knp_menu:
+    twig:
+        template: ::knp_menu.html.twig
+    templating: false
+    default_renderer: twig

@@ -84,3 +84,11 @@
     git = git://github.com/ornicar/GravatarBundle.git
     target = /bundles/Ornicar/GravatarBundle
 
+[KnpMenu]
+    git=https://github.com/KnpLabs/KnpMenu.git
+    version=v1.1.2
+
+[KnpMenuBundle]
+    git=https://github.com/KnpLabs/KnpMenuBundle.git
+    target=bundles/Knp/Bundle/MenuBundle
+    version=v1.1.0

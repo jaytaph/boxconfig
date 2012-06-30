@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\DoctrineFixturesBundle\DoctrineFixturesBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new Ornicar\GravatarBundle\OrnicarGravatarBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
 
             new BoxConfig\DefaultBundle\BoxConfigDefaultBundle(),
             new BoxConfig\AccountBundle\BoxConfigAccountBundle(),

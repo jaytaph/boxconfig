@@ -19,6 +19,8 @@ $loader->registerNamespaces(array(
     'Doctrine\\Common' => __DIR__.'/../vendor/doctrine-common/lib',
     'Mopa'             => __DIR__.'/../vendor/bundles',
     'Ornicar'          => __DIR__.'/../vendor/bundles',
+    'Knp\Bundle'       => __DIR__.'/../vendor/bundles',
+    'Knp\Menu'         => __DIR__.'/../vendor/KnpMenu/src',
 ));
 $loader->registerPrefixes(array(
     'Twig_Extensions_' => __DIR__.'/../vendor/twig-extensions/lib',

@@ -46,27 +46,7 @@
                 </a>
                 <a class="brand" href="#">box-config.com</a>
                 <div class="nav-collapse">
-                    <ul class="nav pull-right">
-                        <li class="active"><a href="{{ path("BoxConfigDefaultBundle_homepage") }}">Home</a></li>
-                        <li><a href="{{ path("BoxConfigDefaultBundle_about") }}">About</a></li>
-                        <li><a href="{{ path("BoxConfigDefaultBundle_contact") }}">Contact</a></li>
-
-{% if app.user %}
-{# This will be shown when we have logged in #}
-                        <li class="divider-vertical"></li>
-                        <li><a href="{{ path("machine") }}">Machines {{ badge_machine(app.user) }}</a></li>
-                        <li><a href="{{ path("software") }}">Software {{ badge_software(app.user) }}</a></li>
-
-                        <li class="divider-vertical"></li>
-                        <li><p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p></li>
-                        <li><a href="{{ path("fos_user_security_logout") }}">Profile</a></li>
-                        <li><a href="{{ path("fos_user_security_logout") }}">Logout</a></li>
-{% else %}
-{# Anonymous / non-logged in menu bar #}
-                        <li><a href="{{ path("fos_user_security_login") }}">Login</a></li>
-                        <li><a href="{{ path("fos_user_registration_register") }}">Register</a></li>
-{% endif %}
-                    </ul>
+                    {{ knp_menu_render('BoxConfigDefaultBundle:Builder:mainMenu', {'currentClass': 'active'}) }}
                 </div><!--/.nav-collapse -->
             </div>
         </div>
