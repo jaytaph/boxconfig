@@ -1,22 +1,6 @@
-BoxConfigBoxBundle_software:
-    resource: "@BoxConfigBoxBundle/Resources/config/routing/software.yml"
-    prefix:   /software
-
-BoxConfigBoxBundle_softwarecategory:
-    resource: "@BoxConfigBoxBundle/Resources/config/routing/softwarecategory.yml"
-    prefix:   /softwarecategory
-
-BoxConfigBoxBundle_operatingsystem:
-    resource: "@BoxConfigBoxBundle/Resources/config/routing/operatingsystem.yml"
-    prefix:   /operatingsystem
-
 BoxConfigBoxBundle_machine:
     resource: "@BoxConfigBoxBundle/Resources/config/routing/machine.yml"
     prefix:   /machine
-
-BoxConfigBoxBundle_hardware:
-    resource: "@BoxConfigBoxBundle/Resources/config/routing/hardware.yml"
-    prefix:   /hardware
 
 BoxConfigBoxBundle_environment:
     resource: "@BoxConfigBoxBundle/Resources/config/routing/environment.yml"

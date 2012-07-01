@@ -1,0 +1,30 @@
+hardware:
+    pattern:  /
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:index" }
+
+hardware_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:show" }
+
+hardware_new:
+    pattern:  /new
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:new" }
+
+hardware_create:
+    pattern:  /create
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:create" }
+    requirements: { _method: post }
+
+hardware_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:edit" }
+
+hardware_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:update" }
+    requirements: { _method: post }
+
+hardware_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:delete" }
+    requirements: { _method: post }

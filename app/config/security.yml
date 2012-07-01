@@ -26,9 +26,7 @@ security:
         - { path: ^/widget/userpanel, role: ROLE_USER }
         - { path: ^/widget/adminpanel, role: ROLE_ADMIN }
         - { path: ^/widget/match, role: ROLE_USER }
-        - { path: ^/box/hardware/\d+/show, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/box/software/\d+/show, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/box/operatingsystem/\d+/show, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/component, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/box, role: ROLE_USER }
 
     role_hierarchy:

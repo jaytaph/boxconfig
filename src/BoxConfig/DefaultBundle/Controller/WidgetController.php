@@ -14,23 +14,23 @@ class WidgetController extends Controller
         switch ($slug) {
             case "hardware" :
                 $title = "Hardware";
-                $items = $em->getRepository('BoxConfigBoxBundle:Hardware')->getTop(5);
+                $items = $em->getRepository('BoxConfigComponentBundle:Hardware')->getTop(5);
                 $path = "hardware_show";
                 break;
             case "ide" :
                 $title = "PHP IDE's";
                 // @TODO: This needs to be created.
-                $items = $em->getRepository('BoxConfigBoxBundle:Software')->getTop(4, 5);
+                $items = $em->getRepository('BoxConfigComponentBundle:Software')->getTop(4, 5);
                 $path = "";
                 break;
             case "os" :
                 $title = "Operating Systems";
-                $items = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->getTop(5);
+                $items = $em->getRepository('BoxConfigComponentBundle:OperatingSystem')->getTop(5);
                 $path = "operatingsystem_show";
                 break;
             case "os" :
                 $title = "Software";
-                $items = $em->getRepository('BoxConfigBoxBundle:Software')->getTop(5);
+                $items = $em->getRepository('BoxConfigComponentBundle:Software')->getTop(5);
                 $path = "software_show";
                 break;
             default :
@@ -64,11 +64,11 @@ class WidgetController extends Controller
                 $tip = "Did you know that <b>PHPStorm</b> is the favourite PHP Editor?";
                 break;
             case 3:
-                $items = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->getTop(1, true);
+                $items = $em->getRepository('BoxConfigComponentBundle:OperatingSystem')->getTop(1, true);
                 $tip = "Did you know that <b>".(string)$items[0]."</b> is most virtualized operating system?";
                 break;
             case 4:
-                $items = $em->getRepository('BoxConfigBoxBundle:OperatingSystem')->getTop(1);
+                $items = $em->getRepository('BoxConfigComponentBundle:OperatingSystem')->getTop(1);
                 $tip = "Did you know that <b>".(string)$items[0]."</b> is most used operating system?";
                 break;
             case 5:

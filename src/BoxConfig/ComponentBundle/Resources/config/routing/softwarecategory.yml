@@ -1,0 +1,30 @@
+softwarecategory:
+    pattern:  /
+    defaults: { _controller: "BoxConfigComponentBundle:SoftwareCategory:index" }
+
+softwarecategory_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BoxConfigComponentBundle:SoftwareCategory:show" }
+
+softwarecategory_new:
+    pattern:  /new
+    defaults: { _controller: "BoxConfigComponentBundle:SoftwareCategory:new" }
+
+softwarecategory_create:
+    pattern:  /create
+    defaults: { _controller: "BoxConfigComponentBundle:SoftwareCategory:create" }
+    requirements: { _method: post }
+
+softwarecategory_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BoxConfigComponentBundle:SoftwareCategory:edit" }
+
+softwarecategory_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BoxConfigComponentBundle:SoftwareCategory:update" }
+    requirements: { _method: post }
+
+softwarecategory_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BoxConfigComponentBundle:SoftwareCategory:delete" }
+    requirements: { _method: post }

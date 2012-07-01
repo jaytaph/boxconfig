@@ -30,7 +30,7 @@ class Machine
     protected $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\Hardware")
+     * @ORM\ManyToOne(targetEntity="BoxConfig\ComponentBundle\Entity\Hardware")
      */
     protected $hardware;
 
@@ -208,9 +208,9 @@ class Machine
     /**
      * Set hardware
      *
-     * @param BoxConfig\BoxBundle\Entity\Hardware $hardware
+     * @param BoxConfig\ComponentBundle\Entity\Hardware $hardware
      */
-    public function setHardware(\BoxConfig\BoxBundle\Entity\Hardware $hardware)
+    public function setHardware(\BoxConfig\ComponentBundle\Entity\Hardware $hardware)
     {
         $this->hardware = $hardware;
     }
@@ -218,7 +218,7 @@ class Machine
     /**
      * Get hardware
      *
-     * @return BoxConfig\BoxBundle\Entity\Hardware 
+     * @return BoxConfig\ComponentBundle\Entity\Hardware
      */
     public function getHardware()
     {

@@ -31,7 +31,7 @@ class Environment
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="BoxConfig\BoxBundle\Entity\OperatingSystem")
+     * @ORM\ManyToOne(targetEntity="BoxConfig\ComponentBundle\Entity\OperatingSystem")
      */
     protected $operatingsystem;
 
@@ -43,7 +43,7 @@ class Environment
 
     // ManyToMany for now. Change this if we need more info about the software on your system (like custom messages)
     /**
-     * @ORM\ManyToMany(targetEntity="BoxConfig\BoxBundle\Entity\Software")
+     * @ORM\ManyToMany(targetEntity="BoxConfig\ComponentBundle\Entity\Software")
      */
     protected $software;
 
@@ -95,9 +95,9 @@ class Environment
     /**
      * Set operatingsystem
      *
-     * @param BoxConfig\BoxBundle\Entity\OperatingSystem $operatingsystem
+     * @param BoxConfig\ComponentBundle\Entity\OperatingSystem $operatingsystem
      */
-    public function setOperatingsystem(\BoxConfig\BoxBundle\Entity\OperatingSystem $operatingsystem)
+    public function setOperatingsystem(\BoxConfig\ComponentBundle\Entity\OperatingSystem $operatingsystem)
     {
         $this->operatingsystem = $operatingsystem;
     }
@@ -105,7 +105,7 @@ class Environment
     /**
      * Get operatingsystem
      *
-     * @return BoxConfig\BoxBundle\Entity\OperatingSystem 
+     * @return BoxConfig\ComponentBundle\Entity\OperatingSystem
      */
     public function getOperatingsystem()
     {
@@ -115,7 +115,7 @@ class Environment
     /**
      * Set machine
      *
-     * @param BoxConfig\BoxBundle\Entity\Machine $machine
+     * @param BoxConfig\ComponentBundle\Entity\Machine $machine
      */
     public function setMachine(\BoxConfig\BoxBundle\Entity\Machine $machine)
     {
@@ -135,9 +135,9 @@ class Environment
     /**
      * Add software
      *
-     * @param BoxConfig\BoxBundle\Entity\Software $software
+     * @param BoxConfig\ComponentBundle\Entity\Software $software
      */
-    public function addSoftware(\BoxConfig\BoxBundle\Entity\Software $software)
+    public function addSoftware(\BoxConfig\ComponentBundle\Entity\Software $software)
     {
         $this->software[] = $software;
     }

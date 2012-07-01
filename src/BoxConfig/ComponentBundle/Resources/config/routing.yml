@@ -1,0 +1,15 @@
+BoxConfigComponentBundle_software:
+    resource: "@BoxConfigComponentBundle/Resources/config/routing/software.yml"
+    prefix:   /software
+
+BoxConfigComponentBundle_softwarecategory:
+    resource: "@BoxConfigComponentBundle/Resources/config/routing/softwarecategory.yml"
+    prefix:   /softwarecategory
+
+BoxConfigComponentBundle_operatingsystem:
+    resource: "@BoxConfigComponentBundle/Resources/config/routing/operatingsystem.yml"
+    prefix:   /operatingsystem
+
+BoxConfigComponentBundle_hardware:
+    resource: "@BoxConfigComponentBundle/Resources/config/routing/hardware.yml"
+    prefix:   /hardware
