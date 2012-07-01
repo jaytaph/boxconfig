@@ -5,7 +5,7 @@
 {% block body %}
 
 <h2>Your machine list</h2>
-<p>This is a list of all the machines you currently own</p>
+<p>This is a list of all the machines you currently own, together with the environments and software packages installed.</p>
 <div class="container well">
 
     <table class="table records_list">
@@ -43,8 +43,11 @@
                 </td>
                 <td>{{ env.software | length }} application(s)</td>
                 <td>
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit</a>
                     <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
+            {% if loop.index0 == 0 %}
+                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
+            {% else %}
+            {% endif %}
                     {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
                 </td>
             </tr>
@@ -60,8 +63,11 @@
                 <td><span class="label label-important">No environments configured for this machine</span></td>
                 <td>&nbsp;</td>
                 <td>
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit</a>
                     <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
+            {% if loop.index0 == 0 %}
+                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
+            {% else %}
+            {% endif %}
                     {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
                 </td>
             </tr>
