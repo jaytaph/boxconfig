@@ -72,21 +72,7 @@ class MachineController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            // create the ACL
-            $aclProvider = $this->get('security.acl.provider');
-            $objectIdentity = ObjectIdentity::fromDomainObject($entity);
-            $acl = $aclProvider->createAcl($objectIdentity);
-
-            // retrieving the security identity of the currently logged-in user
-            $securityContext = $this->get('security.context');
-            $user = $securityContext->getToken()->getUser();
-            $securityIdentity = UserSecurityIdentity::fromAccount($user);
-            $roleSecurityIdentity = new RoleSecurityIdentity('ROLE_ADMIN');
-
-            // grant owner access
-            $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OPERATOR);
-            $acl->insertObjectAce($roleSecurityIdentity, MaskBuilder::MASK_MASTER);
-            $aclProvider->updateAcl($acl);
+            $this->assignAcl($entity);
 
             $this->get('session')->setFlash('success',"A new machine has been created!");
             return $this->redirect($this->generateUrl('machine'));
@@ -208,5 +194,23 @@ class MachineController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+
+    private function assignAcl($entity) {
+        // create the ACL
+        $aclProvider = $this->get('security.acl.provider');
+        $objectIdentity = ObjectIdentity::fromDomainObject($entity);
+        $acl = $aclProvider->createAcl($objectIdentity);
+
+        // retrieving the security identity of the currently logged-in user
+        $securityContext = $this->get('security.context');
+        $user = $securityContext->getToken()->getUser();
+        $securityIdentity = UserSecurityIdentity::fromAccount($user);
+        $roleSecurityIdentity = new RoleSecurityIdentity('ROLE_ADMIN');
+
+        // grant owner access
+        $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OPERATOR);
+        $acl->insertObjectAce($roleSecurityIdentity, MaskBuilder::MASK_MASTER);
+        $aclProvider->updateAcl($acl);
     }
 }

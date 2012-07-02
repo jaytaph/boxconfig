@@ -1,7 +1,7 @@
 parameters:
-#    box_config_default.example.class: BoxConfig\DefaultBundle\Example
 
 services:
-#    box_config_default.example:
-#        class: %box_config_default.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    security.acl.object_identity_retrieval_strategy:
+        class:     BoxConfig\DefaultBundle\Security\Acl\Domain\ObjectIdentityRetrievalStrategy
+        public:    false
+        arguments: [@doctrine.orm.entity_manager]
