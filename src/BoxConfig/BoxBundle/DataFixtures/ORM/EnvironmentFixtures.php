@@ -14,13 +14,13 @@ class EnvironmentFixtureLoader extends AbstractFixture implements OrderedFixture
     {
         $env1 = new Environment();
         $env1->setMachine($this->getReference("m-1"));
-        $env1->setOperatingSystem($this->getReference("os-1"));
+        $env1->setOperatingSystem($this->getReference("os-2"));
         $env1->setVirtualized(false);
         $manager->persist($env1);
 
         $env2 = new Environment();
         $env2->setMachine($this->getReference("m-1"));
-        $env2->setOperatingSystem($this->getReference("os-2"));
+        $env2->setOperatingSystem($this->getReference("os-1"));
         $env2->setVirtualized(true);
         $manager->persist($env2);
 
