@@ -34,7 +34,7 @@ class Builder extends ContainerAware
 //            <p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p>
 //            <li><p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p></li>
 //            $user = $this->container->get('security.context')->getToken()->getUser();
-            $menu->addChild('Profile', array('route' => 'fos_user_security_logout'));
+//            $menu->addChild('Profile', array('route' => 'fos_user_security_logout'));
             $menu->addChild('Logout', array('route' => 'fos_user_security_logout'));
         } else {
             $menu->addChild('Login', array('route' => 'fos_user_security_login'));
