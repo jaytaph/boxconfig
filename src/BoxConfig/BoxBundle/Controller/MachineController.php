@@ -74,7 +74,11 @@ class MachineController extends Controller
 
             $this->assignAcl($entity);
 
-            $this->get('session')->setFlash('success',"A new machine has been created!");
+            if (count($user->getMachines()) == 1) {
+                $this->get('session')->setFlash('success',"Your first machine has been created!");
+            } else {
+                $this->get('session')->setFlash('success',"A new machine has been created!");
+            }
             return $this->redirect($this->generateUrl('machine'));
         }
 
