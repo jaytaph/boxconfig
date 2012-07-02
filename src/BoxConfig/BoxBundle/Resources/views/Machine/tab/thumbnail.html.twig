@@ -1,0 +1,18 @@
+<ul class="thumbnails">
+{% for machine in entities %}
+    <li class="span3">
+        <div class="thumbnail">
+            <h5 style='text-align: center'>{{ machine.name }}</h5>
+{% if machine.active %}
+            <img src="/uploads/hardware/thumb-260-180-macbookpro13inch.jpg" alt="{{ machine.hardware }}">
+{% else %}
+            <img class="inactive" src="/uploads/hardware/thumb-260-180-macbookpro13inch.jpg" alt="{{ machine.hardware }}">
+{% endif %}
+            <div style='text-align: center'>
+                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
+                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit environments</a>
+            </div>
+        </div>
+    </li>
+{% endfor %}
+</ul>

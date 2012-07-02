@@ -8,73 +8,15 @@
 <p>This is a list of all the machines you currently own, together with the environments and software packages installed.</p>
 <div class="container well">
 
-    <table class="table records_list">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Hardware</th>
-                <th>Operating system</th>
-                <th>Software count</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-{% for machine in entities %}
-    {% for env in machine.environments %}
-            <tr>
-            {# Only display name and hardware on the first entry of each environment #}
-            {% if loop.index0 == 0 %}
-                <td><a href="#">
-                    {% if machine.active == 0 %}
-                    <span class="label label-warning">inactive</span>
-                    {% endif %}
-                    {{ machine }}
-                </a></td>
-                <td><a href="#">{{ machine.hardware }}</a></td>
-            {% else %}
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            {% endif %}
-                <td>
-                    {% if env.virtualized %}
-                        <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
-                    {% endif %}
-                    {{ env.operatingsystem }}
-                </td>
-                <td>{{ env.software | length }} application(s)</td>
-                <td>
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
-            {% if loop.index0 == 0 %}
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
-            {% else %}
-            {% endif %}
-                    {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
-                </td>
-            </tr>
-    {% else %}
-            <tr>
-                <td><a href="#">
-                    {% if machine.active == 0 %}
-                    <span class="label label-warning">inactive</span>
-                    {% endif %}
-                    {{ machine }}
-                </a></td>
-                <td><a href="#">{{ machine.hardware.name }}</a></td>
-                <td><span class="label label-important">No environments configured for this machine</span></td>
-                <td>&nbsp;</td>
-                <td>
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
-            {% if loop.index0 == 0 %}
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
-            {% else %}
-            {% endif %}
-                    {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
-                </td>
-            </tr>
-    {% endfor %}
-{% endfor %}
-        </tbody>
-    </table>
+    <ul class="nav nav-tabs" id="mainTab">
+        <li class="active"><a href="#thumbnail" data-toggle="tab">Thumbnail</a></li>
+        <li><a href="#list" data-toggle="tab">List</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="thumbnail">{% include "BoxConfigBoxBundle:Machine:tab/thumbnail.html.twig" %}</div>
+        <div class="tab-pane" id="list">{% include "BoxConfigBoxBundle:Machine:tab/list.html.twig" %}</div>
+    </div>
 
     <p>
         <a class="btn btn-mini btn-success" href="{{ path('machine_new') }}">Add a new machine</a>
@@ -89,4 +31,11 @@
      <div class="span3">&nbsp;</div>
      {% render "BoxConfigDefaultBundle:Widget:controlpanel" %}
  </div>
+{% endblock %}
+
+{% block javascript %}
+$('#mainTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
 {% endblock %}
