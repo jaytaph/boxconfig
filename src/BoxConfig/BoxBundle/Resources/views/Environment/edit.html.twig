@@ -2,26 +2,14 @@
 
 {% block body %}
 <h1>Environment edit</h1>
+<p>Update this environment</p>
 
-<form action="{{ path('environment_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit">Edit</button>
-    </p>
+<form class="form-horizontal" action="{{ path('environment_update', { 'machine_id': machine.id, 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+{{ form_widget(edit_form) }}
+    <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Save</button>
+        <a class="btn" href="{{ path('machine') }}">Cancel</a>
+    </div>
 </form>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('environment') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('environment_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
 
 {% endblock %}

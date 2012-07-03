@@ -4,4 +4,4 @@ BoxConfigBoxBundle_machine:
 
 BoxConfigBoxBundle_environment:
     resource: "@BoxConfigBoxBundle/Resources/config/routing/environment.yml"
-    prefix:   /machine/{machine_id}
+    prefix:   /machine/{machine_id}/environment

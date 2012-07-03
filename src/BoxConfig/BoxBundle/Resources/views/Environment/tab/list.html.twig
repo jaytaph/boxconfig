@@ -1,0 +1,30 @@
+<table class="table records_list">
+    <thead>
+        <tr>
+            <th>Operating system</th>
+            <th>Virtualized</th>
+            <th>Software count</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for environment in machine.environments %}
+        <tr>
+            <td><a href="#">{{ environment.operatingsystem }}</a></td>
+            <td>
+                {% if environment.virtualized %}
+                    <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
+                {% else %}
+                    No
+                {% endif %}
+            </td>
+            <td>{{ environment.software | length }} application(s)</td>
+            <td>
+                <a class="btn btn-mini btn-success" href="{{ path('environment_edit', { machine_id : machine.id, id : environment.id }) }}">edit</a>
+                <a class="btn btn-mini btn-success" href="{{ path('software', { environment_id : environment.id }) }}">software</a>
+                <a class="btn btn-mini btn-danger" href="#">delete</a>
+            </td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>

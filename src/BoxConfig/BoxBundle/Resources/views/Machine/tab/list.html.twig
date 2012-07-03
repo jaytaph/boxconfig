@@ -10,10 +10,8 @@
     </thead>
     <tbody>
 {% for machine in entities %}
-{% for env in machine.environments %}
         <tr>
         {# Only display name and hardware on the first entry of each environment #}
-        {% if loop.index0 == 0 %}
             <td><a href="#">
                 {% if machine.active == 0 %}
                 <span class="label label-warning">inactive</span>
@@ -21,43 +19,27 @@
                 {{ machine }}
             </a></td>
             <td><a href="#">{{ machine.hardware }}</a></td>
-        {% else %}
             <td>&nbsp;</td>
             <td>&nbsp;</td>
-        {% endif %}
             <td>
-                {% if env.virtualized %}
-                    <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
-                {% endif %}
-                {{ env.operatingsystem }}
-            </td>
-            <td>{{ env.software | length }} application(s)</td>
-            <td>
-                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
-        {% if loop.index0 == 0 %}
                 <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
-        {% else %}
-        {% endif %}
                 {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
             </td>
         </tr>
-{% else %}
+{% for environment in machine.environments %}
         <tr>
-            <td><a href="#">
-                {% if machine.active == 0 %}
-                <span class="label label-warning">inactive</span>
-                {% endif %}
-                {{ machine }}
-            </a></td>
-            <td><a href="#">{{ machine.hardware.name }}</a></td>
-            <td><span class="label label-important">No environments configured for this machine</span></td>
+            <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>
-                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">environments</a>
-        {% if loop.index0 == 0 %}
-                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
-        {% else %}
-        {% endif %}
+                {% if environment.virtualized %}
+                    <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
+                {% endif %}
+                {{ environment.operatingsystem }}
+            </td>
+            <td>{{ environment.software | length }} application(s)</td>
+            <td>
+                <a class="btn btn-mini btn-success" href="{{ path('environment', { machine_id : machine.id }) }}">edit environment</a>
+                <a class="btn btn-mini btn-success" href="{{ path('software', { environment_id : environment.id }) }}">software</a>
                 {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
             </td>
         </tr>

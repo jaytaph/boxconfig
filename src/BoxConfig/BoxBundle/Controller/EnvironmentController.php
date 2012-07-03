@@ -26,6 +26,22 @@ class EnvironmentController extends Controller
     }
 
     /**
+     * Lists all environment entities.
+     *
+     */
+    public function indexAction($machine_id)
+    {
+        $machine = $this->getMachine($machine_id);
+
+        $em = $this->getDoctrine()->getEntityManager();
+
+
+        return $this->render('BoxConfigBoxBundle:Environment:index.html.twig', array(
+            'machine' => $machine,
+        ));
+    }
+
+    /**
      * Displays a form to create a new Environment entity.
      */
     public function newAction($machine_id)
@@ -34,7 +50,9 @@ class EnvironmentController extends Controller
 
         $entity = new Environment();
         $form   = $this->createForm(new EnvironmentType(), $entity);
-        $form->remove('virtualized');
+        if (count($machine->getEnvironments()) == 0) {
+            $form->remove('virtualized');
+        }
 
         return $this->render('BoxConfigBoxBundle:Environment:new.html.twig', array(
             'machine' => $machine,
@@ -68,13 +86,14 @@ class EnvironmentController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('machine'));
+            return $this->redirect($this->generateUrl('environment', array('machine_id' => $machine->getId())));
             
         }
 
         return $this->render('BoxConfigBoxBundle:Environment:new.html.twig', array(
-            'entity' => $entity,
-            'form'   => $form->createView()
+            'machine' => $machine,
+            'entity'  => $entity,
+            'form'    => $form->createView()
         ));
     }
 
@@ -87,12 +106,9 @@ class EnvironmentController extends Controller
      */
     public function editAction($machine_id, $id)
     {
-        // This doesn't do anything. It's here to keep our IDE's happy that we do
-        // something with the $machine variable...
-        $machine = null;
+        $machine = $this->getMachine($machine_id);
 
         $em = $this->getDoctrine()->getEntityManager();
-
         $entity = $em->getRepository('BoxConfigBoxBundle:Environment')->find($id);
 
         if (!$entity) {
@@ -103,6 +119,7 @@ class EnvironmentController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BoxConfigBoxBundle:Environment:edit.html.twig', array(
+            'machine'     => $machine,
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -117,13 +134,9 @@ class EnvironmentController extends Controller
      */
     public function updateAction($machine_id, $id)
     {
-        // This doesn't do anything. It's here to keep our IDE's happy that we do
-        // something with the $machine variable...
-        $machine = null;
-
+        $machine = $this->getMachine($machine_id);
 
         $em = $this->getDoctrine()->getEntityManager();
-
         $entity = $em->getRepository('BoxConfigBoxBundle:Environment')->find($id);
 
         if (!$entity) {
@@ -141,10 +154,11 @@ class EnvironmentController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('environment_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('environment', array('machine_id' => $machine->getId())));
         }
 
         return $this->render('BoxConfigBoxBundle:Environment:edit.html.twig', array(
+            'machine'     => $machine,
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

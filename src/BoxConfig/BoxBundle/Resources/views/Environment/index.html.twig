@@ -1,0 +1,41 @@
+{% extends("::base.html.twig") %}
+
+{% block title%}Display environments for {{ machine }}{% endblock %}
+
+{% block body %}
+
+<h2>Your environment list</h2>
+<p>This is a list of all the environments on system <b>{{ machine }}</b></p>
+<div class="container well">
+
+    <ul class="nav nav-tabs" id="mainTab">
+        {#<li class="active"><a href="#thumbnail" data-toggle="tab">Thumbnail</a></li>#}
+        <li class="active"><a href="#list" data-toggle="tab">List</a></li>
+    </ul>
+
+    <div class="tab-content">
+        {#<div class="tab-pane active" id="thumbnail">{% include "BoxConfigBoxBundle:Machine:tab/thumbnail.html.twig" %}</div>#}
+        <div class="tab-pane active" id="list">{% include "BoxConfigBoxBundle:Environment:tab/list.html.twig" %}</div>
+    </div>
+
+    <p>
+        <a class="btn btn-mini btn-success" href="{{ path('environment_new', { "machine_id" : machine.id } ) }}">Add a new environment</a>
+    </p>
+</div>
+
+{% endblock %}
+
+{% block widget %}
+ <div class="row">
+     {% render "BoxConfigDefaultBundle:Widget:matchmachine" %}
+     <div class="span3">&nbsp;</div>
+     {% render "BoxConfigDefaultBundle:Widget:controlpanel" %}
+ </div>
+{% endblock %}
+
+{% block javascript %}
+$('#mainTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
+{% endblock %}

@@ -2,8 +2,7 @@
 
 {% block body %}
 <h1>Machine edit</h1>
-<p>Update this machine machine</p>
-
+<p>Update this machine</p>
 
 <form class="form-horizontal" action="{{ path('machine_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}

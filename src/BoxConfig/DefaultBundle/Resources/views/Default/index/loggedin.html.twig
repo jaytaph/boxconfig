@@ -5,4 +5,6 @@
     <h2>Welcome back, {{ app.user.fullname }}!</h2>
 
     <p>You have currently <b>{{ app.user.machines | length }}</b> machines registered.</p>
+
+    <p><a class="btn btn-primary btn-large" href="{{ path("machine") }}">View machines &raquo;</a></p>
 {% endblock %}

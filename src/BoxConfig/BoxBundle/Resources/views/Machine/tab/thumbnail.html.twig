@@ -10,7 +10,7 @@
 {% endif %}
             <div style='text-align: center'>
                 <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
-                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit environments</a>
+                <a class="btn btn-mini btn-success" href="{{ path('environment', { machine_id : machine.id }) }}">list environments</a>
             </div>
         </div>
     </li>

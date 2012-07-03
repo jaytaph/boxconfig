@@ -27,7 +27,7 @@ class Environment
     /**
      * * @ORM\Column(type="boolean")
      */
-    protected $virtualized;
+    protected $virtualized = false;
 
 
     /**

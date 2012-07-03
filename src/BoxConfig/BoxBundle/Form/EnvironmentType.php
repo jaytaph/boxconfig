@@ -11,7 +11,7 @@ class EnvironmentType extends AbstractType
     {
         $builder
             ->add('operatingsystem')
-            ->add('virtualized');
+            ->add('virtualized', null, array('required' => false));
     }
 
     public function getName()
