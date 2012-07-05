@@ -61,6 +61,14 @@ class Environment
     {
         $this->software = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
+    public function hasSoftware(\BoxConfig\ComponentBundle\Entity\Software $target_software)
+    {
+        foreach ($this->getSoftware() as $software) {
+            if ($software == $target_software) return true;
+        }
+        return false;
+    }
     
     /**
      * Get id

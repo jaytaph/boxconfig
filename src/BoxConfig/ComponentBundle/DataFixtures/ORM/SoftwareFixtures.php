@@ -32,6 +32,19 @@ class SoftwareFixtureLoader extends AbstractFixture implements OrderedFixtureInt
         $app2->setDemo(false);
         $manager->persist($app2);
 
+
+        for ($i=0; $i!=100; $i++) {
+            $app = new Software();
+            $app->setName("Software ".$i);
+            $app->setManufacturer("Acme Corp.");
+            $app->setUrl("http://www.acme.corp/");
+            $app->setDescription("Lovely software");
+            $app->setCategory($this->getReference("cat-2"));
+            $app->setOpenSource(rand(0,1) ? true : false);
+            $app->setDemo(rand(0,1) ? true : false);
+            $manager->persist($app);
+        }
+
         $manager->flush();
     }
 

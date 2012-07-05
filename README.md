@@ -27,3 +27,4 @@ BoxConfig
 * [ ] Let user upload images to hardware/software/operatingsystems
 * [ ] Add links that allow users to add hardware/software/OS
 * [ ] View more in the top-widgets should point to a TOP-X page (paginated) page.
+* [ ] Make sure that machine / environment matches up (ie: /box/machine/X/environment/Y)

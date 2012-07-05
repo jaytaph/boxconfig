@@ -1,0 +1,43 @@
+<table class="table records_list">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Manufacturer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for item in software %}
+        <tr>
+            <td><a href="#">{{ item.name }}</a></td>
+            <td>{{ item.manufacturer }}</td>
+            <td>
+{% if environment.hasSoftware(item) %}
+                <a id="sw-{{ item.id }}" class="btn btn-mini btn-danger" href="#">I don't use this</a>
+{% else %}
+                <a id="sw-{{ item.id }}" class="btn btn-mini btn-success" href="#">I use this</a>
+{% endif %}
+
+                <script type=text/javascript>
+                        $('#sw-{{ item.id }}').click(function(){
+                            $.get("{{ url("environment_ajax", { 'machine_id' : machine.id, 'environment_id' : environment.id, 'command' : 'toggle', 'software_id' : item.id }) }}",
+                                  function(data) {
+                                      if (data.status == "absent") {
+                                          $('#sw-{{ item.id }}').addClass("btn-danger");
+                                          $('#sw-{{ item.id }}').removeClass("btn-success");
+                                          $('#sw-{{ item.id }}').html("I don't use this");
+                                      } else {
+                                          $('#sw-{{ item.id }}').addClass("btn-success");
+                                          $('#sw-{{ item.id }}').removeClass("btn-danger");
+                                          $('#sw-{{ item.id }}').html("I use this");
+                                      }
+                                  }, "json");
+                            return false;
+                    });
+                </script>
+
+            </td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>

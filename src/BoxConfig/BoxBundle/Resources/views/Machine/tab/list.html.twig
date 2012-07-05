@@ -39,7 +39,7 @@
             <td>{{ environment.software | length }} application(s)</td>
             <td>
                 <a class="btn btn-mini btn-success" href="{{ path('environment', { machine_id : machine.id }) }}">edit environment</a>
-                <a class="btn btn-mini btn-success" href="{{ path('software', { environment_id : environment.id }) }}">software</a>
+                <a class="btn btn-mini btn-success" href="{{ path('environment_software', { machine_id : machine.id, id : environment.id }) }}">software</a>
                 {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
             </td>
         </tr>

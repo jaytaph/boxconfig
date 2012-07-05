@@ -1,0 +1,44 @@
+{% extends("::base.html.twig") %}
+
+{% block title%}Software{% endblock %}
+
+{% block body %}
+
+<h2>Your software list</h2>
+<p>This is a list of all the software you have on <a href="{{ path('environment', { 'machine_id' : environment.machine.id } )}}"><b>{{ environment }}</b> on machine <b>{{ environment.machine }}</b></a></p>
+
+<div class="container well">
+
+    <ul class="nav nav-tabs" id="mainTab">
+        <li class="active"><a href="#installed" data-toggle="tab">Installed</a></li>
+        {#<li><a href="#available" data-toggle="tab">Available</a></li>#}
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane active" id="installed">{% include "BoxConfigBoxBundle:Environment:tab/software/list.html.twig" with { software : software } %}</div>
+        {#<div class="tab-pane" id="available">{% include "BoxConfigBoxBundle:Environment:tab/software/list.html.twig"  with { software : software } %}</div>#}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block widget %}
+ <div class="row">
+     {% render "BoxConfigDefaultBundle:Widget:matchmachine" %}
+     <div class="span3">&nbsp;</div>
+     {% render "BoxConfigDefaultBundle:Widget:controlpanel" %}
+ </div>
+{% endblock %}
+
+{% block javascripts %}
+        {{ parent() }}
+
+<script type="text/javascript">
+
+$('#mainTab a').click(function (e) {
+  e.preventDefault();
+  $(this).tab('show');
+})
+
+</script>
+{% endblock %}

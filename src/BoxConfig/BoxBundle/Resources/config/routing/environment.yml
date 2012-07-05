@@ -24,3 +24,11 @@ environment_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "BoxConfigBoxBundle:Environment:delete" }
     requirements: { _method: post }
+
+environment_software:
+    pattern:  /{id}/software
+    defaults: { _controller: "BoxConfigBoxBundle:Environment:software" }
+
+environment_ajax:
+    pattern:  /{environment_id}/ajax/{command}/{software_id}
+    defaults: { _controller: "BoxConfigBoxBundle:Environment:ajax" }

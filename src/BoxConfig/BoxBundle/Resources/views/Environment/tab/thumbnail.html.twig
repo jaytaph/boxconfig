@@ -1,0 +1,16 @@
+<ul class="thumbnails">
+    {% for environment in machine.environments %}
+    <li class="span3">
+        <div class="thumbnail">
+            <h5 style='text-align: center'>{{ environment.operatingsystem }}</h5>
+            <a href="{{ path('environment_software', { machine_id : machine.id, id : environment.id }) }}">
+            <img src="/uploads/operatingsystem/thumb-260-180-debianlogo.png" alt="{{ environment.operatingsystem }}">
+            </a>
+            <div style='text-align: center'>
+                <a class="btn btn-mini btn-success" href="{{ path('environment_edit', { machine_id : machine.id, id : environment.id }) }}">edit environment</a>
+                <a class="btn btn-mini btn-success" href="{{ path('environment_software', { machine_id : machine.id, id : environment.id }) }}">list software</a>
+            </div>
+        </div>
+    </li>
+{% endfor %}
+</ul>

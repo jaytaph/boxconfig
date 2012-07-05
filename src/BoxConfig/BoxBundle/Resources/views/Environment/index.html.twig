@@ -9,13 +9,13 @@
 <div class="container well">
 
     <ul class="nav nav-tabs" id="mainTab">
-        {#<li class="active"><a href="#thumbnail" data-toggle="tab">Thumbnail</a></li>#}
-        <li class="active"><a href="#list" data-toggle="tab">List</a></li>
+        <li class="active"><a href="#thumbnail" data-toggle="tab">Thumbnail</a></li>
+        <li><a href="#list" data-toggle="tab">List</a></li>
     </ul>
 
     <div class="tab-content">
-        {#<div class="tab-pane active" id="thumbnail">{% include "BoxConfigBoxBundle:Machine:tab/thumbnail.html.twig" %}</div>#}
-        <div class="tab-pane active" id="list">{% include "BoxConfigBoxBundle:Environment:tab/list.html.twig" %}</div>
+        <div class="tab-pane active" id="thumbnail">{% include "BoxConfigBoxBundle:Environment:tab/thumbnail.html.twig" %}</div>
+        <div class="tab-pane" id="list">{% include "BoxConfigBoxBundle:Environment:tab/list.html.twig" %}</div>
     </div>
 
     <p>
