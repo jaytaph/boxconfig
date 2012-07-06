@@ -12,13 +12,13 @@
 {% for machine in entities %}
         <tr>
         {# Only display name and hardware on the first entry of each environment #}
-            <td><a class="fancybox fancybox.iframe" href="{{ path("hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">
+            <td>
                 {% if machine.active == 0 %}
                 <span class="label label-warning">inactive</span>
                 {% endif %}
                 {{ machine }}
-            </a></td>
-            <td>{{ machine.hardware }}</td>
+            </td>
+            <td><a class="fancybox fancybox.iframe" href="{{ path("hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">{{ machine.hardware }}</a></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>
@@ -34,7 +34,7 @@
                 {% if environment.virtualized %}
                     <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
                 {% endif %}
-                {{ environment.operatingsystem }}
+                <a class="fancybox fancybox.iframe" href="{{ path("operatingsystem_show", { "id" : environment.operatingsystem.id, "standalone" : 1 }) }}">{{ environment.operatingsystem }}</a>
             </td>
             <td>{{ environment.software | length }} application(s)</td>
             <td>
