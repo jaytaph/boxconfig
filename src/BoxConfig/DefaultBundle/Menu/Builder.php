@@ -23,8 +23,13 @@ class Builder extends ContainerAware
             $user = $this->container->get('security.context')->getToken()->getUser();
 
 
-            $menu->addChild('Machines', array('route' => 'machine'))->setAttribute('divider_prepend', true);
-            $menu->addChild('Software', array('route' => 'software'))->setAttribute('divider_append', true);
+            // @TODO: We should fetch this directly, but through a service tag?
+            $ext = new \BoxConfig\BoxBundle\Twig\badgeExtension();
+            $tmp = $ext->badgeMachine($user);
+            $menu->addChild('Machines '.$tmp, array('route' => 'machine'))->setAttribute('divider_prepend', true);
+
+            $tmp = $ext->badgeSoftware($user);
+            $menu->addChild('Software '.$tmp, array('route' => 'software'))->setAttribute('divider_append', true);;
 
             //$menu->addChild('c')->setLabel($user->getFullname());
 

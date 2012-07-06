@@ -9,7 +9,7 @@
     <tbody>
 {% for item in software %}
         <tr>
-            <td><a href="#">{{ item.name }}</a></td>
+            <td><a class="fancybox fancybox.iframe" href="{{ path("software_show", { "id" : item.id, "standalone" : 1 }) }}">{{ item.name }}</a></td>
             <td>{{ item.manufacturer }}</td>
             <td>
 {% if environment.hasSoftware(item) %}
@@ -41,3 +41,5 @@
 {% endfor %}
     </tbody>
 </table>
+
+

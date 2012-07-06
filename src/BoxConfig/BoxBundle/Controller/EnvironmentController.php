@@ -237,9 +237,9 @@ class EnvironmentController extends Controller
     {
         $ret = array("status" => "ok");
 
-//        if (! $this->getRequest()->isXmlHttpRequest()) {
-//            throw new AccessDeniedHttpException();
-//        }
+        if (! $this->getRequest()->isXmlHttpRequest()) {
+            throw new AccessDeniedHttpException();
+        }
 
         $machine = $this->getMachine($machine_id);
 

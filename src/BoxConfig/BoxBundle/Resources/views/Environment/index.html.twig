@@ -33,9 +33,15 @@
  </div>
 {% endblock %}
 
-{% block javascript %}
-$('#mainTab a').click(function (e) {
-  e.preventDefault();
-  $(this).tab('show');
-})
+{% block javascripts %}
+    {{ parent() }}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#mainTab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            })
+        }
+    </script>
 {% endblock %}

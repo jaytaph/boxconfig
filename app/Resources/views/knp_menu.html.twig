@@ -89,5 +89,7 @@
 {% block label %}{{ item.label|trans }}{% endblock %}
 {% block labelraw %}{{ item.label|trans|raw }}{% endblock %}
 
+{% block linkElement %}<a href="{{ item.uri }}">{{ block('labelraw') }}</a>{% endblock %}
+
 {% block spanElement %}<p class="navbar-text">{{ block('label') }}</p>{% endblock %}
 {% block spanElementRaw %}<p class="navbar-text">{{ block('labelraw') }}</p>{% endblock %}

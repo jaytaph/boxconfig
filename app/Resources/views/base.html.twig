@@ -40,6 +40,7 @@
 
     <body>
 
+{% if not app.request.get('standalone') %}
     {# Remove me when we are not in beta anymore #}
     <img style="z-index: 5000; position: fixed; top: 0; left: 0; border: 0;" src="/img/beta_ribbon.png" alt="This site beta">
 
@@ -58,12 +59,15 @@
             </div>
         </div>
     </div>
+{% endif %}
 
 
     <div class="container">
         {% include "::flash_message.html.twig" %}
 
         {% block body %}{% endblock %}
+
+{% if not app.request.get('standalone') %}
         {% block widget %}{% endblock %}
         <hr>
         <footer>
@@ -77,6 +81,7 @@
                 <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Written in PHP" src="/img/logo_php.gif">
             </p>
         </footer>
+{% endif %}
 
     </div>
 
