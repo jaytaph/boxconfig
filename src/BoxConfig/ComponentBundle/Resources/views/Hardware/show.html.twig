@@ -2,21 +2,28 @@
 
 {% block body %}
 
-<span class="pull-left"><img src="{{ entity.webthumbpath(260,180) }}"></span>
-<h1>{{ entity }}</h1>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="thumbnails">
+                <span class="pull-left"><img src="{{ entity.webthumbpath(260,180) }}"></span>
+            </div>
+        </div>
+        <div class="span10">
+            <div class="well">
+                <h1>{{ entity }}</h1>
+            </div>
 
-<table class="table">
-    <tbody>
-        <tr>
-            <th>Description</th>
-            <td>{{ entity.description | nl2br }}</td>
-        </tr>
-    </tbody>
-</table>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ entity.description | nl2br }}</td>
+                    </tr>
+                </tbody>
+            </table>
 
-{#<a class="btn btn-primary" href="{{ path('hardware') }}">#}
-    {#Back to the list#}
-{#</a>#}
-
+        </div>
+    </div>
 
 {% endblock %}

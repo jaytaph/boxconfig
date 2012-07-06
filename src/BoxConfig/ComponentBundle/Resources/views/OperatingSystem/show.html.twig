@@ -2,34 +2,41 @@
 
 {% block body %}
 
-<span class="pull-left"><img src="{{ entity.webthumbpath(260,180) }}"></span>
-<h1>{{ entity }}</h1>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="thumbnails">
+                <span class="pull-left"><img src="{{ entity.webthumbpath(260,180) }}"></span>
+            </div>
+        </div>
+        <div class="span10">
+            <div class="well">
+                <h1>{{ entity }}</h1>
+            </div>
 
-<table class="table">
-    <tbody>
-        <tr>
-            <th>Operating system</th>
-            <td>{{ entity.os }}</td>
-        </tr>
-        <tr>
-            <th>Distribution</th>
-            <td>{{ entity.distribution }}</td>
-        </tr>
-        <tr>
-            <th>Version</th>
-            <td>{{ entity.version }}</td>
-        </tr>
-        <tr>
-            <th>Codename</th>
-            <td>{{ entity.codename }}</td>
-        </tr>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Operating system</th>
+                        <td>{{ entity.os }}</td>
+                    </tr>
+                    <tr>
+                        <th>Distribution</th>
+                        <td>{{ entity.distribution }}</td>
+                    </tr>
+                    <tr>
+                        <th>Version</th>
+                        <td>{{ entity.version }}</td>
+                    </tr>
+                    <tr>
+                        <th>Codename</th>
+                        <td>{{ entity.codename }}</td>
+                    </tr>
 
-    </tbody>
-</table>
+                </tbody>
+            </table>
 
-{#<a class="btn btn-primary" href="{{ path('hardware') }}">#}
-    {#Back to the list#}
-{#</a>#}
-
+        </div>
+    </div>
 
 {% endblock %}

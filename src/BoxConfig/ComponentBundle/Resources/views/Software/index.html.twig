@@ -11,14 +11,13 @@
     <table class="table records_list">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Name</th>
                 <th>Manufacturer</th>
                 <th>Description</th>
                 <th>Url</th>
                 <th>Opensource</th>
                 <th>Demo</th>
-                <th>Opensourcelicense</th>
+                <th>License</th>
                 <th>Count</th>
                 <th>Actions</th>
             </tr>
@@ -26,8 +25,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('software_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
+                <td><a href="{{ path('software_show', { 'id': entity.id }) }}">{{ entity.name }}</a></td>
                 <td>{{ entity.manufacturer }}</td>
                 <td>{{ entity.description }}</td>
                 <td><a href="{{ entity.url }}">{{ entity.url }}</a></td>

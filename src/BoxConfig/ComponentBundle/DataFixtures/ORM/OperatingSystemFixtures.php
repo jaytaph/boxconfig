@@ -45,14 +45,14 @@ class OperatingSystemFixtureLoader extends AbstractFixture implements OrderedFix
         $os5->setOs("Microsoft Windows 7");
         $os5->setDistribution("Ultimate");
         $os5->setVersion("7");
-        $os5->setImagePath("windows7-logo.jpg");
+        $os5->setImagePath("windows7-logo.png");
         $manager->persist($os5);
 
         $os6 = new OperatingSystem();
         $os6->setOs("Microsoft Windows 7");
         $os6->setDistribution("Professional");
         $os6->setVersion("7");
-        $os6->setImagePath("windows7-logo.jpg");
+        $os6->setImagePath("windows7-logo.png");
         $manager->persist($os6);
 
 
