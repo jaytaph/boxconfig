@@ -33,6 +33,36 @@ class Hardware
      */
     public $description;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $imagePath;
+
+    public function getWebThumbPath($height, $width) {
+        return null === $this->imagePath ? null :  $this->getUploadDir() . "/thumb-".$height."-".$width."/".$this->imagePath;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->imagePath ? null : $this->getUploadRootDir().'/'.$this->imagePath;
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->imagePath ? null : $this->getUploadDir().'/'.$this->imagePath;
+    }
+
+    protected function getUploadRootDir()
+    {
+        // the absolute directory path where uploaded documents should be saved
+        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+    }
+
+    protected function getUploadDir()
+    {
+        return '/uploads/hardware';
+    }
+
 
     function __toString() {
         return $this->getName();
@@ -88,5 +118,25 @@ class Hardware
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set imagePath
+     *
+     * @param string $imagePath
+     */
+    public function setImagePath($imagePath)
+    {
+        $this->imagePath = $imagePath;
+    }
+
+    /**
+     * Get imagePath
+     *
+     * @return string 
+     */
+    public function getImagePath()
+    {
+        return $this->imagePath;
     }
 }

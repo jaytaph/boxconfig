@@ -1,18 +1,22 @@
 <ul class="thumbnails">
 {% for machine in entities %}
-    <li class="span3">
+    <li class="span3" style='text-align: center'>
         <div class="thumbnail">
-            <h5 style='text-align: center'>{{ machine.name }}</h5>
             <a href="{{ path('environment', { machine_id : machine.id }) }}">
 {% if machine.active %}
-            <img src="/uploads/hardware/thumb-260-180-macbookpro13inch.jpg" alt="{{ machine.hardware }}">
+            <img src="{{ machine.hardware.webThumbPath(260,180)}}" alt="{{ machine.hardware }}">
 {% else %}
-            <img class="inactive" src="/uploads/hardware/thumb-260-180-macbookpro13inch.jpg" alt="{{ machine.hardware }}">
+            <img class="inactive" src="{{ machine.hardware.webThumbPath(260,180)}}" alt="{{ machine.hardware }}">
 {% endif %}
             </a>
-            <div style='text-align: center'>
-                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
-                <a class="btn btn-mini btn-success" href="{{ path('environment', { machine_id : machine.id }) }}">list environments</a>
+
+            <div class="caption">
+                <h5>{{ machine.name }}</h5>
+                <h5>({{ machine.hardware }})</h5>
+                <p>
+                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('environment', { machine_id : machine.id }) }}">list environments</a>
+                </p>
             </div>
         </div>
     </li>

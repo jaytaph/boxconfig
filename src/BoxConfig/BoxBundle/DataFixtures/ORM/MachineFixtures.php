@@ -45,7 +45,7 @@ class MachineFixtureLoader extends AbstractFixture implements OrderedFixtureInte
         $m2->setDescription("Work laptop");
         $m2->setUser($this->getReference("user-1"));
         $m2->setActive(true);
-        $m2->setHardware($this->getReference("hw-1"));
+        $m2->setHardware($this->getReference("hw-2"));
         $manager->persist($m2);
 
         $m3 = new Machine();
@@ -53,7 +53,7 @@ class MachineFixtureLoader extends AbstractFixture implements OrderedFixtureInte
         $m3->setDescription("Home computer");
         $m3->setUser($this->getReference("user-1"));
         $m3->setActive(false);
-        $m3->setHardware($this->getReference("hw-3"));
+        $m3->setHardware($this->getReference("hw-4"));
         $manager->persist($m3);
 
         $manager->flush();
