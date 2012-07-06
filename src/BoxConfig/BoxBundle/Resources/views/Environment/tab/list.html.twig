@@ -10,7 +10,7 @@
     <tbody>
 {% for environment in machine.environments %}
         <tr>
-            <td><a href="#">{{ environment.operatingsystem }}</a></td>
+            <td><a class="fancybox fancybox.iframe" href="{{ path("operatingsystem_show", { "id" : environment.operatingsystem.id, "standalone" : 1 }) }}">{{ environment.operatingsystem }}</a></td>
             <td>
                 {% if environment.virtualized %}
                     <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>

@@ -45,12 +45,27 @@ class EnvironmentFixtureLoader extends AbstractFixture implements OrderedFixture
         $env3->setVirtualized(false);
         $manager->persist($env3);
 
+        $env4 = new Environment();
+        $env4->setMachine($this->getReference("m-3"));
+        $env4->setOperatingSystem($this->getReference("os-5"));
+        $env4->setVirtualized(false);
+        $manager->persist($env4);
+
+        $env5 = new Environment();
+        $env5->setMachine($this->getReference("m-3"));
+        $env5->setOperatingSystem($this->getReference("os-1"));
+        $env5->setVirtualized(true);
+        $manager->persist($env5);
+
+
         $manager->flush();
 
         // Make sure you add ACL's AFTER you have flushed. Otherwise getID() is empty and will fail.
         $this->assignAcl($env1, $env1->getMachine()->getUser());
         $this->assignAcl($env2, $env2->getMachine()->getUser());
         $this->assignAcl($env3, $env3->getMachine()->getUser());
+        $this->assignAcl($env4, $env4->getMachine()->getUser());
+        $this->assignAcl($env5, $env5->getMachine()->getUser());
     }
 
     public function getOrder()

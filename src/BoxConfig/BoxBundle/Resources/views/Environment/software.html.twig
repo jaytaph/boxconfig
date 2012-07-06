@@ -33,29 +33,10 @@
 {% block javascripts %}
     {{ parent() }}
 
-    <script type="text/javascript" src="/assets/fancybox/js/jquery.mousewheel-3.0.6.pack.js"></script>
-    <script type="text/javascript" src="/assets/fancybox/js/jquery.fancybox.pack.js?v=2.0.6"></script>
-
     <script type="text/javascript">
         $('#mainTab a').click(function (e) {
             e.preventDefault();
             $(this).tab('show');
         })
-
-        $(document).ready(function() {
-            $(".fancybox").fancybox({
-                    'onClosed' : function() {
-                                     parent.location.reload(true);
-                                 }
-            });
-        });
-
     </script>
 {% endblock %}
-
-
-{% block stylesheets %}
-     {{ parent() }}
-     <link rel="stylesheet" href="/assets/fancybox/css/jquery.fancybox.css?v=2.0.6" type="text/css" media="screen" />
-{% endblock %}
-

@@ -2,7 +2,7 @@
     {% for environment in machine.environments %}
     <li class="span3" style='text-align: center'>
         <div class="thumbnail">
-            <a href="{{ path('environment_software', { machine_id : machine.id, id : environment.id }) }}">
+            <a class="fancybox fancybox.iframe" href="{{ path("operatingsystem_show", { "id" : environment.operatingsystem.id, "standalone" : 1 }) }}">
                 <img src="{{ environment.operatingsystem.webThumbPath(260,180)}}" alt="{{ environment.operatingsystem }}">
             </a>
 

@@ -12,7 +12,7 @@
 {% for machine in entities %}
         <tr>
         {# Only display name and hardware on the first entry of each environment #}
-            <td><a href="#">
+            <td><a class="fancybox fancybox.iframe" href="{{ path("hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">
                 {% if machine.active == 0 %}
                 <span class="label label-warning">inactive</span>
                 {% endif %}

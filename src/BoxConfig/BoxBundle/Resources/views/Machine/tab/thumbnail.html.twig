@@ -2,7 +2,7 @@
 {% for machine in entities %}
     <li class="span3" style='text-align: center'>
         <div class="thumbnail">
-            <a href="{{ path('environment', { machine_id : machine.id }) }}">
+            <a class="fancybox fancybox.iframe" href="{{ path("hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">
 {% if machine.active %}
             <img src="{{ machine.hardware.webThumbPath(260,180)}}" alt="{{ machine.hardware }}">
 {% else %}

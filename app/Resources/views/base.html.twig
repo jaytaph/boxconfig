@@ -10,6 +10,7 @@
         {% block stylesheets %}{% endblock %}
         <link href="/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
         <link href="/assets/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/fancybox/css/jquery.fancybox.css?v=2.0.6" type="text/css" media="screen" />
         <style type="text/css">
             body {
                 padding-top: 60px;
@@ -86,6 +87,23 @@
     </div>
 
     {% block javascripts %}{% endblock %}
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                autoScale : false,
+                autoSize : false,
+                height : '75%',
+                width : '75%',
+                openEffect : 'fade',
+//                'afterClose' : function() { parent.location.reload(true); }
+        });
+    });
+    </script>
+
+    <script src="/assets/fancybox/js/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script src="/assets/fancybox/js/jquery.fancybox.pack.js?v=2.0.6"></script>
+
     <script src="/assets/bootstrap/js/bootstrap-transition.js"></script>
     <script src="/assets/bootstrap/js/bootstrap-alert.js"></script>
     <script src="/assets/bootstrap/js/bootstrap-modal.js"></script>

@@ -6,6 +6,6 @@
             <tr><td>{{ loop.index }}</td><td><a href="{{ path(linkpath, { id: item.id }) }}">{{ item }}</a></td><td>({{ "%.2f %%" | format(item.scalarPercentage) }})</td></tr>
 {% endfor %}
         </table>
-        <p><a class="btn" href="#">View more &raquo;</a></p>
+        {#<p><a class="btn" href="#">View more &raquo;</a></p>#}
     </div>
 </div>
