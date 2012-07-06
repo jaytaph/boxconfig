@@ -12,3 +12,8 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+parameters:
+    web_profiler:
+        debug_toolbar:
+            class: BoxConfig\DefaultBundle\EventListener\WebDebugToolbarListener
