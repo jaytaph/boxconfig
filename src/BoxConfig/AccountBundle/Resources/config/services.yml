@@ -11,3 +11,4 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: boxconfig_user_registration }
+

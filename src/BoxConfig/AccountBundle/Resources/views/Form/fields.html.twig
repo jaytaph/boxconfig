@@ -1,0 +1,13 @@
+{% block prepapp_widget %}
+{% spaceless %}
+    <div class="{% if prepend %}input-prepend{% endif %} {% if append %}input-append{% endif %}">
+        {% if prepend %}
+        <span class="add-on">{{ prepend }}</span>
+        {% endif %}
+        {{ block('field_widget') }}
+        {% if prepend %}
+        <span class="add-on">{{ prepend }}</span>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock %}

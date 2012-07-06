@@ -92,3 +92,4 @@ knp_menu:
         template: ::knp_menu.html.twig
     templating: false
     default_renderer: twig
+
