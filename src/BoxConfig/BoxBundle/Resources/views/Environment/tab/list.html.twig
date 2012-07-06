@@ -22,7 +22,7 @@
             <td>
                 <a class="btn btn-mini btn-success" href="{{ path('environment_edit', { machine_id : machine.id, id : environment.id }) }}">edit</a>
                 <a class="btn btn-mini btn-success" href="{{ path('environment_software', { machine_id : machine.id, id : environment.id }) }}">software</a>
-                <a class="btn btn-mini btn-danger" href="#">delete</a>
+                {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
             </td>
         </tr>
 {% endfor %}

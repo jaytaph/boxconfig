@@ -13,8 +13,10 @@
             <td>{{ item.manufacturer }}</td>
             <td>
 {% if environment.hasSoftware(item) %}
+{# @TODO: If we don't have ajax, this should work too. #}
                 <a id="sw-{{ item.id }}" class="btn btn-mini btn-danger" href="#">I don't use this</a>
 {% else %}
+{# @TODO: If we don't have ajax, this should work too. #}
                 <a id="sw-{{ item.id }}" class="btn btn-mini btn-success" href="#">I use this</a>
 {% endif %}
 
