@@ -34,3 +34,4 @@ BoxConfig
 * [ ] first/second in registration should be translated
 * [X] twitter handle should be added
 * [X] when adding email address to registration, it should automatically load gravatar image
+* [ ] When adding new hardware, the image of the hardware should be displayed (just like the gravatar images?)

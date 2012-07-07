@@ -45,7 +45,7 @@ class MachineController extends Controller
     public function newAction()
     {
         $entity = new Machine();
-        $form   = $this->createForm(new MachineType(), $entity);
+        $form   = $this->createForm(new MachineType($this->getDoctrine()->getEntityManager()), $entity);
 
         return $this->render('BoxConfigBoxBundle:Machine:new.html.twig', array(
             'entity' => $entity,
@@ -61,7 +61,7 @@ class MachineController extends Controller
     {
         $entity  = new Machine();
         $request = $this->getRequest();
-        $form    = $this->createForm(new MachineType(), $entity);
+        $form    = $this->createForm(new MachineType($this->getDoctrine()->getEntityManager()), $entity);
         $form->bindRequest($request);
 
         $user = $this->get("security.context")->getToken()->getUser();
@@ -107,7 +107,7 @@ class MachineController extends Controller
             throw new AccessDeniedException();
         }
 
-        $editForm = $this->createForm(new MachineType(), $entity);
+        $editForm = $this->createForm(new MachineType($this->getDoctrine()->getEntityManager()), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BoxConfigBoxBundle:Machine:edit.html.twig', array(
@@ -131,7 +131,7 @@ class MachineController extends Controller
             throw $this->createNotFoundException('Unable to find machine entity.');
         }
 
-        $editForm   = $this->createForm(new MachineType(), $entity);
+        $editForm   = $this->createForm(new MachineType($this->getDoctrine()->getEntityManager()), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
         $request = $this->getRequest();

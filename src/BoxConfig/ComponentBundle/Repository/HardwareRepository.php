@@ -20,6 +20,22 @@ class HardwareRepository extends EntityRepository
         $this->getEntityManager()->getConfiguration()->addCustomHydrationMode('ScalarObjectHydrator', 'BoxConfig\DefaultBundle\Hydrators\ScalarObjectHydrator');
     }
 
+    function getSelectList()
+    {
+        $hardware = $this->findAll();
+
+        $list= array();
+        foreach ($hardware as $item) {
+            $cat = substr($item->getName(), 0, 1);
+
+            if (!isset($list[$cat])) {
+                $list[$cat] = array();
+            }
+            $list[$cat][] = $item;
+        }
+        return $list;
+    }
+
     function getCount()
     {
         return $this->getEntityManager()->createQueryBuilder()
