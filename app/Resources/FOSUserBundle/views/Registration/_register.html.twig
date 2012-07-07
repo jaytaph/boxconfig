@@ -1,8 +1,14 @@
+{# Actual register form #}
 <div>
     <h2>Register as a new user</h2>
-    <p>Awesome! Welcome to the club!</p>
+    <p>Don't have an account yet? Why don't you make one and join the club! We've got T-Shirts to prove we really are
+       a club you know!</p>
 </div>
 <br/>
+
+{% if error is defined %}
+    <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
 
 <form class="form-horizontal" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
     {{ form_widget(form) }}
@@ -22,6 +28,7 @@
         return 'http://www.gravatar.com/avatar/' + MD5(email) + '.jpg?s=' + size;
     }
 
+    {# When username has changed, check if it's available or not #}
     $('#fos_user_registration_form_username').change(function() {
         username = $('#fos_user_registration_form_username').val();
 
@@ -39,6 +46,7 @@
     });
 
 
+    {# When email has changed, fetch the gravatar of the email AND check if it's available #}
     $('#fos_user_registration_form_email').change(function() {
         src = get_gravatar($('#fos_user_registration_form_email').val(), 25);
         $('#gravatar').html("<img src='"+src+"' title='Do not worry, this is only your Gravatar image'>");

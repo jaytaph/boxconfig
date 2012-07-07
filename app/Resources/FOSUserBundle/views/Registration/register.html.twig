@@ -1,27 +1,27 @@
-{# if called with /login?standalone, the bare minimum will be shown, otherwise the full screen #}
+{# if called with /register?standalone, the bare minimum will be shown, otherwise the full screen #}
 {% extends app.request.attributes.get("standalone") ? "FOSUserBundle::layout-bare.html.twig" : "FOSUserBundle::layout.html.twig" %}
 
 {% block fos_user_content %}
 
     {% if app.request.attributes.get("standalone") == "1" %}
         {# We only display the form in standalone mode #}
-        {% include "FOSUserBundle:Security:_login.html.twig" %}
+        {% include "FOSUserBundle:Registration:_register.html.twig" %}
 
     {% else %}
-        {# Normal mode when /login is called #}
+        {# Normal mode when /register is called #}
 
         <div class="container">
             <div class="row">
                 <div class="span6">
                     <div class="well">
-                        {# Display login form #}
-                        {% include "FOSUserBundle:Security:_login.html.twig" %}
+                        {# RENDER login form standalone (pretty much as a esi-snippet style) #}
+                        {% render "FOSUserBundle:Security:login" with { "standalone" : "1" } %}
                     </div>
                 </div>
                 <div class="span6">
                     <div class="well">
-                        {# RENDER register form standalone (pretty much as a esi-snippet style) #}
-                        {% render "FOSUserBundle:Registration:register" with { "standalone" : "1" } %}
+                        {# Display register form #}
+                        {% include "FOSUserBundle:Registration:_register.html.twig" %}
                     </div>
                 </div>
             </div>

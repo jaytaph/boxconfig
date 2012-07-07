@@ -1,26 +1,16 @@
+{# Standard layout for all the fosuser stuff #}
 {% extends "::base.html.twig" %}
 
 {% block body %}
 
-<div class="container well">
-
-    <div class="box">
-
-        {% block fosheader %}{% endblock %}
-
-        {% for key, message in app.session.getFlashes() %}
-        <div class="{{ key }}">
-            {{ message|trans({}, 'FOSUserBundle') }}
-        </div>
-        {% endfor %}
-
-        <div>
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-        </div>
-
+    {% for key, message in app.session.getFlashes() %}
+    <div class="{{ key }}">
+        {{ message|trans({}, 'FOSUserBundle') }}
     </div>
+    {% endfor %}
 
+<div class="container">
+    {% block fos_user_content %}{% endblock %}
 </div>
 
 {% endblock %}

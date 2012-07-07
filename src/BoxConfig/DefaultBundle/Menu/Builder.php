@@ -43,7 +43,6 @@ class Builder extends ContainerAware
             $menu->addChild('Logout', array('route' => 'fos_user_security_logout'));
         } else {
             $menu->addChild('Login', array('route' => 'fos_user_security_login'));
-            $menu->addChild('Register', array('route' => 'fos_user_registration_register'));
         }
 
         return $menu;
