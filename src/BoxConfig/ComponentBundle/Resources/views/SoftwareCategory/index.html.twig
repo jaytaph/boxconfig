@@ -21,14 +21,14 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('softwarecategory_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('component_softwarecategory_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.getfullpath}}</td>
                 <td>123</td>
                 <td>
-                    <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_show', { 'id': entity.id }) }}">show</a>
-                    <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_edit', { 'id': entity.id }) }}">edit</a>
-                    <a class="btn btn-mini btn-danger" href="{{ path('softwarecategory_delete', { 'id': entity.id }) }}">delete</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('component_softwarecategory_show', { 'id': entity.id }) }}">show</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('component_softwarecategory_edit', { 'id': entity.id }) }}">edit</a>
+                    <a class="btn btn-mini btn-danger" href="{{ path('component_softwarecategory_delete', { 'id': entity.id }) }}">delete</a>
                 </td>
             </tr>
         {% endfor %}
@@ -36,7 +36,7 @@
     </table>
 
     <p>
-        <a class="btn btn-mini btn-success" href="{{ path('softwarecategory_new') }}">Create a new entry</a>
+        <a class="btn btn-mini btn-success" href="{{ path('component_softwarecategory_new') }}">Create a new entry</a>
     </p>
 
 </div>

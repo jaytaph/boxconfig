@@ -9,7 +9,7 @@
     <tbody>
 {% for item in software %}
         <tr>
-            <td><a class="fancybox fancybox.iframe" href="{{ path("software_show", { "id" : item.id, "standalone" : 1 }) }}">{{ item.name }}</a></td>
+            <td><a class="fancybox fancybox.iframe" href="{{ path("component_software_show", { "id" : item.id, "standalone" : 1 }) }}">{{ item.name }}</a></td>
             <td>{{ item.manufacturer }}</td>
             <td>
 {% if environment.hasSoftware(item) %}
@@ -22,7 +22,7 @@
 
                 <script type=text/javascript>
                         $('#sw-{{ item.id }}').click(function(){
-                            $.get("{{ url("environment_ajax", { 'machine_id' : machine.id, 'environment_id' : environment.id, 'command' : 'toggle', 'software_id' : item.id }) }}",
+                            $.get("{{ url("box_software_ajax", { 'machine_id' : machine.id, 'environment_id' : environment.id, 'command' : 'toggle', 'id' : item.id }) }}",
                                   function(data) {
                                       if (data.status == "absent") {
                                           $('#sw-{{ item.id }}').addClass("btn-danger");

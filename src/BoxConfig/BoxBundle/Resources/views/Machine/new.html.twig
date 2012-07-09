@@ -19,7 +19,7 @@
     <p>You probably know the drill by now. No need to tell you about adding new machines!</p>
 {% endif %}
 
-<form class="form-horizontal well" action="{{ path('machine_create') }}" method="post" {{ form_enctype(form) }}>
+<form class="form-horizontal well" action="{{ path('box_machine_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Create</button>

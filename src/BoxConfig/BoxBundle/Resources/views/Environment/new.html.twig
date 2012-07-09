@@ -14,7 +14,7 @@ also possible that you have virtual machines running in your system. This is als
 check the 'virtualized' checkbox to let us know it's a virtualized environment!</p>
 {% endif %}
 
-<form class="form-horizontal well" action="{{ path('environment_create', { "machine_id" : machine.id } ) }}" method="post" {{ form_enctype(form) }}>
+<form class="form-horizontal well" action="{{ path('box_environment_create', { "machine_id" : machine.id } ) }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <div class="form-actions">
         <button type="submit" class="btn btn-primary">Create</button>

@@ -1,34 +1,26 @@
-environment:
+box_environment:
     pattern:  /
     defaults: { _controller: "BoxConfigBoxBundle:Environment:index" }
 
-environment_new:
+box_environment_new:
     pattern:  /new
     defaults: { _controller: "BoxConfigBoxBundle:Environment:new" }
 
-environment_create:
+box_environment_create:
     pattern:  /create
     defaults: { _controller: "BoxConfigBoxBundle:Environment:create" }
     requirements: { _method: post }
 
-environment_edit:
+box_environment_edit:
     pattern:  /{id}/edit
     defaults: { _controller: "BoxConfigBoxBundle:Environment:edit" }
 
-environment_update:
+box_environment_update:
     pattern:  /{id}/update
     defaults: { _controller: "BoxConfigBoxBundle:Environment:update" }
     requirements: { _method: post }
 
-environment_delete:
+box_environment_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "BoxConfigBoxBundle:Environment:delete" }
     requirements: { _method: post }
-
-environment_software:
-    pattern:  /{id}/software
-    defaults: { _controller: "BoxConfigBoxBundle:Environment:software" }
-
-environment_ajax:
-    pattern:  /{environment_id}/ajax/{command}/{software_id}
-    defaults: { _controller: "BoxConfigBoxBundle:Environment:ajax" }

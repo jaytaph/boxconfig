@@ -20,13 +20,13 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('hardware_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('component_hardware_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.description }}</td>
                 <td>
-                    <a class="btn btn-mini btn-success"  href="{{ path('hardware_show', { 'id': entity.id }) }}">show</a>
-                    <a class="btn btn-mini btn-success"  href="{{ path('hardware_edit', { 'id': entity.id }) }}">edit</a>
-                    <a class="btn btn-mini btn-danger" href="{{ path('hardware_delete', { 'id': entity.id }) }}">delete</a>
+                    <a class="btn btn-mini btn-success"  href="{{ path('component_hardware_show', { 'id': entity.id }) }}">show</a>
+                    <a class="btn btn-mini btn-success"  href="{{ path('component_hardware_edit', { 'id': entity.id }) }}">edit</a>
+                    <a class="btn btn-mini btn-danger" href="{{ path('component_hardware_delete', { 'id': entity.id }) }}">delete</a>
                 </td>
             </tr>
         {% endfor %}
@@ -35,7 +35,7 @@
 
 
     <p>
-        <a class="btn btn-mini btn-success" href="{{ path('hardware_new') }}">Create a new entry</a>
+        <a class="btn btn-mini btn-success" href="{{ path('component_hardware_new') }}">Create a new entry</a>
     </p>
 
 </div>

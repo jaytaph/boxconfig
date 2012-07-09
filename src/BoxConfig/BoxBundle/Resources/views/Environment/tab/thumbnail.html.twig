@@ -2,15 +2,15 @@
     {% for environment in machine.environments %}
     <li class="span3" style='text-align: center'>
         <div class="thumbnail">
-            <a class="fancybox fancybox.iframe" href="{{ path("operatingsystem_show", { "id" : environment.operatingsystem.id, "standalone" : 1 }) }}">
+            <a class="fancybox fancybox.iframe" href="{{ path("component_operatingsystem_show", { "id" : environment.operatingsystem.id, "standalone" : 1 }) }}">
                 <img src="{{ environment.operatingsystem.webThumbPath(260,180)}}" alt="{{ environment.operatingsystem }}">
             </a>
 
             <div class="caption">
             <h5>{{ environment.operatingsystem }}</h5>
             <p>
-                <a class="btn btn-mini btn-success" href="{{ path('environment_edit', { machine_id : machine.id, id : environment.id }) }}">edit environment</a>
-                <a class="btn btn-mini btn-success" href="{{ path('environment_software', { machine_id : machine.id, id : environment.id }) }}">list software</a>
+                <a class="btn btn-mini btn-success" href="{{ path('box_environment_edit', { machine_id : machine.id, id : environment.id }) }}">edit environment</a>
+                <a class="btn btn-mini btn-success" href="{{ path('box_software', { machine_id : machine.id, environment_id : environment.id }) }}">list software</a>
             </p>
             </div>
         </div>
@@ -24,7 +24,7 @@
             <div class="caption">
                 <h5>New environment</h5>
                 <p>
-                    <a class="btn btn-mini btn-success" href="{{ path('environment_new', { machine_id : machine.id } ) }}">add new environment</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('box_environment_new', { machine_id : machine.id } ) }}">add new environment</a>
                 </p>
             </div>
         </div>

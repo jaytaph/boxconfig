@@ -1,0 +1,7 @@
+box_software:
+    pattern:  /
+    defaults: { _controller: "BoxConfigBoxBundle:Software:index" }
+
+box_software_ajax:
+    pattern:  /ajax/{command}/{id}
+    defaults: { _controller: "BoxConfigBoxBundle:Software:ajax" }

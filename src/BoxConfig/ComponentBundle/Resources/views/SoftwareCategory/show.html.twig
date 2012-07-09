@@ -15,17 +15,17 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('softwarecategory') }}">
+        <a href="{{ path('component_softwarecategory') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <a href="{{ path('softwarecategory_edit', { 'id': entity.id }) }}">
+        <a href="{{ path('component_softwarecategory_edit', { 'id': entity.id }) }}">
             Edit
         </a>
     </li>
     <li>
-        <form action="{{ path('softwarecategory_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('component_softwarecategory_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>

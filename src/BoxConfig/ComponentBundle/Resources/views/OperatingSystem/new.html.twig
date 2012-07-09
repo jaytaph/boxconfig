@@ -1,6 +1,6 @@
 <h1>Operatingsystem creation</h1>
 
-<form action="{{ path('operatingsystem_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('component_operatingsystem_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
         <button type="submit">Create</button>
@@ -9,7 +9,7 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('operatingsystem') }}">
+        <a href="{{ path('component_operatingsystem') }}">
             Back to the list
         </a>
     </li>

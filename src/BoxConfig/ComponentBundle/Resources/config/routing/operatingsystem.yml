@@ -1,30 +1,30 @@
-operatingsystem:
+component_operatingsystem:
     pattern:  /
     defaults: { _controller: "BoxConfigComponentBundle:OperatingSystem:index" }
 
-operatingsystem_show:
+component_operatingsystem_show:
     pattern:  /{id}/show
     defaults: { _controller: "BoxConfigComponentBundle:OperatingSystem:show" }
 
-operatingsystem_new:
+component_operatingsystem_new:
     pattern:  /new
     defaults: { _controller: "BoxConfigComponentBundle:OperatingSystem:new" }
 
-operatingsystem_create:
+component_operatingsystem_create:
     pattern:  /create
     defaults: { _controller: "BoxConfigComponentBundle:OperatingSystem:create" }
     requirements: { _method: post }
 
-operatingsystem_edit:
+component_operatingsystem_edit:
     pattern:  /{id}/edit
     defaults: { _controller: "BoxConfigComponentBundle:OperatingSystem:edit" }
 
-operatingsystem_update:
+component_operatingsystem_update:
     pattern:  /{id}/update
     defaults: { _controller: "BoxConfigComponentBundle:OperatingSystem:update" }
     requirements: { _method: post }
 
-operatingsystem_delete:
+component_operatingsystem_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "BoxConfigComponentBundle:OperatingSystem:delete" }
     requirements: { _method: post }

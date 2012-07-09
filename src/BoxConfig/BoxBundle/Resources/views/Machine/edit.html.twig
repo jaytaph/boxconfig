@@ -4,11 +4,11 @@
 <h1>Machine edit</h1>
 <p>Update this machine</p>
 
-<form class="form-horizontal" action="{{ path('machine_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<form class="form-horizontal" action="{{ path('box_machine_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <div class="form-actions">
         <button class="btn btn-primary" type="submit">Save</button>
-        <a class="btn" href="{{ path('machine') }}">Cancel</a>
+        <a class="btn" href="{{ path('box_machine') }}">Cancel</a>
     </div>
 </form>
 

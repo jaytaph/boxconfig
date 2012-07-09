@@ -26,10 +26,10 @@ class Builder extends ContainerAware
             // @TODO: We should fetch this directly, but through a service tag?
             $ext = new \BoxConfig\BoxBundle\Twig\badgeExtension();
             $tmp = $ext->badgeMachine($user);
-            $menu->addChild('Machines '.$tmp, array('route' => 'machine'))->setAttribute('divider_prepend', true);
+            $menu->addChild('Machines '.$tmp, array('route' => 'box_machine'))->setAttribute('divider_prepend', true);
 
-            $tmp = $ext->badgeSoftware($user);
-            $menu->addChild('Software '.$tmp, array('route' => 'software'))->setAttribute('divider_append', true);;
+//            $tmp = $ext->badgeSoftware($user);
+//            $menu->addChild('Software '.$tmp, array('route' => 'box_software'))->setAttribute('divider_append', true);;
 
             //$menu->addChild('c')->setLabel($user->getFullname());
 
@@ -58,8 +58,8 @@ class Builder extends ContainerAware
 {% if app.user %}
 {# This will be shown when we have logged in #}
      <li class="divider-vertical"></li>
-     <li><a href="{{ path("machine") }}">Machines {{ badge_machine(app.user) }}</a></li>
-     <li><a href="{{ path("software") }}">Software {{ badge_software(app.user) }}</a></li>
+     <li><a href="{{ path("box_machine") }}">Machines {{ badge_machine(app.user) }}</a></li>
+     <li><a href="{{ path("box_software") }}">Software {{ badge_software(app.user) }}</a></li>
 
      <li class="divider-vertical"></li>
      <li><p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p></li>

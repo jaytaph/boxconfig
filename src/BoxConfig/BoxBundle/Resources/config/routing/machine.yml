@@ -1,26 +1,26 @@
-machine:
+box_machine:
     pattern:  /
     defaults: { _controller: "BoxConfigBoxBundle:Machine:index" }
 
-machine_new:
+box_machine_new:
     pattern:  /new
     defaults: { _controller: "BoxConfigBoxBundle:Machine:new" }
 
-machine_create:
+box_machine_create:
     pattern:  /create
     defaults: { _controller: "BoxConfigBoxBundle:Machine:create" }
     requirements: { _method: post }
 
-machine_edit:
+box_machine_edit:
     pattern:  /{id}/edit
     defaults: { _controller: "BoxConfigBoxBundle:Machine:edit" }
 
-machine_update:
+box_machine_update:
     pattern:  /{id}/update
     defaults: { _controller: "BoxConfigBoxBundle:Machine:update" }
     requirements: { _method: post }
 
-machine_delete:
+box_machine_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "BoxConfigBoxBundle:Machine:delete" }
     requirements: { _method: post }

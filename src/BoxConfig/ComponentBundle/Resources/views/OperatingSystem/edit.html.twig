@@ -1,6 +1,6 @@
 <h1>Operatingsystem edit</h1>
 
-<form action="{{ path('operatingsystem_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<form action="{{ path('component_operatingsystem_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <p>
         <button type="submit">Edit</button>
@@ -9,12 +9,12 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('operatingsystem') }}">
+        <a href="{{ path('component_operatingsystem') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <form action="{{ path('operatingsystem_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('component_operatingsystem_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>

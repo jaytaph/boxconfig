@@ -2,7 +2,7 @@
 {% for machine in entities %}
     <li class="span3" style='text-align: center'>
         <div class="thumbnail">
-            <a class="fancybox fancybox.iframe" href="{{ path("hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">
+            <a class="fancybox fancybox.iframe" href="{{ path("component_hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">
 {% if machine.active %}
             <img src="{{ machine.hardware.webThumbPath(260,180)}}" alt="{{ machine.hardware }}">
 {% else %}
@@ -14,8 +14,8 @@
                 <h5>{{ machine.name }}</h5>
                 <h5>({{ machine.hardware }})</h5>
                 <p>
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
-                    <a class="btn btn-mini btn-success" href="{{ path('environment', { machine_id : machine.id }) }}">list environments</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('box_machine_edit', { id : machine.id }) }}">edit machine</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('box_environment', { machine_id : machine.id }) }}">list environments</a>
                 </p>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <h5>New machine</h5>
                 <h5>&nbsp;</h5>
                 <p>
-                    <a class="btn btn-mini btn-success" href="{{ path('machine_new') }}">add new machine</a>
+                    <a class="btn btn-mini btn-success" href="{{ path('box_machine_new') }}">add new machine</a>
                 </p>
             </div>
         </div>

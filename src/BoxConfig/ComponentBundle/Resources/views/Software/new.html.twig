@@ -3,7 +3,7 @@
 {% block body %}
 <h1>Software creation</h1>
 
-<form class="form-horizontal" action="{{ path('software_create') }}" method="post" {{ form_enctype(form) }}>
+<form class="form-horizontal" action="{{ path('component_software_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
         <button type="submit">Create</button>
@@ -12,7 +12,7 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('software') }}">
+        <a href="{{ path('component_software') }}">
             Back to the list
         </a>
     </li>

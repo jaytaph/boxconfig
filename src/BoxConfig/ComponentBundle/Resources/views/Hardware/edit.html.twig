@@ -3,7 +3,7 @@
 {% block body %}
 <h1>Hardware edit</h1>
 
-<form action="{{ path('hardware_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+<form action="{{ path('component_hardware_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <p>
         <button type="submit">Edit</button>
@@ -12,12 +12,12 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('hardware') }}">
+        <a href="{{ path('component_hardware') }}">
             Back to the list
         </a>
     </li>
     <li>
-        <form action="{{ path('hardware_delete', { 'id': entity.id }) }}" method="post">
+        <form action="{{ path('component_hardware_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
             <button type="submit">Delete</button>
         </form>

@@ -1,6 +1,6 @@
 <h1>SoftwareCategory creation</h1>
 
-<form action="{{ path('softwarecategory_create') }}" method="post" {{ form_enctype(form) }}>
+<form action="{{ path('component_softwarecategory_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
         <button type="submit">Create</button>
@@ -9,7 +9,7 @@
 
 <ul class="record_actions">
     <li>
-        <a href="{{ path('softwarecategory') }}">
+        <a href="{{ path('component_softwarecategory') }}">
             Back to the list
         </a>
     </li>

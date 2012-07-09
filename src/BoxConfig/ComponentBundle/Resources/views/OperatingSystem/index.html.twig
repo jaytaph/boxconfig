@@ -22,15 +22,15 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td><a href="{{ path('operatingsystem_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td><a href="{{ path('component_operatingsystem_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
             <td>{{ entity.os }}</td>
             <td>{{ entity.distribution }}</td>
             <td>{{ entity.version }}</td>
             <td>123</td>
             <td>
-                <a class="btn btn-mini btn-success" href="{{ path('operatingsystem_show', { 'id': entity.id }) }}">show</a>
-                <a class="btn btn-mini btn-success" href="{{ path('operatingsystem_edit', { 'id': entity.id }) }}">edit</a>
-                <a class="btn btn-mini btn-danger" href="{{ path('operatingsystem_delete', { 'id': entity.id }) }}">delete</a>
+                <a class="btn btn-mini btn-success" href="{{ path('component_operatingsystem_show', { 'id': entity.id }) }}">show</a>
+                <a class="btn btn-mini btn-success" href="{{ path('component_operatingsystem_edit', { 'id': entity.id }) }}">edit</a>
+                <a class="btn btn-mini btn-danger" href="{{ path('component_operatingsystem_delete', { 'id': entity.id }) }}">delete</a>
             </td>
         </tr>
     {% endfor %}
@@ -39,7 +39,7 @@
 
 
     <p>
-        <a class="btn btn-mini btn-success" href="{{ path('operatingsystem_new') }}">Create a new entry</a>
+        <a class="btn btn-mini btn-success" href="{{ path('component_operatingsystem_new') }}">Create a new entry</a>
     </p>
 
 </div>

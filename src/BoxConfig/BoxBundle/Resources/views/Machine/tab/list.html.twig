@@ -18,11 +18,11 @@
                 {% endif %}
                 {{ machine }}
             </td>
-            <td><a class="fancybox fancybox.iframe" href="{{ path("hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">{{ machine.hardware }}</a></td>
+            <td><a class="fancybox fancybox.iframe" href="{{ path("component_hardware_show", { "id" : machine.hardware.id, "standalone" : 1 }) }}">{{ machine.hardware }}</a></td>
             <td>&nbsp;</td>
             <td>&nbsp;</td>
             <td>
-                <a class="btn btn-mini btn-success" href="{{ path('machine_edit', { id : machine.id }) }}">edit machine</a>
+                <a class="btn btn-mini btn-success" href="{{ path('box_machine_edit', { id : machine.id }) }}">edit machine</a>
                 {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
             </td>
         </tr>
@@ -34,12 +34,12 @@
                 {% if environment.virtualized %}
                     <span class="label label-info">virtualized <img title="This is a virtualized system" src="/img/ghost_icon.gif"></span>
                 {% endif %}
-                <a class="fancybox fancybox.iframe" href="{{ path("operatingsystem_show", { "id" : environment.operatingsystem.id, "standalone" : 1 }) }}">{{ environment.operatingsystem }}</a>
+                <a class="fancybox fancybox.iframe" href="{{ path("component_operatingsystem_show", { "id" : environment.operatingsystem.id, "standalone" : 1 }) }}">{{ environment.operatingsystem }}</a>
             </td>
             <td>{{ environment.software | length }} application(s)</td>
             <td>
-                <a class="btn btn-mini btn-success" href="{{ path('environment', { machine_id : machine.id }) }}">edit environment</a>
-                <a class="btn btn-mini btn-success" href="{{ path('environment_software', { machine_id : machine.id, id : environment.id }) }}">software</a>
+                <a class="btn btn-mini btn-success" href="{{ path('box_environment', { machine_id : machine.id }) }}">edit environment</a>
+                <a class="btn btn-mini btn-success" href="{{ path('box_software', { machine_id : machine.id, environment_id : environment.id }) }}">software</a>
                 {#<a class="btn btn-mini btn-danger" href="#">delete</a>#}
             </td>
         </tr>
