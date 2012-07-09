@@ -82,7 +82,7 @@ class OperatingSystemController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('OperatingSystem_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('component_operatingSystem_show', array('id' => $entity->getId())));
             
         }
 
@@ -141,7 +141,7 @@ class OperatingSystemController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('OperatingSystem_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('component_operatingSystem_edit', array('id' => $id)));
         }
 
         return $this->render('BoxConfigComponentBundle:OperatingSystem:edit.html.twig', array(
@@ -174,7 +174,7 @@ class OperatingSystemController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('OperatingSystem'));
+        return $this->redirect($this->generateUrl('component_operatingSystem'));
     }
 
     private function createDeleteForm($id)

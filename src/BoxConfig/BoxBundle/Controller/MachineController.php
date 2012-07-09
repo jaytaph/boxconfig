@@ -79,7 +79,7 @@ class MachineController extends Controller
             } else {
                 $this->get('session')->setFlash('success',"A new machine has been created!");
             }
-            return $this->redirect($this->generateUrl('machine'));
+            return $this->redirect($this->generateUrl('box_machine'));
         }
 
         return $this->render('BoxConfigBoxBundle:Machine:new.html.twig', array(
@@ -143,7 +143,7 @@ class MachineController extends Controller
             $em->flush();
 
             $this->get('session')->setFlash('success',"Your machine has been updated!");
-            return $this->redirect($this->generateUrl('machine'));
+            return $this->redirect($this->generateUrl('box_machine'));
         }
 
         return $this->render('BoxConfigBoxBundle:Machine:edit.html.twig', array(
@@ -189,7 +189,7 @@ class MachineController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('machine'));
+        return $this->redirect($this->generateUrl('box_machine'));
     }
 
     private function createDeleteForm($id)

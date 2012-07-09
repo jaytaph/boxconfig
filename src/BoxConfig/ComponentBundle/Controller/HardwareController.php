@@ -82,7 +82,7 @@ class HardwareController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('Hardware_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('component_hardware_show', array('id' => $entity->getId())));
             
         }
 
@@ -141,7 +141,7 @@ class HardwareController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('Hardware_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('component_hardware_edit', array('id' => $id)));
         }
 
         return $this->render('BoxConfigComponentBundle:Hardware:edit.html.twig', array(
@@ -174,7 +174,7 @@ class HardwareController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('Hardware'));
+        return $this->redirect($this->generateUrl('component_hardware'));
     }
 
     private function createDeleteForm($id)

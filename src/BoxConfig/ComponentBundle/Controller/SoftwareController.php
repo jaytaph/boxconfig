@@ -82,7 +82,7 @@ class SoftwareController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('software_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('component_software_show', array('id' => $entity->getId())));
             
         }
 
@@ -141,7 +141,7 @@ class SoftwareController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('software_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('component_software_edit', array('id' => $id)));
         }
 
         return $this->render('BoxConfigComponentBundle:Software:edit.html.twig', array(
@@ -174,7 +174,7 @@ class SoftwareController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('software'));
+        return $this->redirect($this->generateUrl('component_software'));
     }
 
     private function createDeleteForm($id)

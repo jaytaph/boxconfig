@@ -88,7 +88,7 @@ class EnvironmentController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('environment', array('machine_id' => $machine->getId())));
+            return $this->redirect($this->generateUrl('box_environment', array('machine_id' => $machine->getId())));
             
         }
 
@@ -156,7 +156,7 @@ class EnvironmentController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('environment', array('machine_id' => $machine->getId())));
+            return $this->redirect($this->generateUrl('box_environment', array('machine_id' => $machine->getId())));
         }
 
         return $this->render('BoxConfigBoxBundle:Environment:edit.html.twig', array(
@@ -192,7 +192,7 @@ class EnvironmentController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('Environment'));
+        return $this->redirect($this->generateUrl('box_environment'));
     }
 
     private function createDeleteForm($id)

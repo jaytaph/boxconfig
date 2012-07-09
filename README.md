@@ -29,7 +29,7 @@ BoxConfig
 * [ ] View more in the top-widgets should point to a TOP-X page (paginated) page.
 * [ ] Make sure that machine / environment matches up (ie: /box/machine/X/environment/Y)
 * [X] add a "add environment" thumbnail in the thumbnail view (also for machines)
-* [ ] Notification bars are not completely lined up with the "well"
+* [X] Notification bars are not completely lined up with the "well"
 * [ ] registration.flash.user_created should be translated
 * [X] first/second in registration should be translated
 * [X] twitter handle should be added
@@ -40,3 +40,4 @@ BoxConfig
 * [ ] On password forget implementation, make sure we have a nice noticebar and the window closes automatically
 * [i] Paginate software
 * [ ] easy search software
+* [ ] wells and tabbars (and the span3's in the thumbnails) do not play along nicely (cannot use row/span12)
