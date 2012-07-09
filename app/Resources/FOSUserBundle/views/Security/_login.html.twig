@@ -2,7 +2,7 @@
 <div>
     <h2>Login</h2>
     <p>Log into box-config.com account. Don't you have an account yet? You might want to check the next form
-       in order to register a new account.</p>
+       in order to register a new account. Click <a class="fancybox fancybox.iframe" href="{{ path("fos_user_resetting_request", { "standalone" : "1" }) }}">here</a> if you have lost your password.</p>
 </div>
 <br/>
 
@@ -43,4 +43,5 @@
     </fieldset>
 </form>
 
+{# TODO: Remove this text on final release #}
 <p><big>For now, use can use the <b>demo/demo</b> or <b>admin/admin</b> username and password to check out the system</big></p>

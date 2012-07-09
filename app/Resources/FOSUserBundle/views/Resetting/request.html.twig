@@ -1,0 +1,22 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <h2>Forgot your password</h2>
+            <p>Did we lose our password? No worries, we can reset it to another supa-dupa-secret password so you can login
+               again, change it to another one. All you have to do is fill in your username or email address you used to
+               register your box-config.com account.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div class="well">
+                {% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

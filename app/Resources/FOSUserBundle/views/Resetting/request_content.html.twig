@@ -1,0 +1,15 @@
+<form class="form-search" action="{{ path('fos_user_resetting_send_email') }}?standalone=1" method="POST" class="fos_user_resetting_request">
+
+    {% if invalid_username is defined %}
+        <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}, 'FOSUserBundle') }}</p>
+    {% endif %}
+
+    <div class="control-group">
+        <label class="control-label" for="username">{{ 'resetting.request.username'|trans({}, 'FOSUserBundle') }}</label>
+        <div class="controls">
+            <input type="text search-query" id="username" name="username" />
+            <input class="btn btn-primary" type="submit" value="{{ 'resetting.request.submit'|trans({}, 'FOSUserBundle') }}" />
+        </div>
+    </div>
+
+</form>

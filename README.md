@@ -3,7 +3,7 @@ BoxConfig
 
 * [X] Make sure users can register and login
 * [X] setup firewalling
-* [ ] Make forgot password work
+* [X] Make forgot password work
 * [ ] Top widgets should be randomly chosen
 * [X] Rename "sidebar" to "widget"
 * [X] Add gravatar
@@ -28,10 +28,15 @@ BoxConfig
 * [ ] Add links that allow users to add hardware/software/OS
 * [ ] View more in the top-widgets should point to a TOP-X page (paginated) page.
 * [ ] Make sure that machine / environment matches up (ie: /box/machine/X/environment/Y)
-* [ ] add a "add environment" thumbnail in the thumbnail view (also for machines)
+* [X] add a "add environment" thumbnail in the thumbnail view (also for machines)
 * [ ] Notification bars are not completely lined up with the "well"
 * [ ] registration.flash.user_created should be translated
-* [ ] first/second in registration should be translated
+* [X] first/second in registration should be translated
 * [X] twitter handle should be added
 * [X] when adding email address to registration, it should automatically load gravatar image
 * [ ] When adding new hardware, the image of the hardware should be displayed (just like the gravatar images?)
+* [ ] Implement user profile (/profile)
+* [ ] fancybox always uses 75% now, make it so it autoscales to small window
+* [ ] On password forget implementation, make sure we have a nice noticebar and the window closes automatically
+* [ ] Paginate software
+* [ ] easy search software

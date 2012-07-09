@@ -73,7 +73,7 @@
         <hr>
         <footer>
             <p>
-                &copy; <img height="20" style='padding-bottom: 6px' title="Created by NoxLogic" src="/img/logo_noxlogic.jpg"> - {{ "now" | date("Y")}} - All rights reserved.
+                <img height="20" style='padding-bottom: 6px' title="Created by NoxLogic" src="/img/logo_noxlogic.jpg"> &copy; NoxLogic - {{ "now" | date("Y")}} - All rights reserved.
 
                 <img height="20" style='padding-bottom: 6px' class="pull-right" title="Created with the Symfony2 framework" src="/img/logo_symfony.png">
                 <img height="20" style='padding-bottom: 6px; padding-right: 10px' class="pull-right" title="Source hosted on Github" src="/img/icon-github.png">
@@ -96,8 +96,7 @@
                 height : '75%',
                 width : '75%',
                 openEffect : 'fade',
-//                'afterClose' : function() { parent.location.reload(true); }
-            helpers : {
+                helpers : {
                     overlay : {
                         opacity: 0.6,
                         css : {
@@ -105,8 +104,8 @@
                         }
                     }
                 }
+            });
         });
-    });
     </script>
 
     <script src="/assets/fancybox/js/jquery.mousewheel-3.0.6.pack.js"></script>
