@@ -38,5 +38,5 @@ BoxConfig
 * [ ] Implement user profile (/profile)
 * [ ] fancybox always uses 75% now, make it so it autoscales to small window
 * [ ] On password forget implementation, make sure we have a nice noticebar and the window closes automatically
-* [ ] Paginate software
+* [i] Paginate software
 * [ ] easy search software

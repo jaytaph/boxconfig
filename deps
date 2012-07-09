@@ -92,3 +92,10 @@
     git=https://github.com/KnpLabs/KnpMenuBundle.git
     target=bundles/Knp/Bundle/MenuBundle
     version=v1.1.0
+
+[knp-components]
+    git=http://github.com/KnpLabs/knp-components.git
+
+[KnpPaginatorBundle]
+    git=http://github.com/KnpLabs/KnpPaginatorBundle.git
+    target=bundles/Knp/Bundle/PaginatorBundle

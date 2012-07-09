@@ -15,7 +15,7 @@ class WidgetController extends Controller
             case "hardware" :
                 $title = "Hardware";
                 $items = $em->getRepository('BoxConfigComponentBundle:Hardware')->getTop(5);
-                $path = "hardware_show";
+                $path = "component_hardware_show";
                 break;
             case "ide" :
                 $title = "PHP IDE's";
@@ -26,12 +26,12 @@ class WidgetController extends Controller
             case "os" :
                 $title = "Operating Systems";
                 $items = $em->getRepository('BoxConfigComponentBundle:OperatingSystem')->getTop(5);
-                $path = "operatingsystem_show";
+                $path = "component_operatingsystem_show";
                 break;
             case "os" :
                 $title = "Software";
                 $items = $em->getRepository('BoxConfigComponentBundle:Software')->getTop(5);
-                $path = "software_show";
+                $path = "component_software_show";
                 break;
             default :
                 throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException();

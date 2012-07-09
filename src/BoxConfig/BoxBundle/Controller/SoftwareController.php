@@ -64,13 +64,17 @@ class SoftwareController extends Controller
            }
         );
 
+        $paginator = $this->get('knp_paginator');
+        $software = $paginator->paginate($software, $this->get('request')->query->get('page', 1), 25);
+        $available_software = $paginator->paginate($available_software, $this->get('request')->query->get('page', 1), 25);
+        $installed_software = $paginator->paginate($installed_software, $this->get('request')->query->get('page', 1), 25);
+
         return $this->render('BoxConfigBoxBundle:Software:index.html.twig', array(
             'machine'     => $machine,
             'environment' => $environment,
             'software'    => $software,
             'installed'    => $installed_software,
             'available'    => $available_software,
-
         ));
     }
 
