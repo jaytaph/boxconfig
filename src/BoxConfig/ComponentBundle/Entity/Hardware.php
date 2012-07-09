@@ -31,7 +31,14 @@ class Hardware
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    public $description;
+    protected $description;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="BoxConfig\ComponentBundle\Entity\HardwareComment", mappedBy="hardware")
+     */
+    protected $comments;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -138,5 +145,39 @@ class Hardware
     public function getImagePath()
     {
         return $this->imagePath;
+    }
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param BoxConfig\ComponentBundle\Entity\Comment $comments
+     */
+    public function addComment(\BoxConfig\ComponentBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param BoxConfig\ComponentBundle\Entity\HardwareComment $comments
+     */
+    public function addHardwareComment(\BoxConfig\ComponentBundle\Entity\HardwareComment $comments)
+    {
+        $this->comments[] = $comments;
     }
 }

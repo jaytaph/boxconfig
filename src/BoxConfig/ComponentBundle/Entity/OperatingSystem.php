@@ -44,6 +44,13 @@ class OperatingSystem
     protected $codename;
 
     /**
+     * @ORM\OneToMany(targetEntity="BoxConfig\ComponentBundle\Entity\OperatingSystemComment", mappedBy="operatingsystem")
+     */
+    protected $comments;
+
+
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $imagePath;
@@ -199,5 +206,39 @@ class OperatingSystem
     public function getImagePath()
     {
         return $this->imagePath;
+    }
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param BoxConfig\ComponentBundle\Entity\Comment $comments
+     */
+    public function addComment(\BoxConfig\ComponentBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param BoxConfig\ComponentBundle\Entity\OperatingSystemComment $comments
+     */
+    public function addOperatingSystemComment(\BoxConfig\ComponentBundle\Entity\OperatingSystemComment $comments)
+    {
+        $this->comments[] = $comments;
     }
 }

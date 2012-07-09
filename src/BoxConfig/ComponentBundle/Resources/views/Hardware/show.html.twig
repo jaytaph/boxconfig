@@ -26,4 +26,13 @@
         </div>
     </div>
 
+<h2>Comments</h2>
+{% for comment in entity.comments %}
+    <hr>
+    Created at: {{ comment.created | date("d-m-Y") }}<br/>
+    By: {{ comment.user.fullname }}<br/>
+    Rating: {{ comment.rating }} out of 10 stars<br/>
+    Comment: {{ comment.comment }}<br/>
+{% endfor %}
+
 {% endblock %}

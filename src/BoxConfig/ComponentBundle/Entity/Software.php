@@ -65,6 +65,12 @@ class Software
      */
     protected $category;
 
+    /**
+     * @ORM\OneToMany(targetEntity="BoxConfig\ComponentBundle\Entity\SoftwareComment", mappedBy="software")
+     */
+    protected $comments;
+
+
 
     public function __toString()
     {
@@ -239,5 +245,39 @@ class Software
     public function getCategory()
     {
         return $this->category;
+    }
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param BoxConfig\ComponentBundle\Entity\Comment $comments
+     */
+    public function addComment(\BoxConfig\ComponentBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param BoxConfig\ComponentBundle\Entity\SoftwareComment $comments
+     */
+    public function addSoftwareComment(\BoxConfig\ComponentBundle\Entity\SoftwareComment $comments)
+    {
+        $this->comments[] = $comments;
     }
 }
