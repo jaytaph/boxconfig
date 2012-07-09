@@ -50,11 +50,27 @@ class SoftwareController extends Controller
 
         // @TODO: Only fetch software for this particular OS?
         $software = $em->getRepository('BoxConfigComponentBundle:Software')->findAll();
+        $software = new \Doctrine\Common\Collections\ArrayCollection($software);
+
+        // Filter software into "Installed software", "Available software" and "All software"
+        $available_software = $software->filter(
+           function($item) use($environment) {
+               return ! $environment->hasSoftware($item);
+           }
+        );
+        $installed_software = $software->filter(
+           function($item) use($environment) {
+               return $environment->hasSoftware($item);
+           }
+        );
 
         return $this->render('BoxConfigBoxBundle:Software:index.html.twig', array(
             'machine'     => $machine,
             'environment' => $environment,
             'software'    => $software,
+            'installed'    => $installed_software,
+            'available'    => $available_software,
+
         ));
     }
 

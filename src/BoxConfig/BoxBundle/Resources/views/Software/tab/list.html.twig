@@ -14,24 +14,24 @@
             <td>
 {% if environment.hasSoftware(item) %}
 {# @TODO: If we don't have ajax, this should work too. #}
-                <a id="sw-{{ item.id }}" class="btn btn-mini btn-danger" href="#">I don't use this</a>
+                <a id="sw-{{prefix}}-{{ item.id }}" class="btn btn-mini btn-danger" href="#">I don't use this</a>
 {% else %}
 {# @TODO: If we don't have ajax, this should work too. #}
-                <a id="sw-{{ item.id }}" class="btn btn-mini btn-success" href="#">I use this</a>
+                <a id="sw-{{prefix}}-{{ item.id }}" class="btn btn-mini btn-success" href="#">I use this</a>
 {% endif %}
 
                 <script type=text/javascript>
-                        $('#sw-{{ item.id }}').click(function(){
+                        $('#sw-{{prefix}}-{{ item.id }}').click(function(){
                             $.get("{{ url("box_software_ajax", { 'machine_id' : machine.id, 'environment_id' : environment.id, 'command' : 'toggle', 'id' : item.id }) }}",
                                   function(data) {
                                       if (data.status == "absent") {
-                                          $('#sw-{{ item.id }}').addClass("btn-danger");
-                                          $('#sw-{{ item.id }}').removeClass("btn-success");
-                                          $('#sw-{{ item.id }}').html("I don't use this");
+                                          $('#sw-{{prefix}}-{{ item.id }}').addClass("btn-danger");
+                                          $('#sw-{{prefix}}-{{ item.id }}').removeClass("btn-success");
+                                          $('#sw-{{prefix}}-{{ item.id }}').html("I don't use this");
                                       } else {
-                                          $('#sw-{{ item.id }}').addClass("btn-success");
-                                          $('#sw-{{ item.id }}').removeClass("btn-danger");
-                                          $('#sw-{{ item.id }}').html("I use this");
+                                          $('#sw-{{prefix}}-{{ item.id }}').addClass("btn-success");
+                                          $('#sw-{{prefix}}-{{ item.id }}').removeClass("btn-danger");
+                                          $('#sw-{{prefix}}-{{ item.id }}').html("I use this");
                                       }
                                   }, "json");
                             return false;

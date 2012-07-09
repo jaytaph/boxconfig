@@ -10,13 +10,16 @@
 <div class="container well">
 
     <ul class="nav nav-tabs" id="mainTab">
+        <li><a href="#all" data-toggle="tab">All</a></li>
         <li class="active"><a href="#installed" data-toggle="tab">Installed</a></li>
-        {#<li><a href="#available" data-toggle="tab">Available</a></li>#}
+        <li><a href="#available" data-toggle="tab">Available</a></li>
+
     </ul>
 
     <div class="tab-content">
-        <div class="tab-pane active" id="installed">{% include "BoxConfigBoxBundle:Software:tab/list.html.twig" with { software : software } %}</div>
-        {#<div class="tab-pane" id="available">{% include "BoxConfigBoxBundle:Environment:tab/software/list.html.twig"  with { software : software } %}</div>#}
+        <div class="tab-pane" id="all">{% include "BoxConfigBoxBundle:Software:tab/list.html.twig"  with { prefix : "all", software : software } %}</div>
+        <div class="tab-pane active" id="installed">{% include "BoxConfigBoxBundle:Software:tab/list.html.twig" with { prefix : "active", software : installed } %}</div>
+        <div class="tab-pane" id="available">{% include "BoxConfigBoxBundle:Software:tab/list.html.twig"  with { prefix : "available", software : available } %}</div>
     </div>
 </div>
 
