@@ -1,0 +1,13 @@
+{% extends("::base.html.twig") %}
+
+{% block body %}
+<h1>Enter a new comment for {{ entity }}</h1>
+
+<form class="form-horizontal" action="{{ path(create_path, { 'id' : entity.id } ) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+    <p>
+        <button type="submit">Comment</button>
+    </p>
+</form>
+
+{% endblock %}

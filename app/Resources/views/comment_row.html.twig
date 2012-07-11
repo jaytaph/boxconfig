@@ -1,0 +1,26 @@
+<div class="well">
+    <img align=left style='margin-right: 5px; margin-bottom: 5px;' src="{{ gravatar(comment.user.email, 25) }}"> <b>{{ comment.user.fullname }}</b>
+    Commented on <b>{{ comment.created | date("d M Y") }}</b></span>
+    <br/>
+
+{% if comment.rating == 0 %}
+    {% for i in range(1, 10) %}
+        <img src="/img/rating_empty.gif">
+    {% endfor %}
+{% elseif comment.rating == 10 %}
+    {% for i in range(1, 10) %}
+        <img src="/img/rating_full.gif">
+    {% endfor %}
+{% else %}
+    {% for i in range(0,comment.rating-1) %}
+        <img src="/img/rating_full.gif">
+    {% endfor %}
+    {% for i in range(comment.rating+1, 10) %}
+        <img src="/img/rating_empty.gif">
+    {% endfor %}
+{% endif %}
+    ({{ comment.rating }} stars)
+    <br/>
+    <br/>
+    {{ comment.comment }}<br/>
+</div>

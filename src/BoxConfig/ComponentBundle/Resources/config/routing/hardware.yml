@@ -28,3 +28,12 @@ component_hardware_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "BoxConfigComponentBundle:Hardware:delete" }
     requirements: { _method: post }
+
+component_hardware_comment_new:
+    pattern:  /{id}/comment/new
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:commentNew" }
+
+component_hardware_comment_create:
+    pattern:  /{id}/comment/create/
+    defaults: { _controller: "BoxConfigComponentBundle:Hardware:commentCreate" }
+    requirements: { _method: post }

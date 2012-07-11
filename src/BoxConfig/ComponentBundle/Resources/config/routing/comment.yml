@@ -1,0 +1,29 @@
+
+user_hardware_comment_new:
+    pattern:  /comment/hardware/{id}/new
+    defaults: { _controller: "BoxConfigComponentBundle:Comment:hardwareNew" }
+
+user_hardware_comment_create:
+    pattern:  /comment/hardware/{id}/create/
+    defaults: { _controller: "BoxConfigComponentBundle:Comment:HardwareCreate" }
+    requirements: { _method: post }
+
+
+user_software_comment_new:
+    pattern:  /comment/software/{id}/new
+    defaults: { _controller: "BoxConfigComponentBundle:Comment:softwareNew" }
+
+user_software_comment_create:
+    pattern:  /comment/software/{id}/create/
+    defaults: { _controller: "BoxConfigComponentBundle:Comment:softwareCreate" }
+    requirements: { _method: post }
+
+
+user_operatingsystem_comment_new:
+    pattern:  /comment/operatingsystem/{id}/new
+    defaults: { _controller: "BoxConfigComponentBundle:Comment:operatingsystemNew" }
+
+user_operatingsystem_comment_create:
+    pattern:  /comment/operatingsystem/{id}/create/
+    defaults: { _controller: "BoxConfigComponentBundle:Comment:operatingsystemCreate" }
+    requirements: { _method: post }

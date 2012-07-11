@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use BoxConfig\ComponentBundle\Entity\Hardware;
 use BoxConfig\ComponentBundle\Form\HardwareType;
+use BoxConfig\ComponentBundle\Form\CommentType;
+use BoxConfig\ComponentBundle\Entity\HardwareComment;
 
 /**
  * Hardware controller.
@@ -183,5 +185,54 @@ class HardwareController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+
+
+    public function commentNewAction($id) {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('BoxConfigComponentBundle:Hardware')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Hardware entity.');
+        }
+
+        $comment = new HardwareComment();
+        $form   = $this->createForm(new CommentType(), $comment);
+
+        return $this->render('BoxConfigComponentBundle:Comment:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView()
+        ));
+    }
+
+    public function commentCreateAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $entity = $em->getRepository('BoxConfigComponentBundle:Hardware')->find($id);
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Hardware entity.');
+        }
+
+        $comment  = new HardwareComment();
+        $request = $this->getRequest();
+        $form    = $this->createForm(new CommentType(), $comment);
+        $form->bindRequest($request);
+
+        if ($form->isValid()) {
+            $user = $this->get("security.context")->getToken()->getUser();
+            $comment->setHardware($entity);
+            $comment->setUser($user);
+
+            $em = $this->getDoctrine()->getEntityManager();
+            $em->persist($comment);
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('component_hardware_show', array('id' => $entity->getId())));
+        }
+
+        return $this->render('BoxConfigComponentBundle:Comment:new.html.twig', array(
+            'entity'  => $entity,
+            'comment' => $comment,
+            'form'    => $form->createView()
+        ));
     }
 }

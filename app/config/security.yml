@@ -28,6 +28,7 @@ security:
         - { path: ^/widget/match, role: ROLE_USER }
         - { path: ^/component, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/box, role: ROLE_USER }
+        - { path: ^/user/comment, role: ROLE_USER }
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER

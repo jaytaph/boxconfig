@@ -10,7 +10,6 @@ TODO List
 ========================
 
 * [i] Paginate software
-* [i] Display comments to software / hardware / operating systems
 * [ ] Add comments to software / hardware / operating systems
 * [ ] Friend users
 * [ ] Add boxes / software / etc
@@ -55,3 +54,4 @@ Done
 * [X] first/second in registration should be translated
 * [X] twitter handle should be added
 * [X] when adding email address to registration, it should automatically load gravatar image
+* [X] Display comments to software / hardware / operating systems

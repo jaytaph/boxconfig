@@ -13,3 +13,7 @@ BoxConfigAccountBundle:
 BoxConfigDefaultBundle:
     resource: "@BoxConfigDefaultBundle/Resources/config/routing.yml"
     prefix:   /
+
+BoxConfigUserComments:
+    resource: "@BoxConfigComponentBundle/Resources/config/routing/comment.yml"
+    prefix:   /user

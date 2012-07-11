@@ -1,0 +1,12 @@
+<h2>Comments</h2>
+<br/>
+{% for comment in comments %}
+    {% include "::comment_row.html.twig" with { "comment" : comment } %}
+{% endfor %}
+
+{# We can only add comments when we are logged in #}
+{% if (app.user) %}
+<a class="btn btn-success" href="{{ path(comment_add_path, { 'id' : entity.id, 'standalone' : '1' }) }}">Add new comment</a>
+{% else %}
+<a class="btn btn-danger" href="#">Please login first before adding a comment</a>
+{% endif %}
