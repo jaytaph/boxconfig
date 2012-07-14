@@ -35,7 +35,7 @@ class Builder extends ContainerAware
             //$menu->addChild('c')->setLabel($user->getFullname());
 
             $gravatar = $this->container->get('gravatar.api');
-            $menu->addChild($user->getFullName()." <img src='".$gravatar->getUrl($user->getEmail(), 25)."'>")->setAttribute('raw', true);
+            $menu->addChild($user->getFullName()." <img src='".$gravatar->getUrl($user->getEmail(), 20)."'>")->setAttribute('raw', true);
 
 //            <p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p>
 //            <li><p class="navbar-text">{{ app.user.fullname }} <img src="{{ gravatar(app.user.email, 25) }}"></p></li>
