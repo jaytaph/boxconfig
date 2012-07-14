@@ -10,13 +10,11 @@ TODO List
 ========================
 
 * [i] Paginate software
-* [ ] Add comments to software / hardware / operating systems
 * [ ] Friend users
-* [ ] Add boxes / software / etc
+* [ ] Users should be able to add hardware / software / software / etc
 * [ ] activation text and email texts should be in a decent layout
 * [ ] email should be send to administrator when a new user has registered.
 * [ ] resources can only be deleted if they are not in use
-* [-] Create a twitter-type. This should be able to add <div class="input-prepend"><span class="add-on">@</span> in the form (already present in moopa)
 * [ ] Matchenvironment widget should check matches based on environments (how do we calculate this?)
 * [ ] Can we easily add fancyboxes for add/edit ?
 * [ ] Do we even need messages? (if not, delete them)
@@ -34,6 +32,12 @@ TODO List
 * [ ] On password forget implementation, make sure we have a nice noticebar and the window closes automatically
 * [ ] easy search through software
 * [ ] wells and tabbars (and the span3's in the thumbnails) do not play along nicely (cannot use row/span12) (seems like you cannot use colspans in wells)
+* [ ] Users should be able to edit their ratings for a period of time
+* [ ] Users can add multiple comments, but only one rating
+* [ ] Display average rating of a component
+* [ ] Add top widget with how many ratings are given, average rating, top rated products
+* [ ] Top 3 hardware == Top 3 USED hardware, not Top 3 rated hardware
+* [ ] Top widgets should be randomly chosen
 
 
 Done
@@ -41,7 +45,7 @@ Done
 * [X] Make sure users can register and login
 * [X] setup firewalling
 * [X] Make forgot password work
-* [ ] Top widgets should be randomly chosen
+* [-] Create a twitter-type. This should be able to add <div class="input-prepend"><span class="add-on">@</span> in the form (already present in moopa)
 * [X] Rename "sidebar" to "widget"
 * [X] Add gravatar
 * [X] During registration, check user/email through ajax. Give it a checkmark when it's ok.
@@ -55,3 +59,4 @@ Done
 * [X] twitter handle should be added
 * [X] when adding email address to registration, it should automatically load gravatar image
 * [X] Display comments to software / hardware / operating systems
+* [X] Add comments to software / hardware / operating systems
