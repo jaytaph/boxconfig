@@ -1,6 +1,5 @@
 <?php
 
-namespace BoxBundle\DefaultBundle\Menu;
 namespace BoxConfig\DefaultBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
@@ -22,11 +21,13 @@ class Builder extends ContainerAware
         if ($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
             $user = $this->container->get('security.context')->getToken()->getUser();
 
+            // Add machines to the menu as a dropdown
+            $menu->addChild('Machines')->setAttribute('divider_prepend', true)->setAttribute('dropdown', true);
+            foreach ($user->getMachines() as $machine) {
+                $menu['Machines']->addChild($machine, array('route' => 'box_environment', 'routeParameters' => array("machine_id" => $machine->getId())));
+            }
 
-            // @TODO: We should fetch this directly, but through a service tag?
-            $ext = new \BoxConfig\BoxBundle\Twig\badgeExtension();
-            $tmp = $ext->badgeMachine($user);
-            $menu->addChild('Machines '.$tmp, array('route' => 'box_machine'))->setAttribute('divider_prepend', true);
+
 
 //            $tmp = $ext->badgeSoftware($user);
 //            $menu->addChild('Software '.$tmp, array('route' => 'box_software'))->setAttribute('divider_append', true);;
