@@ -1,4 +1,6 @@
 {% for key, flash in app.session.getFlashes() %}
+{# fos flash banners are done through the fos layouts, since they need translations #}
+{% if key|slice(0, 4) != "fos_" %}
     <div class="alert alert-{{ key }}">
         <a class="close" data-dismiss="alert" href="#">&times;</a>
     {% if key == "success" %}
@@ -10,4 +12,5 @@
     {% endif %}
         {{ flash }}
     </div>
+{% endif %}
 {% endfor %}

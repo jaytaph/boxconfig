@@ -14,7 +14,7 @@ TODO List
 * [ ] Users should be able to add hardware / software / software / etc
 * [ ] activation text and email texts should be in a decent layout
 * [ ] email should be send to administrator when a new user has registered.
-* [ ] resources can only be deleted if they are not in use
+* [ ] resources can only be deleted if they are not in use (or even ever?)
 * [ ] Matchenvironment widget should check matches based on environments (how do we calculate this?)
 * [ ] Can we easily add fancyboxes for add/edit ?
 * [ ] Do we even need messages? (if not, delete them)
@@ -25,7 +25,6 @@ TODO List
 * [ ] Add links that allow users to add hardware/software/OS
 * [ ] View more in the top-widgets should point to a TOP-X page (paginated) page.
 * [ ] Make sure that machine / environment matches up (ie: /box/machine/X/environment/Y)
-* [ ] registration.flash.user_created should be translated
 * [ ] When adding new hardware, the image of the hardware should be displayed (just like the gravatar images?)
 * [ ] Implement user profile (/profile)
 * [ ] fancybox always uses 75% now, make it so it autoscales to small window
@@ -60,3 +59,4 @@ Done
 * [X] when adding email address to registration, it should automatically load gravatar image
 * [X] Display comments to software / hardware / operating systems
 * [X] Add comments to software / hardware / operating systems
+* [X] registration.flash.user_created should be translated
